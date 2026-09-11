@@ -1,0 +1,66 @@
+{
+  "schema_version": 2,
+  "acquired_at_utc": "2026-08-30T00:13:51+00:00",
+  "method": "curl --fail --location",
+  "files": [
+    {
+      "filename": "RT-001-housing-cooperative.doc",
+      "source_url": "https://www.gov.pl/attachment/f9330282-7a3e-43ba-a91f-c6ce9547b951",
+      "acquired_byte_count": 184320,
+      "acquired_sha256": "e0fea5055508c00ce85dd6620c42d142618f87afca70baf1648ea5d272dab446",
+      "stored_byte_count": 184320,
+      "stored_sha256": "b17fdf9780c45025b2405c504e006fe9f4996805b4d587bb5676ba78204a7e38",
+      "derivative_fields_blanked": [
+        "SummaryInformation:author",
+        "SummaryInformation:last_saved_by",
+        "1Table:revision_mark_and_save_history_author_tables"
+      ],
+      "provenance_kind": "publisher_retrieved",
+      "published_metadata": {
+        "author": "Jacek Mościcki",
+        "last_saved_by": "Szpot-Prusak Katarzyna",
+        "company": "Wydawnictwo C.H.Beck sp. z o.o.",
+        "created_at_utc": "2023-10-24T08:01:00+00:00",
+        "last_saved_at_utc": "2023-11-14T10:35:00+00:00"
+      }
+    },
+    {
+      "filename": "RT-002-civil-partnership.doc",
+      "source_url": "https://www.gov.pl/attachment/85519e33-f704-45ef-bddf-01625fe75871",
+      "acquired_byte_count": 183296,
+      "acquired_sha256": "f34f05aa0cbdda06d7b7010cc503583e502e8d8fffc7a826978560e27d9e365e",
+      "stored_byte_count": 183296,
+      "stored_sha256": "a3ce4598a6fd1c88f34b3408101f1a06f76dbff932c1a0c2a0f114f47d1c886e",
+      "derivative_fields_blanked": [
+        "SummaryInformation:author",
+        "SummaryInformation:last_saved_by",
+        "1Table:revision_mark_and_save_history_author_tables"
+      ],
+      "provenance_kind": "publisher_retrieved",
+      "published_metadata": {
+        "author": "Jacek Mościcki",
+        "last_saved_by": "Szpot-Prusak Katarzyna",
+        "company": "Wydawnictwo C.H.Beck sp. z o.o.",
+        "created_at_utc": "2023-10-24T08:08:00+00:00",
+        "last_saved_at_utc": "2023-10-24T08:14:00+00:00"
+      }
+    }
+  ],
+  "derivative": {
+    "reason": "RNF-05: the acquired files named natural persons in their file metadata.",
+    "operation": "Person-named metadata fields overwritten with blank filler of identical length.",
+    "scope": "Only fields naming a natural person. Software strings (/Creator, /Producer, xmp:CreatorTool, pdf:Producer), document titles and institutional Company values are retained: they are not personal data and they carry publisher provenance.",
+    "why_blanked_not_removed": "The DOC file information block addresses 1Table string offsets absolutely. Blanking the strings at identical length preserves those offsets and all stream sizes.",
+    "verification": "For both retained DOC files, the original and derivative have the same OLE streams and stream sizes. Only SummaryInformation and 1Table differ; every changed byte lies inside an author/editor metadata string and is replaced by blank filler. WordDocument, Data and all other streams are byte-identical.",
+    "note": "The original downloads match the acquisition hashes. published_metadata preserves their source credits and timestamps for attribution outside the documents passed to the system.",
+    "method_by_format": {
+      "doc": "Patched in place through the OLE container. Only the SummaryInformation property stream and the 1Table author string tables change; every stream size is preserved and WordDocument and Data are byte-identical."
+    }
+  },
+  "source_verification": {
+    "checked_date": "2026-09-11",
+    "result": "Both publisher downloads match acquired_sha256 and acquired_byte_count. Both retained files match stored_sha256 and stored_byte_count.",
+    "metadata_method": "OLE SummaryInformation and DocumentSummaryInformation read with olefile 0.47; text decoded using the declared Windows-1250 code page. The 1Table author/editing strings contain the same two personal credits.",
+    "attribution_notice": "evaluation-data/LICENSE.md"
+  }
+}

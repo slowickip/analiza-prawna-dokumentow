@@ -1,0 +1,31 @@
+{
+  "started_at": "2026-09-09T03:33:48.030864+00:00",
+  "protocol_version": "2.8.0",
+  "protocol_sha256": "b9addd69d8f08275f9149ef9c30b3fc1980ebcac68c1b7dac3e12a6a6723af35",
+  "manifest_sha256": "d6d69807ad2a45d8719826ad85c32a84f11937a125ce8e97bed9932d06486325",
+  "split": "holdout",
+  "implementation_fingerprint": "895fe0f802468768a251aacc951d4b65ade3fb18377291b5dc0f30a57d541754",
+  "config_fingerprint": "7ec96645d923fbe573e5e3260601da704ff0a31f86874c447c21e03d1479e0da",
+  "config": {
+    "model_request_id": "meta/muse-spark-1.3-contributor",
+    "model_endpoint": "openrouter.ai",
+    "prompt_bundle_version": "a77b8f01688bf613ec9a9e4fe9ab3f8a761fc93efd12f6ae5d64ce00f7599e5b",
+    "corpus_snapshot": "76378dd52cd69992398e1913",
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "embedding_space_fingerprint": "b07adcf81f044b92",
+    "corpus_source_format": "as_declared",
+    "tool_bundle_version": "worksheet-roles-282366be7762",
+    "measured_mode": true
+  },
+  "batch_id": "492888378b644e378d17140cd3bb62e1",
+  "requested": {
+    "arms": [
+      "mid",
+      "off",
+      "on"
+    ],
+    "cases": [],
+    "include_variants": false,
+    "invocations": 1
+  }
+}

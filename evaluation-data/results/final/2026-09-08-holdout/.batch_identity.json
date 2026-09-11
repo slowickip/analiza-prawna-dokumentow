@@ -1,0 +1,34 @@
+{
+  "started_at": "2026-09-08T04:35:46.225148+00:00",
+  "protocol_version": "2.6.29",
+  "protocol_sha256": "08c18dc9f052d9b7238b416b4348816de1d42f255f3c63973d7b6ab1e15192bf",
+  "manifest_sha256": "d6d69807ad2a45d8719826ad85c32a84f11937a125ce8e97bed9932d06486325",
+  "split": "holdout",
+  "implementation_fingerprint": "2890e428546edbd0ef3b4d2e8db3e83f6de96782894aa1ffb1c7feab3a754112",
+  "config_fingerprint": "970e779227970d6da7935e4dcd4ddebe931ec0274a7cdc39d2f02ec36867e384",
+  "config": {
+    "model_request_id": "meta/muse-spark-1.3-contributor",
+    "prompt_bundle_version": "a77b8f01688bf613ec9a9e4fe9ab3f8a761fc93efd12f6ae5d64ce00f7599e5b",
+    "corpus_snapshot": "76378dd52cd69992398e1913",
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "embedding_space_fingerprint": "b07adcf81f044b92",
+    "corpus_source_format": "as_declared",
+    "tool_bundle_version": "worksheet-roles-282366be7762",
+    "measured_mode": true
+  },
+  "batch_id": "78c2ea3d14604fd59d57a99f428db64d",
+  "requested": {
+    "arms": [
+      "mid",
+      "off",
+      "on"
+    ],
+    "cases": [
+      "ED-005",
+      "ED-009",
+      "RT-001"
+    ],
+    "include_variants": false,
+    "invocations": 9
+  }
+}

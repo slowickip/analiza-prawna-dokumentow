@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "protocol_id": "contract-analyzer-arm-comparison",
+  "protocol_version": "2.12.2",
+  "state": "frozen",
+  "state_reason": "Both registered measurement series are complete and closed. No further analyzer batch is authorized. Quality judging uses the approved frozen answer key under scoring-protocol.json.",
+  "change_rule": "Changes require a new protocol version. Recorded measurements retain their original parameters and hashes; method changes must preserve material provenance and exposure facts.",
+  "recorded_hashes_are_measurement_state": "Batch receipts pin the measurement protocol and manifest used for their batch. Their digests identify that measured state, not the current scoring procedure.",
+  "final_or_holdout_data_seen": true,
+  "final_or_holdout_data_seen_definition": "Whether any final registered-comparison result or holdout output has been seen. Development-only output does not set this flag and is disclosed in holdout_discipline.declared_prior_exposure.",
+  "dataset_version_required": "the manifest.json dataset_version in force at the run; each batch receipt records the manifest digest its batch ran under, and final_registered_measurement_record names the dataset_version",
+  "rationale_owner": "evaluation-protocol",
+  "arms": {
+    "OFF": {
+      "call_units": "one whole-document call unit",
+      "graph_context": false,
+      "role": "internal configuration comparator; not a decomposition ablation"
+    },
+    "MID": {
+      "call_units": "one per deterministic unit",
+      "graph_context": false,
+      "role": "decomposed configuration; control arm for ON"
+    },
+    "ON": {
+      "call_units": "one per deterministic unit",
+      "graph_context": "text of resolved depth-one cross-reference targets, marked as context",
+      "role": "graph ablation treatment"
+    }
+  },
+  "registered_comparisons": [
+    {
+      "id": "configuration_contrast",
+      "pair": [
+        "MID",
+        "OFF"
+      ],
+      "kind": "configuration_performance_contrast",
+      "cohort": "full stratum",
+      "causal_attribution_permitted": false,
+      "permanent_confounds": [
+        "input length",
+        "model-call count",
+        "query shape",
+        "retrieval opportunity",
+        "wall-budget exposure"
+      ]
+    },
+    {
+      "id": "graph_ablation",
+      "pair": [
+        "ON",
+        "MID"
+      ],
+      "kind": "ablation",
+      "cohort": "graph_eligible_holdout",
+      "causal_attribution_permitted": false,
+      "permanent_confounds": [],
+      "causal_attribution_note": "False. The two arms differ only in graph context, which removes confounding but supplies no error estimate. Nothing in this design separates an observed difference from run-to-run variation, so an observed difference is not attributed to the graph. Restoring attribution needs an error estimate, not an argument."
+    }
+  ],
+  "secondary_comparisons": [
+    {
+      "pair": [
+        "ON",
+        "OFF"
+      ],
+      "status": "whole-pipeline figure; neither registered comparison"
+    }
+  ],
+  "quality_scoring": {
+    "file": "evaluation-data/scoring-protocol.json",
+    "scoring_protocol_version": "3.0.0",
+    "what_it_owns": "Everything about how the recorded runs are judged and reported: the judge and its isolation, the source material, what is judged, how a verdict becomes a status, matching to the answer key, the quality dimensions and their denominators, aggregation, the comparison thresholds, the instrument control and the readiness gate. This file owns the measurement; that file owns the scoring, and neither restates the other.",
+    "why_a_separate_file": "The measurements were registered and run before the scoring rules were written. Keeping the two in one file would present a rule written after the outputs were seen as though it had been registered with them. scoring-protocol.json states its own retrospective standing.",
+    "state": "Whole-run source-based judging and its control are complete. The quality report is reproducible from the saved assessments under scoring-protocol.json."
+  },
+  "decision_rule": {
+    "owner": "evaluation-data/scoring-protocol.json, comparisons",
+    "what_this_section_is": "The measurement-side record that the comparison success criteria are fixed and where they live. The numbers have one owner and are not restated here. scripts/run_evaluation.py refuses a registered holdout batch while any entry below is owed and carries no value.",
+    "thresholds": {
+      "comparison_criteria": {
+        "value": "evaluation-data/scoring-protocol.json, comparisons.thresholds",
+        "owed": false,
+        "fixed_before_any_finding_was_judged": true,
+        "pre_measurement_standing": "None. The criteria were fixed after the recorded outputs had been seen and before any finding of the cohort was judged. They are conventions adopted after the fact, and scoring-protocol.json retrospective_disclosure says so. Nothing here may be read as a pre-registration of them."
+      }
+    }
+  },
+  "cohorts": {
+    "graph_eligible_holdout": {
+      "cases": [
+        "ED-005",
+        "ED-009",
+        "RT-001"
+      ],
+      "context_edges": 19,
+      "note": "Every retained holdout case resolves at least one internal reference, so the holdout is entirely graph-eligible. RT-001 enters through RT-001-DOC, the only artifact of that case.",
+      "reading": "existence check, not an estimate for any population"
+    },
+    "zero_edge_holdout": {
+      "cases": [],
+      "status": "empty",
+      "consequence": "The three evaluated documents all contain resolved internal references; no zero-reference control document is included."
+    },
+    "paired_ocr_probe": {
+      "artifacts": [],
+      "status": "empty",
+      "consequence": "No retained artifact is a scan, so what OCR costs on identical content is not measured by this evaluation and no claim about OCR quality may be made from these results."
+    },
+    "budget_stress_fixture": {
+      "cases": [],
+      "status": "empty",
+      "consequence": "There is no dedicated wall-budget stress fixture. All units were processed; one unit in the second series reached its finder turn limit."
+    },
+    "fallback_segmentation_coverage": {
+      "cases": [],
+      "status": "empty",
+      "consequence": "Every evaluated document uses structural segmentation. The sample does not measure fallback segmentation."
+    }
+  },
+  "run_parameters": {
+    "concurrency": 8,
+    "wall_budget_seconds": 900,
+    "wall_budget_is_not_a_success_threshold": true,
+    "cache": "cold at the start of every measured run; a retrieval cache is permitted only inside one run",
+    "batching_permitted": false,
+    "unit_prefiltering_permitted": false,
+    "aggregate_token_budget": null,
+    "aggregate_token_budget_note": "None is selected, and the implementation carries no aggregate token ceiling. A run is bounded by wall time, by the per-role turn and tool caps and by the per-response output cap. Actual token usage is recorded for every attempt. Choosing an aggregate ceiling would require implementing one and a new protocol version.",
+    "model_and_price_list": "The configured model is meta/muse-spark-1.3-contributor served by OpenRouter, and both registered series ran on it. A dated price list exists: OpenRouter published 0.10 USD per million input tokens and 0.20 USD per million output tokens for this model on 2026-09-08, and reports the actual cost of each request in its usage payload. The implementation does not read that field, so a run records monetary cost as unknown with a reason.",
+    "basis_finder_policy": {
+      "description": "The researcher role chooses its own search phrases and calls the corpus tool with them, under one bound shared by every arm, and posts each candidate to the unit worksheet through a tool instead of a separate selection call. The number of searches is therefore an outcome of a run, not a parameter of it, and is recorded per run.",
+      "max_tool_turns": 10,
+      "max_phrases_per_turn": 5,
+      "max_tool_calls_per_turn": 5,
+      "per_turn_counter": "one counter enforces both: the researcher's turn is cut off after five tool calls of any kind, so a turn spent on reads leaves no phrases. The phrase bound above is what that counter guarantees, not a separate allowance. In code this is FINDER_MAX_PHRASES_PER_TURN, passed as max_calls_per_turn and refused with phrase_budget_exceeded_for_this_turn; the two names describe one constant and move together.",
+      "max_phrase_characters": 500,
+      "results_per_search": 5,
+      "snippet_characters": 300,
+      "chosen_by": "argument after a probe against the live endpoint on 2026-09-03, not measurement; ceilings rather than allowances",
+      "identical_across_arms": true,
+      "policy_version_field": "tool_bundle_version on every RunRecord, derived by digest from the tool surface and these bounds rather than written by hand, so a policy change cannot leave the token still. It is a parity dimension, so an arm run under a different finder policy cannot enter a comparison."
+    },
+    "retrieval_operating_point": {
+      "limbs": "sparse BM25 and dense cosine, fused by reciprocal rank",
+      "sparse": "BM25 over a diacritics-folded unicode tokenisation, k1 1.2, b 0.75, fixed 256-token average length; inverse document frequency supplied by the vector store over the published collection",
+      "dense": "cosine over 4096-wide vectors from a hosted embedding provider (qwen/qwen3-embedding-8b over the OpenAI-compatible /v1/embeddings route); the corpus snapshot records the vector the service encoded a fixed probe text as at build time, and retrieval refuses a collection whose probe disagrees with the serving process's",
+      "fusion_k": 60,
+      "candidates_per_search": 5,
+      "identical_across_arms": true,
+      "corpus_source_format": "The manifest names a source format per act (html or pdf). ELI serves the two from separate routes and the HTML one has failed on its own, so a build falls back to an act's PDF when its HTML is unreachable. The two source formats cut an act into different units, so a fallback build is a different corpus: it has its own unit digest and its own snapshot id and cannot be mistaken for the one the manifest's declared source formats would have produced. Which source format each act was read from is recorded in the snapshot's act_currency as source_format_used. The check is enforced, not advisory: corpus_source_format on /config reads as_declared, fallback or unrecorded -- unrecorded being a snapshot that predates the record and therefore cannot answer -- and the evaluation runner refuses a registered holdout batch on anything but as_declared without an explicit --allow-source-format-fallback, which it records in the batch identity."
+    },
+    "worksheet_policy": {
+      "description": "Each call unit is analysed on a worksheet shared by three model roles: the researcher searches the corpus and posts candidates; the analyst characterises a candidate the verifier has cleared; the verifier rules on relevance and on the relation and may read a bounded number of provisions reachable from the candidate. No role rules on its own output. A deterministic content-driven scheduler routes between them; the graph is cyclic and the same in every arm. Every bound below is identical across arms and feeds tool_bundle_version.",
+      "max_candidates_per_unit": null,
+      "candidate_count_policy": "No fixed list-length cap. Candidates remain subject to provenance and duplicate-locator validation; zero is a stated result, not an empty field. Search turns, tool calls, reads and the run wall budget remain bounded.",
+      "unit_step_bound": "1 + 3 * the actual number of posted candidates: one search, then at most one relevance visit, one characterisation and one relation task per candidate. Checked before each role acts; exceeding it fails with unit_graph_recursion_exceeded.",
+      "verifier_read_guard": "only a locator already on the unit worksheet (the candidate, its supporting locators, character evidence); reads are counted per candidate across the verifier's visits",
+      "turn_caps": {
+        "researcher.search": 10,
+        "analyst.characterise": 4,
+        "verifier.relevance": 3,
+        "verifier.relation": 4,
+        "synthesizer.group": 4
+      },
+      "commit_policy": "A role decision is a tool call validated against a closed Pydantic schema. A JSON object that fails the schema is returned to the model as an invalid_arguments refusal; tool arguments that are not a JSON object fail with model_response_invalid_envelope. A task that ends without its required commit gets one reminder, within its turn cap. A commit occupies its turn alone: a turn containing a commit beside any other call is refused whole before any handler executes, including unavailable tools. Measured and interactive conversations use the same commit-alone-atomic-turn-v3 guard.",
+      "chosen_by": "argument, not measurement; ceilings rather than allowances",
+      "identical_across_arms": true,
+      "graph_topology_version": "worksheet-unit-cycle-v5",
+      "verifier_max_reads_per_candidate": 3,
+      "containment": "a provision the analyst cannot characterise within its turn cap receives a system-authored undetermined character with reason unusable_model_answer and resolves through the decision table to an uncertain finding; the count of such defaults is logged per run; a verifier task that never commits fails the run",
+      "verifier_projection": "the verifier's payload carries typed facts only: the candidate locator, act and text, supporting locators, prior verdicts and user notes; the researcher's prose (why, note) is hidden. provision_reads counts corpus reads made through the roles' read tool; payload construction fetches candidate and basis text directly and is not counted, so the figure is tool reads rather than total corpus accesses.",
+      "provenance": "Candidate and supporting locators must have been returned to the researcher by an authorised search or read in this unit. Only the researcher widens the ledger. The analyst holds read_provision but may open only a locator already in the ledger, so it cannot reach a provision nobody retrieved for the unit and then cite it; the verifier is confined to the locators on that candidate's worksheet. The ledger records what was opened for this unit, not what was discovered by search: a valid locator the researcher already knows becomes citable after one successful read, because a read widens the ledger as a search does. It excludes locators nobody fetched, not locators someone remembered.",
+      "role_separation": "The researcher is the only role holding a corpus search tool and the only one that may put a provision forward; it cannot clear its own candidate. The analyst holds no search tool and may cite only what the researcher retrieved for that unit; it does not rule on the relation its characterisation governs. The verifier cannot search. The synthesizer is a fourth tool-using role: list_findings exposes only short references, result codes and legal locators; group_findings commits groups of existing findings. It cannot read contract or provision text, search, or create findings. Invalid references receive a correctable refusal. Uncommitted synthesis retains the findings without grouping.",
+      "no_basis_policy": "The researcher may end its search task with post_candidates carrying an empty list, and the decision table resolves a unit with no candidate to no_basis_found. The empty list is refused before the unit's first executed corpus query, and a phrase the tool rejects before querying the corpus does not count as one. What the record does not do is separate an explicit empty commit from a researcher that fell silent or ran out of turns: all three leave a worksheet carrying only search entries and all three resolve to no_basis_found. finder_budget_exhausted_units counts cut-off units per run, so the distinction exists in aggregate and not per unit. No report may therefore read no_basis_found as an assertion by the model that the corpus holds nothing; it means the unit produced no candidate.",
+      "no_basis_evidence_note": "The retrieval cache counter undercounts: two call units issuing the same normalised phrase at the same time both miss the cache and both query the corpus, so with concurrency above one the hit count is a lower bound on repeated phrases, not a measure of how often roles repeat one.",
+      "conversation_runtime": {
+        "library": "LangChain create_agent on LangGraph",
+        "versions": {
+          "langchain": "1.4.0",
+          "langgraph": "1.2.11"
+        },
+        "history": "graph-managed messages, no persistent checkpointer or tool replay",
+        "tool_execution": "sequential in provider order; whole-turn commit refusal and per-turn caps run before every handler",
+        "provider_attempts": "the existing model client owns bounded retries, model identity, per-attempt usage and deadlines; no additional graph or SDK retry layer",
+        "synthesis_turn_cap_chosen_by": "argument, not measurement",
+        "transport": "The provider's responses route. The configured model is served only there; on the chat-completions route every request answers HTTP 500. Recorded because the request body differs between the two routes, so the prompt_hash of an attempt made on one route cannot be compared with one made on the other."
+      }
+    },
+    "interactive_phase": {
+      "description": "Chat questions, contests and re-analyses run after a measured run has completed and never modify it: each is a new run with measurement_valid false and parent_run_id set, excluded from every comparison by the parity check. The reader is answered by the explainer, a role of its own rather than the measured synthesis role under another name: it is shown finding, unit and provision text the synthesis role never receives, it runs only after a run has closed, and it may not create or change a finding. It may delegate one corpus question to the researcher. Which of the three the reader means is itself read by the model: one bounded routing call with a prompt of its own, a single commit tool and no corpus access returns an intent from a closed set and a target drawn from identifiers the run already holds. It is a classifier rather than an analysing role -- it reads no provision and creates no finding -- and, like every interactive action, it is recorded as its own child run with measurement_valid false.",
+      "bounds": {
+        "chat_max_turns": 6,
+        "chat_max_questions": 1,
+        "chat_wall_budget_seconds": 180,
+        "researcher_question_max_turns": 4,
+        "route_message_max_turns": 2
+      },
+      "provenance": "an interactive answer may cite only a locator this question's own search returned or read answered for; the loop refuses a commit that shares its turn with any other call",
+      "isolation": "while the final evaluation batch is sealed (EVALUATION_BATCH_OPEN), no interactive action can start at all: chat, contest, re-analysis and worksheet reads are refused outright, and the single-run slot on POST /runs admits one run at a time. scripts/run_evaluation.py refuses to run a batch against a server that is not sealed, so the isolation of a measured run is enforced by the runner rather than left to the operator. Outside a sealed batch the artefact serves concurrent runs and asks, which is its ordinary local use. Such a run is measurement_valid by default and can stand as development evidence; what it does not do is enter a registered comparison merely by having been executed"
+    },
+    "recorded_per_run_telemetry": "Every model attempt records the call unit that spent it, or null for the run-level tasks (synthesis, explainer, delegated question). Every run records retrieval_cache_hits beside finder_search_calls. Both are identifiers and counts, inside the retention boundary, and neither changes what a run does. They exist so a run can report its critical path and its cache saving instead of an average over units, which is what the concurrency and search-cost questions were previously argued from rather than measured.",
+    "concurrency_note": "Concurrency is neutral for a run that completes every call unit inside the wall budget: units share nothing but the retrieval cache, so the per-unit algorithm, the findings and the token cost do not depend on it. It is not neutral for a budget-bound run. process_unit acquires the semaphore and only then checks the deadline, so the limit decides how many units start in time and therefore how many are recorded as unprocessed, which moves findings and token spend. That is why concurrency is a parity dimension and not a deployment detail. No retained document is long enough to reach that case, which cohorts.budget_stress_fixture records.",
+    "provider_is_a_parity_dimension": "Endpoints serving the same model identifier do not serve it identically. Measured 2026-09-08: at reasoning effort low the same prompt drew 794 reasoning tokens on the gateway used earlier in development and 1238 on OpenRouter. Runs made against different endpoints are therefore not comparable, which is why the runner checks the served endpoint before a registered series and why /api/v1/config reports the endpoint host."
+  },
+  "recorded_per_arm_per_document": [
+    "input_tokens",
+    "output_tokens",
+    "model_calls",
+    "wall_clock_seconds",
+    "monetary_cost",
+    "interrupted_documents",
+    "unprocessed_units",
+    "out_of_corpus_scope_count",
+    "undecided_count",
+    "out_of_scope_count",
+    "finder_tool_turns",
+    "finder_search_calls",
+    "finder_budget_exhausted_units",
+    "verifier_tool_turns",
+    "provision_reads"
+  ],
+  "holdout_discipline": {
+    "forbidden_until_final_run": [
+      "prompt tuning, exemplar selection or system-message change informed by holdout text or output",
+      "calibrating any pipeline dial against holdout material: retrieval top_k, query construction, candidate selection, refusal threshold, segmentation thresholds, window size",
+      "reading model output on holdout documents",
+      "fitting parser or converter rules to phrasing found in them",
+      "any interactive action (chat question, contest, re-analysis) on a holdout document; after the final run, interactive actions on a holdout document are permitted only once all three arms have completed on it, and are recorded as exposure"
+    ],
+    "permitted_on_development": [
+      "running every arm end to end",
+      "reading raw output and error analysis",
+      "tuning prompts and dials",
+      "extending parsers and converters",
+      "the reviewer's calibration passes"
+    ],
+    "declared_prior_exposure": "All candidate documents underwent deterministic ingestion, segmentation and reference parsing before split freeze. End-to-end development runs informed prompts and implementation. The three retained test documents were not used for model-output tuning; ED-001 exposure is recorded separately below.",
+    "ed_001_exposure": "Model outputs and an interactive response on ED-001 were inspected while it was assigned to the test split. Those observations influenced a prompt decision and concurrency 8. The exposure evidence is retained in evaluation-data/results/development/2026-09-04-ed-001-holdout-exposure/.",
+    "exposure_unit": "Exposure applies to the whole logical case, including format variants. The current manifest contains one artifact per case.",
+    "ed_001_resolution": "ED-001 is outside the five-document dataset and the measured cohort. Its influence on prompt selection and concurrency remains a methodological limitation.",
+    "concurrency_after_the_exposure": "A development run on ED-003 at concurrency 8 completed in 284 seconds over 224 attempts with no refusals, within the 900-second budget. This verifies execution at the chosen value, not its optimality."
+  },
+  "open_obligations": [],
+  "outstanding_work": [],
+  "terminal_failure_policy": {
+    "value": {
+      "rule": "no_replacement",
+      "replaceable_error_codes": [],
+      "max_replacement_attempts_per_arm_run": 0,
+      "every_attempt_retained": true,
+      "on_terminal_failure": "the arm run stands as it ended, and the comparison for that document and arm is reported unavailable rather than estimated"
+    },
+    "owed": false,
+    "blocks_frozen": false,
+    "reason": "A terminally failed run is retained without individual replacement. Both series completed all nine scheduled runs.",
+    "fixed_before_any_final_measurement": true
+  },
+  "final_registered_measurement_state": "completed",
+  "final_registered_measurement_state_definition": "Whether the registered batches have been executed: not_started, in_progress or completed. It is a declaration, not the guard. What forbids running a batch twice is the claim written immediately before the first measured request, in evaluation-data/results/, which names the batch by the id its output directory's .batch_identity.json mints and by where that directory is. An interrupted batch can be finished from the directory holding its results, while a fresh --out over the same cohort and a copy of the directory under the same id are both refused. Every claim that exists is read before any is written, so a refused batch leaves none of its own behind. There is one claim per registered series, and a batch into a directory registered_repeat_series does not name is refused. Whether a batch is complete is a separate question the summary answers: registered_batch in summary.json reports the cells registered_comparisons and cohorts require against the results the directory holds, so a batch run over part of its cohort is recorded as incomplete rather than as a measurement. final_or_holdout_data_seen is a different and permanent fact and is not a gate on measuring.",
+  "final_registered_measurement_record": {
+    "batch_id": "78c2ea3d14604fd59d57a99f428db64d",
+    "executed": "2026-09-08",
+    "results": "evaluation-data/results/final/2026-09-08-holdout/",
+    "cohort": [
+      "ED-005",
+      "ED-009",
+      "RT-001"
+    ],
+    "cells": "9 of 9, registered_batch.complete true, missing_cells empty",
+    "outcome": "Nine arm runs, all status completed, no interruption, no unprocessed unit, no exhausted search budget and no terminal failure, so terminal_failure_policy was never exercised. The nine runs' own elapsed times sum to 54 minutes; the batch took 56 minutes from the first request to the last, the difference being the time between runs. 11,147,888 tokens.",
+    "measured_under": "protocol 2.6.29, sha256 08c18dc9f052d9b7238b416b4348816de1d42f255f3c63973d7b6ab1e15192bf; manifest sha256 d6d69807ad2a45d8719826ad85c32a84f11937a125ce8e97bed9932d06486325; dataset_version 0.5.0; corpus snapshot 76378dd52cd69992398e1913 read as_declared; model meta/muse-spark-1.3-contributor.",
+    "monetary_cost": "unknown. The result files record the reason as price_table_unavailable, which is inaccurate: OpenRouter published 0.10 USD per million input tokens and 0.20 USD per million output tokens for this model on 2026-09-08, and what is missing is the parser that would read the per-request cost the provider returns. Applying those rates to the recorded tokens gives 1.21 USD for this batch, which is arithmetic on a rate and not the provider's accounting. Correcting the recorded reason code is owed.",
+    "parity": "The ten-dimension parity check was verified across all nine runs after the batch: requested and returned model id, prompt bundle version, tool bundle version, corpus snapshot, retry policy, concurrency, wall budget and call parameters are single-valued, and the input hash is one value per document across its three arms and different between documents. No mismatch invalidates a comparison.",
+    "quality_scoring": "Not started. The runs record emissions and telemetry; every quality dimension needs the judge's assessments before any figure exists. scoring-protocol.json owns that procedure and its readiness gate."
+  },
+  "registered_repeat_series": {
+    "what_this_is": "Two complete nine-run series over the same three documents and OFF, MID and ON. The measurement and scoring protocols label them 1 and 2; batch identifiers retain their recorded measurement identities.",
+    "why": "Compare quality values, variant ordering and hypothesis outcomes between two complete measurements of the same documents under the same conditions.",
+    "fixed_when": "The repeat was planned with access to the first series outputs. Both series are scored by the same current procedure.",
+    "series": [
+      {
+        "series": 1,
+        "results": "evaluation-data/results/final/2026-09-08-holdout/",
+        "receipt": "final-registered-measurement.json",
+        "batch_id": "78c2ea3d14604fd59d57a99f428db64d",
+        "measured_under_protocol_version": "2.6.29",
+        "state": "completed",
+        "attempts": {
+          "scheduled": 9,
+          "started": 9,
+          "completed": 9,
+          "failed": 0,
+          "cancelled": 0,
+          "never_started": 0
+        }
+      },
+      {
+        "series": 2,
+        "results": "evaluation-data/results/final/2026-09-09-holdout-series-2/",
+        "receipt": "final-registered-measurement-series-2.json",
+        "measured_under_protocol_version": "2.8.0",
+        "state": "completed",
+        "batch_id": "492888378b644e378d17140cd3bb62e1",
+        "executed": "2026-09-09",
+        "outcome": "Nine arm runs, all completed and measurement-valid; registered_batch.complete is true. All units were processed; one RT-001 ON unit exhausted its finder turn budget. The nine runs' own elapsed times sum to 60 minutes and 11,291,564 tokens.",
+        "parity": "The two series agree on all ten configuration dimensions. The nine corresponding cells and each registered within-series pair are checked from the raw response files; results/parity.json records the totals.",
+        "attempts": {
+          "scheduled": 9,
+          "started": 9,
+          "completed": 9,
+          "failed": 0,
+          "cancelled": 0,
+          "never_started": 0
+        }
+      }
+    ],
+    "receipts": "Each of the two complete source batches retains its own claim file and output directory. Both are closed. No further batch or individual-cell replacement is authorized; an unlisted output directory is refused.",
+    "required_conditions": "The runner pins model, prompt bundle, corpus snapshot, embedding space, tool bundle and measured mode against series_1_config before a measured request. It also requires the OpenRouter endpoint and an open batch gate. Recorded run metadata provide the input, model, prompt, corpus, tools, parameters, retries, concurrency and budget dimensions for scripts/check_runs.py.",
+    "series_1_config": {
+      "model_request_id": "meta/muse-spark-1.3-contributor",
+      "prompt_bundle_version": "a77b8f01688bf613ec9a9e4fe9ab3f8a761fc93efd12f6ae5d64ce00f7599e5b",
+      "corpus_snapshot": "76378dd52cd69992398e1913",
+      "embedding_model": "qwen/qwen3-embedding-8b",
+      "embedding_space_fingerprint": "b07adcf81f044b92",
+      "corpus_source_format": "as_declared",
+      "tool_bundle_version": "worksheet-roles-282366be7762",
+      "measured_mode": true
+    },
+    "required_values": {
+      "model_endpoint": "openrouter.ai",
+      "evaluation_batch_open": true
+    },
+    "known_differences_from_series_1": {
+      "configuration_fingerprint": "Series 1 has no model_endpoint field; the repeat records openrouter.ai. Compare shared configuration fields and the required endpoint value separately.",
+      "implementation_fingerprint": "The runner and parity scripts differ between series and contribute to the implementation fingerprint. Model prompts, roles, scheduler, corpus, retrieval, budgets and model client are unchanged; the run-level parity comparison checks the measured dimensions."
+    },
+    "failure_policy": {
+      "terminal_failure_policy": "Unchanged and binding on the repeats: no replacement, every run stands as it ended.",
+      "no_speculative_rerun": "A failed cell is not re-run and a completed cell is never re-run because its figures are unwelcome. What is authorized is a whole series, before it starts; individual cells are not.",
+      "incomplete_series": "A series is scored only when all nine of its cells are completed and measurement-valid. The scorer refuses a partial series rather than aggregating a reduced cohort, because a missing cell would move every aggregate silently. The failure is reported with its error code beside the figures, and the cross-series statements are made over the complete series, naming how many there are."
+    },
+    "scoring": "scoring-protocol.json defines separate judging of the two complete series and descriptive comparison of their results. Both use the same key, the same judging rules and the same thresholds.",
+    "provider_account_readings": {
+      "what_they_are": "The provider's account credit total, read immediately before and after the repeat series. The difference is the account's spend over that window, including the embedding calls the runs made. It is not a per-run or per-arm figure and not the provider's accounting for these runs; the implementation still does not read the per-request cost, so every run record still says unknown.",
+      "what_the_difference_is": "The account spent 0.726068370 USD between the reading taken immediately before the repeat and the one taken immediately after it. Multiplying the dated list rates by the tokens the repeat recorded gives 1.23 USD, so the rate arithmetic overstates what the account was charged. Both numbers are reported and neither is a per-run or per-arm figure.",
+      "usd_used_before_repeat": 1.118635538,
+      "usd_used_after_repeat": 1.844703908,
+      "repeat_difference_usd": 0.72606837
+    },
+    "what_the_receipts_pin": "The first complete batch records measurement protocol 2.6.29; the repeat records 2.8.0. Each receipt retains its protocol digest, configuration fingerprint and batch identity. The receipts do not hash scoring-protocol.json.",
+    "receipt_path_representation": "Receipt directories use paths relative to the artifact root. Each receipt records the digest of its original absolute-path form; batch identifiers, timestamps, cohorts and recorded hashes are preserved.",
+    "completion_target": {
+      "complete_series": 2,
+      "state": "met",
+      "counted_series": [
+        1,
+        3
+      ],
+      "further_series_authorized": false,
+      "reason": "Both complete series contain all nine required document-variant pairs."
+    },
+    "what_two_series_support": "Whether the quality figures, variant ordering and comparison outcomes recur on the same three documents. Report each complete series and their descriptive mean, minimum and maximum, together with key items answered correctly in both series, one series or neither.",
+    "what_two_series_do_not_support": "The document sample remains three documents. The comparison reports descriptive repeatability without significance tests or population estimates."
+  },
+  "measurement_limitations": [
+    "Three test documents: two synthetic cases and one real-source case. Two series measure repeatability on these same documents.",
+    "ED-001 outputs influenced a prompt decision and concurrency before its removal from the dataset; the holdout_discipline section records this exposure.",
+    "Retrieval parameters are argued operating choices, not an independently validated optimum. MID and OFF differ in several configuration dimensions.",
+    "The test cohort covers documents with internal references and structural segmentation, with no paired OCR or zero-reference control.",
+    "Per-run monetary charges were not retained. Time and tokens are available; provider account readings describe a total window only.",
+    "Raw runs use price_table_unavailable for missing monetary cost. The actual cause is that per-request charges were not retained; the numeric cost is unrecoverable."
+  ],
+  "parity_evidence": "evaluation-data/results/parity.json"
+}

@@ -1,0 +1,32 @@
+# Development override for the analysis model.
+#
+#   docker compose -f compose.yaml -f compose.dev.yaml up --build
+#
+# compose.yaml on its own is the measured configuration and stays that way; this
+# file repoints the model connector at a second endpoint for exploratory work,
+# where the cost of a run matters more than its comparability. Nothing here is
+# a Compose profile: a profile picks which services run, and both configurations
+# run the same ones.
+#
+# Two things it deliberately leaves alone. The embedding service keeps the
+# endpoint compose.yaml gives it, because the corpus was built in that vector
+# space and a search from another one retrieves nothing meaningful. And
+# EVALUATION_BATCH_OPEN is pinned false, so a stack started with this file
+# cannot serve a measured batch: scripts/run_evaluation.py refuses to start
+# without it, and the backend refuses the interactive endpoints with it.
+#
+# MODEL_API_KEY is still required, because compose.yaml resolves its own
+# variables before the two files merge. Keeping both credentials set means the
+# endpoint is chosen by which files are passed to Compose and by nothing else.
+services:
+  backend:
+    environment:
+      MODEL_API_KEY: ${MODEL_DEV_API_KEY:?the development endpoint needs its own credential}
+      MODEL_BASE_URL: ${MODEL_DEV_BASE_URL:-https://opencode.ai/zen/go/v1}
+      MODEL_NAME: ${MODEL_DEV_NAME:-muse-spark-1.3-contributor}
+      # Required rather than defaulted to empty: the gateway above refuses a
+      # request without x-opencode-session, and every model call then fails with
+      # model_http_400 for a reason the status code does not carry. An endpoint
+      # that needs no header of its own is configured explicitly, as {}.
+      MODEL_EXTRA_HEADERS: ${MODEL_DEV_EXTRA_HEADERS:?a JSON object of headers, or {} for an endpoint that needs none}
+      EVALUATION_BATCH_OPEN: "false"

@@ -1,0 +1,308 @@
+{
+ "schema_version": 1,
+ "cases": [
+  {
+   "case_id": "DEV-01",
+   "payload": {
+    "document": {
+     "document_key": "DEV-A",
+     "text": "UMOWA O SPRZĄTANIE POWIERZCHNI BIUROWEJ (fragment roboczy)\n\n§ 3. 1. Zleceniobiorca wykonuje usługi w każdy wtorek i czwartek.\n2. Za każdy dzień zwłoki w wykonaniu usługi Zleceniodawca może naliczyć karę umowną w wysokości 200 zł, nie więcej niż 5 000 zł łącznie.\n"
+    },
+    "assessed_finding": {
+     "code": "consistent",
+     "span": {
+      "start": 129,
+      "end": 262
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Za każdy dzień zwłoki w wykonaniu usługi Zleceniodawca może naliczyć karę umowną w wysokości 200 zł, nie więcej niż 5 000 zł łącznie.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=483"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Kara umowna zabezpiecza zobowiązanie niepieniężne, czyli wykonanie usługi sprzątania, i jest oznaczona kwotowo z górnym limitem."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "DEV-A-K01",
+      "issue": "Kara umowna za zwłokę w wykonaniu usługi",
+      "quote": "Za każdy dzień zwłoki w wykonaniu usługi Zleceniodawca może naliczyć karę umowną w wysokości 200 zł, nie więcej niż 5 000 zł łącznie.",
+      "span": {
+       "start": 129,
+       "end": 262
+      },
+      "expected_answers": [
+       {
+        "code": "consistent",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=483"
+        ],
+        "justification": "Kara zabezpiecza świadczenie niepieniężne i jest oznaczona."
+       }
+      ],
+      "justification": "Oceniana jest konstrukcja kary za zwłokę w wykonaniu usługi.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=483",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 483",
+       "text": "Art. 483. § 1. Można zastrzec w umowie, że naprawienie szkody wynikłej z niewykonania lub nienależytego wykona-\nnia zobowiązania niepieniężnego nastąpi przez zapłatę określonej sumy (kara umowna).\n§ 2. Dłużnik nie może bez zgody wierzyciela zwolnić się z zobowiązania przez zapłatę kary umownej."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   },
+   "note": "przypadek rozwojowy: poprawna odpowiedź"
+  },
+  {
+   "case_id": "DEV-02",
+   "payload": {
+    "document": {
+     "document_key": "DEV-B",
+     "text": "UMOWA O ŚWIADCZENIE USŁUG DORADCZYCH (fragment roboczy)\n\n§ 6. 1. Doradca ponosi odpowiedzialność wyłącznie za szkodę wyrządzoną z winy nieumyślnej.\n2. Odpowiedzialność Doradcy za szkodę wyrządzoną umyślnie jest wyłączona.\n"
+    },
+    "assessed_finding": {
+     "code": "consistent",
+     "span": {
+      "start": 151,
+      "end": 221
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Odpowiedzialność Doradcy za szkodę wyrządzoną umyślnie jest wyłączona.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=473"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Strony mogą umownie kształtować zakres odpowiedzialności, więc wyłączenie mieści się w art. 473."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "DEV-B-K01",
+      "issue": "Wyłączenie odpowiedzialności za szkodę umyślną",
+      "quote": "Odpowiedzialność Doradcy za szkodę wyrządzoną umyślnie jest wyłączona.",
+      "span": {
+       "start": 151,
+       "end": 221
+      },
+      "expected_answers": [
+       {
+        "code": "contradictory",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=473"
+        ],
+        "justification": "Zastrzeżenie o braku odpowiedzialności za szkodę umyślną jest nieważne."
+       }
+      ],
+      "justification": "Art. 473 § 2 uznaje takie zastrzeżenie za nieważne.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=473",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 473",
+       "text": "Art. 473. § 1. Dłużnik może przez umowę przyjąć odpowiedzialność za niewykonanie lub za nienależyte wykonanie\nzobowiązania z powodu oznaczonych okoliczności, za które na mocy ustawy odpowiedzialności nie ponosi.\n§ 2. Nieważne jest zastrzeżenie, iż dłużnik nie będzie odpowiedzialny za szkodę, którą może wyrządzić wierzycielowi\numyślnie."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   },
+   "note": "przypadek rozwojowy: błędna klasyfikacja"
+  },
+  {
+   "case_id": "DEV-03",
+   "payload": {
+    "document": {
+     "document_key": "DEV-C",
+     "text": "UMOWA POŻYCZKI RATALNEJ (fragment roboczy)\n\n§ 8. 1. Konsument może odstąpić od umowy bez podania przyczyny w terminie czternastu dni od dnia jej zawarcia.\n"
+    },
+    "assessed_finding": {
+     "code": "consistent",
+     "span": {
+      "start": 52,
+      "end": 154
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Konsument może odstąpić od umowy bez podania przyczyny w terminie czternastu dni od dnia jej zawarcia.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=53"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Art. 53 ustawy o kredycie konsumenckim daje konsumentowi trzydzieści dni na odstąpienie, liczone od dnia wypłaty środków, więc zapis czternastodniowy mieści się w tym okresie."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "DEV-C-K01",
+      "issue": "Czternastodniowe odstąpienie od umowy o kredyt konsumencki",
+      "quote": "Konsument może odstąpić od umowy bez podania przyczyny w terminie czternastu dni od dnia jej zawarcia.",
+      "span": {
+       "start": 52,
+       "end": 154
+      },
+      "expected_answers": [
+       {
+        "code": "consistent",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=53"
+        ],
+        "justification": "Zapis powtarza ustawowy termin odstąpienia."
+       }
+      ],
+      "justification": "Oceniana jest zgodność terminu z art. 53 ust. 1.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=53",
+       "act_identifier": "DU/2025/1362",
+       "article_identifier": "Art. 53",
+       "text": "Art. 53. 1. Konsument ma prawo, bez podania przyczyny, do odstąpienia od umowy o kredyt konsumencki w terminie\n14 dni od dnia zawarcia umowy.\n2. Jeżeli umowa o kredyt konsumencki nie zawiera elementów określonych w art. 30, konsument może odstąpić od\numowy o kredyt konsumencki w terminie 14 dni od dnia dostarczenia wszystkich elementów wymienionych w art. 30.\n3. Kredytodawca lub pośrednik kredytowy jest zobowiązany przy zawarciu umowy wręczyć konsumentowi, na trwałym\nnośniku, wzór oświadczenia o odstąpieniu od umowy, z oznaczeniem swojego imienia, nazwiska (nazwy) i adresu zamieszka-\nnia (siedziby) oraz adresu do doręczeń elektronicznych wpisanego do bazy adresów elektronicznych, o ile taki posiada.\n4. Termin do odstąpienia od umowy jest zachowany, jeżeli konsument przed jego upływem złoży oświadczenie o od-\nstąpieniu od umowy pod jeden ze wskazanych przez kredytodawcę lub pośrednika kredytowego adresów, o których mowa\nw ust. 3.\n5. Dla zachowania terminu, o którym mowa w ust. 4, jest wystarczające wysłanie oświadczenia przed jego upływem."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   },
+   "note": "przypadek rozwojowy: właściwy artykuł, błędne wyjaśnienie"
+  },
+  {
+   "case_id": "DEV-04",
+   "payload": {
+    "document": {
+     "document_key": "DEV-D",
+     "text": "UMOWA RAMOWA O WSPÓŁPRACY (fragment roboczy)\n\n§ 11. 1. Zleceniodawca może przenieść wierzytelność o zapłatę wynagrodzenia na osobę trzecią bez zgody Zleceniobiorcy.\n2. Zmiany umowy wymagają formy pisemnej.\n"
+    },
+    "assessed_finding": {
+     "code": "consistent",
+     "span": {
+      "start": 55,
+      "end": 164
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Zleceniodawca może przenieść wierzytelność o zapłatę wynagrodzenia na osobę trzecią bez zgody Zleceniobiorcy.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=509"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Przelew wierzytelności co do zasady nie wymaga zgody dłużnika."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "DEV-D-K01",
+      "issue": "Pisemna forma zmian umowy",
+      "quote": "Zmiany umowy wymagają formy pisemnej.",
+      "span": {
+       "start": 168,
+       "end": 205
+      },
+      "expected_answers": [
+       {
+        "code": "consistent",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=77"
+        ],
+        "justification": "Strony zastrzegają formę pisemną dla zmian."
+       }
+      ],
+      "justification": "Pozycja dotyczy wyłącznie zastrzeżenia formy.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=509",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 509",
+       "text": "Art. 509. § 1. Wierzyciel może bez zgody dłużnika przenieść wierzytelność na osobę trzecią (przelew), chyba że\nsprzeciwiałoby się to ustawie, zastrzeżeniu umownemu albo właściwości zobowiązania.\n§ 2. Wraz z wierzytelnością przechodzą na nabywcę wszelkie związane z nią prawa, w szczególności roszczenie o za-\nległe odsetki."
+      }
+     ],
+     "cited_by_the_key": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=77",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 77",
+       "text": "Art. 77. § 1. Uzupełnienie lub zmiana umowy wymaga zachowania takiej formy, jaką ustawa lub strony przewidziały\nw celu jej zawarcia.\n§ 2. Jeżeli umowa została zawarta w formie pisemnej, dokumentowej albo elektronicznej, jej rozwiązanie za zgodą obu\nstron, jak również odstąpienie od niej albo jej wypowiedzenie wymaga zachowania formy dokumentowej, chyba że ustawa\nlub umowa zastrzega inną formę.\n§ 3. Jeżeli umowa została zawarta w innej formie szczególnej, jej rozwiązanie za zgodą obu stron wymaga zachowania\ntakiej formy, jaką ustawa lub strony przewidziały w celu jej zawarcia; natomiast odstąpienie od umowy albo jej wypowie-\ndzenie powinno być stwierdzone pismem."
+      }
+     ]
+    }
+   },
+   "note": "przypadek rozwojowy: poprawne ustalenie spoza klucza"
+  },
+  {
+   "case_id": "DEV-05",
+   "payload": {
+    "document": {
+     "document_key": "DEV-E",
+     "text": "UMOWA O PRZEPROWADZENIE CYKLU SZKOLEŃ (fragment roboczy)\n\n§ 1. 1. Wykonawca przeprowadzi sześć szkoleń dla pracowników Zamawiającego oraz przekaże komplet materiałów szkoleniowych.\n2. Wynagrodzenie wynosi 12 000 zł.\n"
+    },
+    "assessed_finding": {
+     "code": "consistent",
+     "span": {
+      "start": 66,
+      "end": 180
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Wykonawca przeprowadzi sześć szkoleń dla pracowników Zamawiającego oraz przekaże komplet materiałów szkoleniowych.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=627"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Umowa zobowiązuje do wykonania oznaczonego dzieła w postaci szkoleń i materiałów."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=627",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 627",
+       "text": "Art. 627. Przez umowę o dzieło przyjmujący zamówienie zobowiązuje się do wykonania oznaczonego dzieła, a zama-\nwiający do zapłaty wynagrodzenia."
+      }
+     ],
+     "cited_by_the_key": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=750",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 750",
+       "text": "Art. 750. Do umów o świadczenie usług, które nie są uregulowane innymi przepisami, stosuje się odpowiednio prze-\npisy o zleceniu."
+      }
+     ]
+    }
+   },
+   "note": "przypadek rozwojowy: rzeczywista niejednoznaczność"
+  }
+ ]
+}

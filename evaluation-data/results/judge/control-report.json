@@ -1,0 +1,512 @@
+{
+ "schema_version": 1,
+ "state": "passed",
+ "reference_type": "llm",
+ "reference_reviewer": "GPT assistant",
+ "reference_model_identifier": null,
+ "interpretation": "Engineering check of agreement with model-prepared source-based references; not measured agreement with human or expert ratings.",
+ "model": "gpt-5.6-sol",
+ "reasoning_effort": "high",
+ "configuration_sha256": "138b68284a39b1157a67dbc7677da963abe1f080e2cd59a84114f9b8eb2ed2b9",
+ "adapter_sha256": "1486da3ee1db52abb9d83513b738655cbf8e995d5ad5ba1b023f1e81f2ac86a8",
+ "cases_sha256": "922a3666d8d9f6ab3faee942e21cfe9ec8048dc7147af67dac55df179370519b",
+ "reference_sha256": "5b6ab3b33a44d6bce22ed1838b2699ef454056d34cf7b3f72840ac436b652020",
+ "criteria": {
+  "schema_version": 1,
+  "reference_type": "llm",
+  "case_count": 12,
+  "minimum_overall_agreements": 10,
+  "maximum_key_match_disagreements": 1,
+  "maximum_false_reassurances": 0,
+  "all_cases_must_have_validated_verdicts": true,
+  "false_reassurance_rule": "A candidate claiming consistent or permissible_departure on a reference clear breach must not receive an overall correct verdict. A candidate that correctly identifies a breach may receive correct.",
+  "overall_rule": "Any incorrect required criterion makes incorrect; otherwise any unresolved criterion makes unresolved; otherwise correct. Key issue matching is checked separately.",
+  "selection_rule": "First validated verdict per unchanged case and judge configuration; no repeating a valid verdict to seek agreement. Conflicting repeated valid verdicts are an error.",
+  "failure_rule": "A failed acceptance check requires revision and a new control sample before the full run. Technical failed attempts are retained and may be resumed.",
+  "interpretation": "Engineering check of agreement with model-prepared source-based references; not measured agreement with human or expert ratings.",
+  "cases_sha256": "922a3666d8d9f6ab3faee942e21cfe9ec8048dc7147af67dac55df179370519b",
+  "reference_sha256": "5b6ab3b33a44d6bce22ed1838b2699ef454056d34cf7b3f72840ac436b652020"
+ },
+ "cases": 12,
+ "overall_agreements": 10,
+ "agreement_rate": 0.8333333333333334,
+ "key_match_disagreements": 0,
+ "false_reassurances": 0,
+ "technical_failures": 0,
+ "ignored_records": 5,
+ "checks": [
+  {
+   "name": "case_count",
+   "rule": "exactly as many control cases as the criteria fix",
+   "threshold": 12,
+   "observed": 12,
+   "passed": true
+  },
+  {
+   "name": "cases_validated",
+   "rule": "every control case has a validated verdict",
+   "threshold": 12,
+   "observed": 12,
+   "passed": true
+  },
+  {
+   "name": "overall_agreements",
+   "rule": "overall status agrees with the reference at least this often",
+   "threshold": 10,
+   "observed": 10,
+   "passed": true
+  },
+  {
+   "name": "key_match_disagreements",
+   "rule": "matched key issue ids differ at most this often",
+   "threshold": 1,
+   "observed": 0,
+   "passed": true
+  },
+  {
+   "name": "false_reassurances",
+   "rule": "a reassuring candidate is never approved over a clear breach",
+   "threshold": 0,
+   "observed": 0,
+   "passed": true
+  }
+ ],
+ "comparisons": [
+  {
+   "case_id": "CTL-01",
+   "candidate_code": "consistent",
+   "clear_breach_of_a_provision": true,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "incorrect",
+   "reference_rationale": "Wymóg zgody ogranicza prawo wcześniejszej spłaty z art. 48; przepis nie uzasadnia takiego warunku.",
+   "classification": {
+    "reference": "incorrect",
+    "judge": "incorrect",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "explanation": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "judge_status": "incorrect",
+   "judge_rationale": "Klauzula uzależnia wcześniejszą spłatę od uprzedniej pisemnej zgody kredytodawcy, choć art. 48 przyznaje konsumentowi prawo spłaty w każdym czasie. Wskazany przepis nie wspiera kodu „consistent”, a wyjaśnienie o dopuszczalności wymogu zgody pozostaje z nim sprzeczne.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-01-K01"
+    ],
+    "judge": [
+     "CTL-01-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-02",
+   "candidate_code": "consistent",
+   "clear_breach_of_a_provision": false,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "correct",
+   "reference_rationale": "Wskazane sposoby składania reklamacji odpowiadają kanałom dopuszczonym w przytoczonym art. 3.",
+   "classification": {
+    "reference": "correct",
+    "judge": "correct",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "supported",
+    "judge": "supported",
+    "agrees": true
+   },
+   "explanation": {
+    "reference": "supported",
+    "judge": "supported",
+    "agrees": true
+   },
+   "judge_status": "correct",
+   "judge_rationale": "Klauzula przewiduje złożenie reklamacji w placówce, pisemnie, elektronicznie oraz ustnie telefonicznie lub do protokołu, co odpowiada sposobom wymienionym w art. 3. Wskazana podstawa prawna bezpośrednio reguluje tę kwestię, a wyjaśnienie ustalenia wiernie opisuje treść klauzuli i przepisu.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-02-K01"
+    ],
+    "judge": [
+     "CTL-02-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-03",
+   "candidate_code": "contradictory",
+   "clear_breach_of_a_provision": false,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "incorrect",
+   "reference_rationale": "Art. 484 § 1 wyraźnie dopuszcza odmienne postanowienie stron o odszkodowaniu ponad karę.",
+   "classification": {
+    "reference": "incorrect",
+    "judge": "incorrect",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "explanation": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "judge_status": "incorrect",
+   "judge_rationale": "Art. 484 § 1 wyraźnie pozwala stronom postanowić inaczej niż przewiduje reguła domyślna. Oceniana klauzula korzysta z tej możliwości, dlatego stanowi dopuszczalne odstępstwo, a nie sprzeczność; wskazana podstawa i uzasadnienie nie wspierają wniosku ustalenia.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-03-K01"
+    ],
+    "judge": [
+     "CTL-03-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-04",
+   "candidate_code": "contradictory",
+   "clear_breach_of_a_provision": true,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "correct",
+   "reference_rationale": "Art. 16 wyklucza zbycie i zrzeczenie się autorskich praw osobistych; odpowiedź trafnie wskazuje ten problem.",
+   "classification": {
+    "reference": "correct",
+    "judge": "correct",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "supported",
+    "judge": "supported",
+    "agrees": true
+   },
+   "explanation": {
+    "reference": "supported",
+    "judge": "supported",
+    "agrees": true
+   },
+   "judge_status": "correct",
+   "judge_rationale": "Klauzula przewiduje przeniesienie autorskich praw osobistych i zrzeczenie się jednego z nich, choć art. 16 określa więź twórcy z utworem jako niepodlegającą zrzeczeniu się ani zbyciu. Kod, podstawa prawna i wyjaśnienie są zatem zgodne ze źródłami, a ustalenie w pełni realizuje oczekiwanie pozycji klucza.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-04-K01"
+    ],
+    "judge": [
+     "CTL-04-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-05",
+   "candidate_code": "contradictory",
+   "clear_breach_of_a_provision": null,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "incorrect",
+   "reference_rationale": "Wyjaśnienie jest błędne: art. 22 dopuszcza zatrudnianie niepełnoletnich na określonych zasadach. Fragment opisuje kierownictwo, miejsce i czas pracy, ale nie podaje wynagrodzenia, więc pełna kwalifikacja stosunku pracy pozostaje nieustalona.",
+   "classification": {
+    "reference": "unresolved",
+    "judge": "correct",
+    "agrees": false
+   },
+   "legal_basis": {
+    "reference": "unresolved",
+    "judge": "supported",
+    "agrees": false
+   },
+   "explanation": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "judge_status": "incorrect",
+   "judge_rationale": "Kod jest trafny, ponieważ opisane kierownictwo oraz wyznaczanie miejsca i czasu odpowiadają warunkom stosunku pracy, którego nie można zastąpić umową cywilnoprawną tylko przez nadanie jej innej nazwy. Art. 22 stanowi więc właściwą i wspierającą podstawę prawną. Uzasadnienie ustalenia jest jednak błędne: przepis nie ustanawia bezwzględnego zakazu zatrudniania osób poniżej 18 lat, lecz dopuszcza je na warunkach działu dziewiątego, a kwestia wieku nie dotyczy ocenianej klauzuli.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-05-K01"
+    ],
+    "judge": [
+     "CTL-05-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-06",
+   "candidate_code": "permissible_departure",
+   "clear_breach_of_a_provision": false,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "unresolved",
+   "reference_rationale": "Płatności etapowe są dopuszczalne, lecz określenie ich jako odstępstwa zależy od zastosowania art. 642 § 2. Nie wiadomo, czy wynagrodzenie obliczono za każdą część osobno; wtedy zapis może odpowiadać regule ustawowej.",
+   "classification": {
+    "reference": "unresolved",
+    "judge": "correct",
+    "agrees": false
+   },
+   "legal_basis": {
+    "reference": "unresolved",
+    "judge": "supported",
+    "agrees": false
+   },
+   "explanation": {
+    "reference": "unresolved",
+    "judge": "supported",
+    "agrees": false
+   },
+   "judge_status": "correct",
+   "judge_rationale": "Art. 642 § 1 ustanawia moment należności wynagrodzenia jedynie na wypadek braku odmiennej umowy, a zatem dopuszcza umowne uregulowanie tej kwestii inaczej. Klauzula przewiduje płatność częściami po odbiorze kolejnych etapów, więc kod „permissible_departure”, wskazana podstawa oraz wyjaśnienie są zgodne z materiałem.",
+   "agrees": false,
+   "key_matches": {
+    "reference": [],
+    "judge": [],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-07",
+   "candidate_code": "consistent",
+   "clear_breach_of_a_provision": true,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "incorrect",
+   "reference_rationale": "Koszty własne kredytodawcy nie mieszczą się w wyjątku dotyczącym bezzwrotnych kosztów na rzecz organów administracji publicznej.",
+   "classification": {
+    "reference": "incorrect",
+    "judge": "incorrect",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "explanation": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "judge_status": "incorrect",
+   "judge_rationale": "Artykuł 54 ust. 4 dopuszcza po odstąpieniu jedynie bezzwrotne koszty poniesione na rzecz organów administracji publicznej, a klauzula dotyczy kosztów własnych kredytodawcy. Kod „consistent”, wskazana podstawa oraz wyjaśnienie o możliwości zachowania opłaty odpowiadającej realnym kosztom są zatem nieprawidłowe.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-07-K01"
+    ],
+    "judge": [
+     "CTL-07-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-08",
+   "candidate_code": "contradictory",
+   "clear_breach_of_a_provision": false,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "incorrect",
+   "reference_rationale": "Art. 198 wprost dopuszcza rozporządzenie udziałem bez zgody pozostałych współwłaścicieli.",
+   "classification": {
+    "reference": "incorrect",
+    "judge": "incorrect",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "explanation": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "judge_status": "incorrect",
+   "judge_rationale": "Postanowienie umowy odpowiada regule z art. 198, który wprost zezwala na rozporządzanie udziałem bez zgody pozostałych współwłaścicieli. Kod „contradictory” jest więc błędny, wskazana podstawa nie wspiera tezy o sprzeczności, a wyjaśnienie odwraca treść przepisu.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-08-K01"
+    ],
+    "judge": [
+     "CTL-08-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-09",
+   "candidate_code": "contradictory",
+   "clear_breach_of_a_provision": true,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "correct",
+   "reference_rationale": "Zwykły termin wynosi 30 dni, a wskazany w źródłach wyjątek najwyżej 60 dni; termin 90 dni jest sprzeczny z tymi regułami.",
+   "classification": {
+    "reference": "correct",
+    "judge": "correct",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "supported",
+    "judge": "supported",
+    "agrees": true
+   },
+   "explanation": {
+    "reference": "supported",
+    "judge": "supported",
+    "agrees": true
+   },
+   "judge_status": "correct",
+   "judge_rationale": "Regulamin przewiduje dziewięćdziesiąt dni na odpowiedź, podczas gdy art. 6 ustanawia termin nieprzekraczający trzydziestu dni od otrzymania reklamacji. Kod „contradictory”, wskazana podstawa prawna oraz wyjaśnienie są zatem zgodne z materiałem i realizują oczekiwanie pozycji klucza.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-09-K01"
+    ],
+    "judge": [
+     "CTL-09-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-10",
+   "candidate_code": "contradictory",
+   "clear_breach_of_a_provision": true,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "incorrect",
+   "reference_rationale": "Wniosek o wymaganej formie jest trafny według art. 5 ust. 2. Wskazany art. 9 dotyczy liczby członków i nie uzasadnia twierdzenia o formie umowy.",
+   "classification": {
+    "reference": "correct",
+    "judge": "correct",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "explanation": {
+    "reference": "unsupported",
+    "judge": "unsupported",
+    "agrees": true
+   },
+   "judge_status": "incorrect",
+   "judge_rationale": "Klauzula przewidująca zwykłą formę pisemną jest sprzeczna z art. 5 ust. 2, który wymaga aktu notarialnego, więc sama klasyfikacja jest trafna. Powołany art. 9 reguluje jednak wygaśnięcie umowy wskutek zmniejszenia liczby stron i nie dotyczy jej formy. W konsekwencji wskazana podstawa oraz wyjaśnienie przypisujące temu przepisowi zakaz zwykłej formy pisemnej są niepoparte.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-10-K01"
+    ],
+    "judge": [
+     "CTL-10-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-11",
+   "candidate_code": "consistent",
+   "clear_breach_of_a_provision": false,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "correct",
+   "reference_rationale": "Postanowienie określa pole eksploatacji, zakres, miejsce i czas korzystania oraz niewyłączny charakter licencji zgodnie z art. 67.",
+   "classification": {
+    "reference": "correct",
+    "judge": "correct",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "supported",
+    "judge": "supported",
+    "agrees": true
+   },
+   "explanation": {
+    "reference": "supported",
+    "judge": "supported",
+    "agrees": true
+   },
+   "judge_status": "correct",
+   "judge_rationale": "Klauzula określa cyfrowe zwielokrotnianie jako pole eksploatacji, fotografie jako zakres, Polskę jako miejsce oraz dwa lata jako czas korzystania, a licencję oznacza jako niewyłączną. Art. 67 ust. 1–2 bezpośrednio reguluje te elementy, więc klasyfikacja, podstawa prawna i wyjaśnienie są prawidłowe.",
+   "agrees": true,
+   "key_matches": {
+    "reference": [
+     "CTL-11-K01"
+    ],
+    "judge": [
+     "CTL-11-K01"
+    ],
+    "agrees": true
+   },
+   "false_reassurance": false
+  },
+  {
+   "case_id": "CTL-12",
+   "candidate_code": "contradictory",
+   "clear_breach_of_a_provision": null,
+   "technical_failures": 0,
+   "validated": true,
+   "reference_status": "unresolved",
+   "reference_rationale": "Sam fragment nie pozwala ustalić przesłanek abuzywności, w tym indywidualnego uzgodnienia i rażącego naruszenia interesów konsumenta; wyjaśnienie tylko powtarza przesłanki przepisu.",
+   "classification": {
+    "reference": "unresolved",
+    "judge": "unresolved",
+    "agrees": true
+   },
+   "legal_basis": {
+    "reference": "unresolved",
+    "judge": "unsupported",
+    "agrees": false
+   },
+   "explanation": {
+    "reference": "unresolved",
+    "judge": "unsupported",
+    "agrees": false
+   },
+   "judge_status": "incorrect",
+   "judge_rationale": "Art. 385[1] określa przesłanki abuzywności, lecz pakiet nie wykazuje, że postanowienie nie zostało indywidualnie uzgodnione ani że rzeczywiście narusza dobre obyczaje i interesy konsumenta w wymaganym stopniu. Dlatego sprzeczności nie można rozstrzygnąć, a wskazana podstawa i wyjaśnienie nie wystarczają do poparcia kategorycznego wniosku.",
+   "agrees": false,
+   "key_matches": {
+    "reference": [],
+    "judge": [],
+    "agrees": true
+   },
+   "false_reassurance": false
+  }
+ ]
+}

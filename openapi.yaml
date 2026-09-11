@@ -1,0 +1,1244 @@
+openapi: 3.1.0
+info:
+  title: Contract analyzer API
+  version: 1.0.0
+  description: |
+    Wire contract for the three-arm Polish contract analysis artefact.
+
+    OWNERSHIP: this document owns the wire contract.
+    tests/backend/test_api.py::test_openapi_conformance asserts that the FastAPI-generated
+    schema conforms to this file; drift is a test failure, not a runtime surprise.
+
+    DERIVED FROM: src/contract_analyzer/domain.py (frozen records and enums). Response
+    schemas mirror the domain records; they are not invented here.
+
+    THE THREE ARMS differ only in the call-unit constructor. Model, prompts, corpus,
+    tools, retry policy, concurrency and budgets are identical across arms. A client must
+    not present the arms as ordinal or as quality levels.
+
+    PRIVACY BOUNDARY: document text lives only in process memory under an opaque document
+    session and is purged on delete, session expiry, or process exit. After purge, metadata
+    and metrics remain readable while content and chat return 410. SSE events never carry
+    document or corpus text.
+
+    WHERE THE ARCHITECTURE IS SILENT this document decides:
+      * limit_breach maps to 413, not 422: 422 is for "malformed or empty" content,
+        and a breach is neither.
+      * missing_tool maps to 503: a missing converter or OCR data is a dependency failure
+        that readiness already gates, not a defect in the submitted file.
+      * conversion_failed and ocr_failed map to 422: the input cannot be canonicalised.
+
+servers:
+  - url: /api/v1
+
+tags:
+  - name: documents
+    description: Upload, read and purge ephemeral document content.
+  - name: runs
+    description: Start, observe and cancel a single-arm analysis.
+  - name: chat
+    description: Grounded explanation in an immutable, unmeasured child run.
+  - name: interactions
+    description: Retained worksheet access.
+  - name: meta
+    description: Frozen public configuration and health.
+
+paths:
+  /documents:
+    post:
+      tags: [documents]
+      summary: Upload and ingest one document
+      description: |
+        Ingests TXT, DOCX, DOC or PDF once into canonical text, anchors and reference
+        records. All arms reuse these exact objects. PDF read mode is a whole-document
+        decision; native and OCR pages are never mixed.
+
+        Format is chosen by the filename extension of the multipart part (.txt, .docx,
+        .doc, .pdf), not by media type. The filename is significant. One exception: a
+        .doc part whose first bytes are a ZIP local file header is read as .docx. No
+        other extension is read by content.
+
+        The client must state, before the first run, that OCR runs in-process, that
+        retrieval sends model-chosen search phrases, which may contain document
+        excerpts, to an external embedding provider, and that the selected document
+        text is sent to the model provider for analysis.
+      operationId: uploadDocument
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Ingested.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DocumentDescriptor' }
+        '413': { $ref: '#/components/responses/LimitBreach' }
+        '415': { $ref: '#/components/responses/UnsupportedInput' }
+        '422': { $ref: '#/components/responses/UnprocessableInput' }
+        '503': { $ref: '#/components/responses/DependencyUnavailable' }
+
+  /documents/{documentId}:
+    delete:
+      tags: [documents]
+      summary: Purge a document session
+      description: |
+        Erases the document: upload bytes, canonical text and chat context, and with
+        them every run of that document, its findings and its attempts. A finding
+        carries the offsets, boxes and legal locators saying where in the contract the
+        system looked, so an erasure control that kept them would mean "forget the
+        text" rather than what it says. Every task reading the document is cancelled
+        first -- analyses, and the routing and explaining calls a chat message starts,
+        which hold the session and carry its text in their grounding -- so nothing goes
+        on working over material the reader has been told is gone, and nothing files
+        findings against records being removed. The browser sends this best-effort on
+        close.
+
+        Idempotent: a document the process no longer holds is already purged, so the
+        response is 204 whether or not it was there. Retention sweeps and restarts drop
+        the text while a browser tab still names it, and an erasure control must not
+        report failure in exactly that case.
+
+        Refused only while the final evaluation batch is sealed, when the records this
+        would erase are the measurement in progress.
+      operationId: deleteDocument
+      parameters: [{ $ref: '#/components/parameters/DocumentId' }]
+      responses:
+        '204': { description: Erased, or already absent. }
+        '409':
+          description: |
+            The final evaluation batch is sealed, so the runs this would erase are
+            the measurement in progress (evaluation_batch_open).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '422': { $ref: '#/components/responses/InvalidRequest' }
+
+  /documents/{documentId}/content:
+    get:
+      tags: [documents]
+      summary: Ephemeral canonical blocks and anchors
+      description: |
+        Returns canonical text blocks and their anchors for rendering. TXT and Word inputs
+        render these blocks. For PDF the original file stays in the browser as a local File
+        object; PDF.js renders it and uses the returned boxes for overlays. The server does
+        not claim converted Word text preserves page layout.
+      operationId: getDocumentContent
+      parameters: [{ $ref: '#/components/parameters/DocumentId' }]
+      responses:
+        '200':
+          description: Canonical content.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DocumentContent' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/InvalidRequest' }
+        '410': { $ref: '#/components/responses/ContentExpired' }
+
+  /runs:
+    post:
+      tags: [runs]
+      summary: Start one arm
+      description: |
+        Every arm accepts every document. ON supplies resolved internal-reference
+        context where the document has any; where it has none the run is
+        byte-identical to MID, which is a real experimental condition rather than an
+        error. context_edge_count on the run record says which of the two happened.
+      operationId: createRun
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [document_id, arm]
+              properties:
+                document_id: { type: string, format: uuid }
+                arm: { $ref: '#/components/schemas/ArmCode' }
+      responses:
+        '202':
+          description: Accepted; poll the run or subscribe to its events.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Run' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/InvalidRequest' }
+        '409':
+          description: |
+            Runs are concurrent by default. While the final evaluation batch is
+            open the installation admits one active run (run_already_active).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '410': { $ref: '#/components/responses/ContentExpired' }
+        '503': { $ref: '#/components/responses/DependencyUnavailable' }
+
+  /runs/{runId}:
+    get:
+      tags: [runs]
+      summary: Run status, findings, telemetry and content availability
+      operationId: getRun
+      parameters: [{ $ref: '#/components/parameters/RunId' }]
+      responses:
+        '200':
+          description: Run state.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Run' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/InvalidRequest' }
+
+  /runs/{runId}/cancel:
+    post:
+      tags: [runs]
+      summary: Request a stop
+      description: |
+        Cancellation is a request. Attempt costs already incurred are retained, and units
+        without a terminal finding become not_processed.
+      operationId: cancelRun
+      parameters: [{ $ref: '#/components/parameters/RunId' }]
+      responses:
+        '202':
+          description: Cancellation requested.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Run' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/InvalidRequest' }
+        '409':
+          description: Run already terminal.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+
+  /runs/{runId}/events:
+    get:
+      tags: [runs]
+      summary: Server-sent event stream of status, counters and finding IDs
+      description: |
+        Events carry status, counters and finding IDs only. They never carry document or
+        corpus text. Durable replay is not promised: on reconnect, fall back to GET
+        /runs/{runId} for authoritative state.
+
+        The server adds run_id at serialisation time; it is not a field of RunEvent
+        in the codebase.
+      operationId: streamRunEvents
+      parameters: [{ $ref: '#/components/parameters/RunId' }]
+      responses:
+        '200':
+          description: |
+            An event stream. Each event is one RunEvent as JSON in the data field.
+            The server injects run_id into each serialised event.
+          content:
+            text/event-stream:
+              schema: { $ref: '#/components/schemas/RunEvent' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/InvalidRequest' }
+
+  /runs/{runId}/message:
+    post:
+      tags: [chat]
+      summary: Send one reader message and let the system decide what it asks for
+      description: |
+        One composer, one send. The reader writes a message against a completed run and
+        the system reads what it asks for rather than making the reader choose: a
+        question about the analysis (ask), an objection to one finding (contest), or a
+        request to analyse one unit again (analyse). Routing is a single model call with
+        one commit tool and no corpus access, recorded as its own unmeasured route child
+        run; the interaction it selects then starts exactly as if it had been chosen by
+        hand, so a message costs one routing run plus the run of whatever it selected.
+
+        The router chooses targets only from identifiers the parent run already holds. An
+        ask that names no finding is scoped to every finding on the run, which is what
+        lets the reader ask about the analysis as a whole. A message the router cannot
+        read commits nothing and returns message_not_routable rather than being answered
+        as a question anyway.
+      operationId: sendMessage
+      parameters: [{ $ref: '#/components/parameters/RunId' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [message]
+              properties:
+                message: { type: string, minLength: 1, maxLength: 2000 }
+                history:
+                  type: array
+                  maxItems: 20
+                  description: >-
+                    Bounded client-held history, used to resolve what the message refers to.
+                    The router reads all of it for every intent, because "zakwestionuj to"
+                    names its target only through the turns before it; the explainer, when the
+                    message routes to ask, reads the trailing six turns.
+                  items:
+                    type: object
+                    required: [role, content]
+                    properties:
+                      role: { type: string, enum: [user, assistant] }
+                      content: { type: string }
+      responses:
+        '200':
+          description: >
+            What the message turned out to be. Exactly one of answer and run is present:
+            answer for ask, run for the child run a contest or analyse started.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [intent]
+                properties:
+                  intent: { type: string, enum: [ask, contest, analyse] }
+                  answer: { $ref: '#/components/schemas/ChatResponse' }
+                  run: { $ref: '#/components/schemas/Run' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409':
+          description: >
+            Parent unfinished, or the final evaluation batch is open. Reader
+            messages are not serialised against other work: the batch seal is
+            what keeps a measured run alone.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '410': { $ref: '#/components/responses/ContentExpired' }
+        '422':
+          description: |
+            The router committed no reading (message_not_routable), or the selected
+            explanation left the run's findings.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '503': { $ref: '#/components/responses/DependencyUnavailable' }
+
+  /runs/{runId}/worksheet:
+    get:
+      tags: [interactions]
+      summary: Read retained worksheets
+      operationId: getWorksheet
+      parameters: [{ $ref: '#/components/parameters/RunId' }]
+      responses:
+        '200':
+          description: >
+            Stored worksheet entries in unit and entry order. The list is empty for
+            a run that analyses no unit, which is every ask child.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/WorksheetResponse' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409':
+          description: >
+            The final evaluation batch is open, or the run is still working and has
+            not written its worksheets yet (run_not_finished).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '410':
+          description: >
+            The retention window closed, and only that: the document text or the
+            worksheets themselves are gone.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '422': { $ref: '#/components/responses/InvalidRequest' }
+
+  /config:
+    get:
+      tags: [meta]
+      summary: Frozen public configuration, without secrets
+      operationId: getConfig
+      responses:
+        '200':
+          description: Public configuration.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PublicConfig' }
+
+  /health/live:
+    get:
+      tags: [meta]
+      summary: Liveness
+      operationId: healthLive
+      responses:
+        '200':
+          description: Process is alive.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: { status: { type: string, enum: [ok] } }
+
+  /health/ready:
+    get:
+      tags: [meta]
+      summary: Readiness
+      description: |
+        Fails when the corpus is absent or fails its integrity check, the Polish OCR data
+        is missing, the .doc converter is unavailable, or a required provider credential
+        is not configured. `model_credential` and `embedding_credential` report only that
+        a key is set where one is needed; neither provider is contacted to answer them.
+        `corpus` is not free in the same way: it compares the vector space the embedding
+        service encodes in against a probe the build recorded, which costs one embedding
+        call the first time a process is polled and nothing on later polls. The credential
+        is checked first, so a deployment without a key is told that rather than paying a
+        request to find out. A run cannot start while readiness fails.
+      operationId: healthReady
+      responses:
+        '200':
+          description: Ready.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Readiness' }
+        '503':
+          description: Not ready; each failing dependency is named.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Readiness' }
+
+components:
+  parameters:
+    DocumentId:
+      name: documentId
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+    RunId:
+      name: runId
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+
+  responses:
+    NotFound:
+      description: No such resource.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    ContentExpired:
+      description: |
+        Content was purged by deletion, session expiry or process exit. Metadata and arm
+        metrics for past runs remain readable.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    UnsupportedInput:
+      description: |
+        Unsupported file extension. Format is chosen by the filename extension of the
+        multipart part (.txt, .docx, .doc, .pdf), not by media type.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    UnprocessableInput:
+      description: Empty, corrupt, or not canonicalisable.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    InvalidRequest:
+      description: |
+        The request body or a path parameter failed validation. Every 422 on this API
+        carries the Error schema: a RequestValidationError handler replaces FastAPI's
+        default body so one status never carries two shapes, and the submitted value is
+        never echoed back.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    LimitBreach:
+      description: Input exceeds a configured, frozen bound.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    DependencyUnavailable:
+      description: A required local dependency is unavailable.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+
+  schemas:
+    Error:
+      type: object
+      required: [code, message_pl]
+      description: |
+        Stable machine code plus Polish user text. The code is for the client; the text is
+        for the person. Never contains document content.
+      properties:
+        code: { $ref: '#/components/schemas/ErrorCode' }
+        message_pl: { type: string }
+        detail:
+          type: object
+          additionalProperties: true
+          description: Bounded structured context. Never document or corpus text.
+
+    ErrorCode:
+      type: string
+      description: |
+        Ingestion codes (unsupported_input through ocr_failed) are raised by ingest.py.
+        Structure codes (empty_document, invalid_window, no_units) are raised by
+        structure.py. Model-client codes (model_transport_error through
+        model_response_schema_invalid) and the call-level budget_exhausted code are
+        raised by the model client, under the attempt policy it applies. model_http_error is
+        the finite representation of the dynamic model_http_<status> family; the actual
+        HTTP status is carried in the error detail object as http_status (integer).
+        model_identity_changed and process_restarted are raised by the storage layer.
+        chat_citation_unknown is raised when chat cites a finding ID
+        absent from the run. evidence_locator_unknown is raised when
+        characterisation cites an evidence locator absent from the frozen corpus.
+        unit_graph_recursion_exceeded records a unit cycle that exceeded its derived
+        scheduler bound.
+
+        Server-layer codes (content_expired, not_found, run_already_active,
+        run_not_finished, run_already_terminal, evaluation_batch_open,
+        invalid_request, internal_error, dependency_unavailable) are raised by the server.
+        invalid_request is any request-validation failure.
+        internal_error is a defect in this server and is deliberately distinct from
+        dependency_unavailable, which states that an external dependency is down: every
+        operation can return 500 with the Error schema, and it is not declared per
+        operation. dependency_unavailable is also recorded as a failed run's error
+        code when the embedding service fails while that run is
+        retrieving candidates: the run stops because a dependency went away, not because
+        the server is defective. out_of_scope
+        is raised when chat is asked to leave the explanation scope.
+        message_not_routable is raised when the router commits no reading of a reader
+        message: routing is one call with one commit tool and no corpus access, so
+        silence there is a model failure rather than a question to be answered anyway.
+
+        Corpus-build codes (e.g. manifest_fetch_failed, article_parse_failed) are
+        offline CLI only and deliberately excluded from this public enum.
+      enum:
+        # ingestion (ingest.py)
+        - unsupported_input
+        - empty_input
+        - corrupt_input
+        - limit_breach
+        - missing_tool
+        - conversion_failed
+        - ocr_failed
+        # structure (structure.py)
+        - empty_document
+        - invalid_window
+        - no_units
+        # model client
+        - model_transport_error
+        - model_response_invalid_envelope
+        - model_response_schema_invalid
+        - model_http_error
+        - model_identity_changed
+        # analysis pipeline (budget_exhausted originates in the model client)
+        - retrieval_query_empty
+        - unit_graph_recursion_exceeded
+        - budget_exhausted
+        - chat_citation_unknown
+        - evidence_locator_unknown
+        # storage
+        - process_restarted
+        # server layer
+        - content_expired
+        - not_found
+        - run_already_active
+        - run_not_finished
+        - run_already_terminal
+        - evaluation_batch_open
+        - out_of_scope
+        - message_not_routable
+        - invalid_request
+        - dependency_unavailable
+        - internal_error
+
+    ArmCode:
+      type: string
+      enum: ["off", "mid", "on"]
+      description: |
+        Mechanism names, not quality levels. The client labels are fixed:
+        OFF — cały dokument
+        MID — jednostki
+        ON — jednostki + odwołania
+
+    ReadMode:
+      type: string
+      enum: [native_pdf, ocr_pdf]
+
+    FindingCode:
+      type: string
+      enum:
+        - consistent
+        - contradictory
+        - permissible_departure
+        - no_relation
+        - no_basis_found
+        - basis_not_in_force
+        - unit_not_adjudicable
+        - not_processed
+        - uncertain
+
+    UncertainCause:
+      type: string
+      enum:
+        - relation_below_threshold
+        - force_state_undetermined
+        - provision_character_undetermined
+        - permitted_direction_undetermined
+        - departure_direction_undetermined
+
+    QuoteResolution:
+      type: string
+      enum:
+        - resolved
+        - quote_empty
+        - quote_fabricated
+        - quote_ambiguous
+
+    CounterName:
+      type: string
+      description: |
+        The counters a run emits. A free string here is what let the browser test double
+        drift to "units_processed" while the server emitted "processed_units" with nothing
+        to catch it; naming them makes a mismatch a generated-type error.
+      enum:
+        - processed_units
+
+    ReferenceType:
+      type: string
+      enum:
+        - full_internal
+        - relative_internal
+        - directional
+        - annex
+        - whole_document
+        - external_act
+
+    ReferenceStatus:
+      type: string
+      enum:
+        - resolved
+        - target_does_not_exist
+        - within_unit
+        - ambiguous_directional
+        - outside_input
+        - whole_document
+        - external_act
+
+    ReferenceRecord:
+      type: object
+      required: [citing_unit_id, reference_type, status, raw_text]
+      description: |
+        One cross-reference detected in a unit. Every unresolved status is retained.
+        Only resolved depth-one internal targets contribute graph context.
+      properties:
+        citing_unit_id: { type: string }
+        reference_type: { $ref: '#/components/schemas/ReferenceType' }
+        status: { $ref: '#/components/schemas/ReferenceStatus' }
+        raw_text: { type: string }
+        target_unit_id: { type: [string, 'null'] }
+
+    Prominence:
+      type: string
+      enum: [critical, warning, neutral]
+      description: |
+        Exactly two alert levels exist plus neutral detail. contradictory and
+        basis_not_in_force are critical. permissible_departure, uncertain and
+        unit_not_adjudicable are warnings. consistent, no_relation and no_basis_found are
+        neutral and MUST NOT receive a green tick, certification, or completeness wording.
+        not_processed uses a critical document-level banner plus per-unit warning markers.
+
+    AttemptStatus:
+      type: string
+      description: |
+        transport_error is the transport category. error_code distinguishes a provider
+        or network failure (model_transport_error) from cancellation at the remaining
+        run deadline (budget_exhausted).
+      enum:
+        - success
+        - transport_error
+        - http_error
+        - invalid_response
+        - model_identity_changed
+
+    SourceAnchor:
+      type: object
+      required: [start_offset, end_offset]
+      properties:
+        start_offset: { type: integer, minimum: 0 }
+        end_offset: { type: integer, minimum: 0 }
+        read_mode:
+          oneOf:
+            - { $ref: '#/components/schemas/ReadMode' }
+            - { type: 'null' }
+        block_id: { type: [string, 'null'] }
+        line_start: { type: [integer, 'null'] }
+        line_end: { type: [integer, 'null'] }
+        page: { type: [integer, 'null'] }
+        bbox:
+          type: [array, 'null']
+          minItems: 4
+          maxItems: 4
+          items: { type: number }
+          description: |
+            PDF page points, top-left origin. Native and OCR anchors share this space;
+            OCR boxes are divided by the render scale before being reported.
+
+    ConversionProvenance:
+      type: object
+      required: [converter, converter_version, output_hash]
+      properties:
+        converter: { type: string }
+        converter_version: { type: string }
+        output_hash: { type: string }
+
+    DocumentDescriptor:
+      type: object
+      required: [id, content_hash, unit_count]
+      properties:
+        id: { type: string, format: uuid }
+        content_hash: { type: string }
+        read_mode:
+          oneOf:
+            - { $ref: '#/components/schemas/ReadMode' }
+            - { type: 'null' }
+        conversion:
+          oneOf:
+            - { $ref: '#/components/schemas/ConversionProvenance' }
+            - { type: 'null' }
+        unit_count: { type: integer, minimum: 0 }
+        expires_at:
+          type: [string, 'null']
+          format: date-time
+          description: Bounded session expiry. After this, content returns 410.
+
+    DocumentContent:
+      type: object
+      required: [document_id, blocks, units, references]
+      properties:
+        document_id: { type: string, format: uuid }
+        read_mode:
+          oneOf:
+            - { $ref: '#/components/schemas/ReadMode' }
+            - { type: 'null' }
+        blocks:
+          type: array
+          items:
+            type: object
+            required: [id, text, anchor]
+            properties:
+              id:
+                type: string
+                description: >
+                  Stable within one document. Readers that name their blocks keep
+                  the name; the rest are addressed by position. A finding's
+                  block_id refers to this.
+              text: { type: string }
+              anchor: { $ref: '#/components/schemas/SourceAnchor' }
+        units:
+          type: array
+          items: { $ref: '#/components/schemas/Unit' }
+        references:
+          type: array
+          description: |
+            Cross-references detected across all units. The ON arm uses resolved
+            references for graph context; all statuses are retained.
+          items: { $ref: '#/components/schemas/ReferenceRecord' }
+
+    Unit:
+      type: object
+      required: [id, text, anchor]
+      properties:
+        id: { type: string }
+        text: { type: string }
+        anchor: { $ref: '#/components/schemas/SourceAnchor' }
+
+    LegalBasisReference:
+      type: object
+      required:
+        [provision_locator, act_identifier, act_force, provision_force,
+         character_kind]
+      description: |
+        An ADMITTED legal basis, persisted with the finding and returned for stored
+        runs as well as live ones. A rejected retrieval candidate is never presented
+        here (RF-05 v1.4): a candidate vetoed by its provision record is reported by
+        the finding code basis_not_in_force and its entry in legal_locators.
+
+        Both force records travel together and are never collapsed into one.
+        act_force is what admits; provision_force can only veto, is undetermined in
+        the ordinary case, and is carried through here because a consumer may not
+        read act-scope force as provision-scope force.
+      properties:
+        provision_locator: { type: string }
+        act_identifier: { type: string }
+        act_force: { $ref: '#/components/schemas/ForceState' }
+        provision_force: { $ref: '#/components/schemas/ForceState' }
+        character_kind:
+          type: string
+          enum: [imperative, dispositive, semi_imperative, undetermined]
+
+    ForceState:
+      type: object
+      required: [value, scope, snapshot_date, source_locator]
+      description: |
+        Official-source force observation with scope and provenance. On an admitted
+        legal basis, act_force is scope act and value in_force, while provision_force
+        is scope provision and never in_force -- a consolidated text cannot establish
+        that a provision is in force, only that it carries an editorial repeal marker.
+      properties:
+        value:
+          type: string
+          enum: [in_force, not_in_force, undetermined]
+        scope:
+          type: string
+          enum: [act, provision]
+        snapshot_date: { type: string, format: date }
+        source_locator: { type: string }
+
+    Finding:
+      type: object
+      required: [id, unit_id, code, prominence]
+      description: |
+        One finding for one unit. An Uncertain finding carries exactly one cause and its
+        raw_confidence. Other codes carry neither a cause nor a raw confidence.
+
+        When anchor_resolved is false, the anchor property is OMITTED — not null, not
+        partial. The client must state plainly that the anchor could not be resolved and
+        MUST NOT approximate a position.
+
+        After persistence, only start_offset, end_offset, page and bbox survive from
+        the anchor. basis is persisted with the finding and survives a reload, but it
+        is present ONLY where a retrieval candidate was admitted; legal_locators is a
+        tuple of locator strings and is what carries a vetoed or merely cleared
+        candidate, which never appears as a basis.
+      properties:
+        id: { type: string }
+        unit_id: { type: string }
+        code: { $ref: '#/components/schemas/FindingCode' }
+        prominence: { $ref: '#/components/schemas/Prominence' }
+        uncertain_cause:
+          oneOf:
+            - { $ref: '#/components/schemas/UncertainCause' }
+            - { type: 'null' }
+        raw_confidence: { type: [number, 'null'], minimum: 0, maximum: 1 }
+        anchor:
+          oneOf:
+            - { $ref: '#/components/schemas/SourceAnchor' }
+            - { type: 'null' }
+          description: |
+            OMITTED (not null) when anchor_resolved is false. Only start_offset,
+            end_offset, page and bbox survive persistence.
+        anchor_resolved:
+          type: boolean
+          description: |
+            False means the anchor could not be resolved. The client must say so plainly in
+            the findings pane and MUST NOT approximate a position.
+        block_id:
+          type: [string, 'null']
+          description: >
+            The block of GET /documents/{id}/content this finding sits in, decided
+            by the server so the client does not decide it a second way. A finding
+            belongs to the block containing the start of its resolved anchor, and
+            to exactly one; a finding with no resolved anchor, and any finding read
+            after the document's retention window closes, carries null and must not
+            be placed anywhere.
+        quote_resolution:
+          oneOf:
+            - { $ref: '#/components/schemas/QuoteResolution' }
+            - { type: 'null' }
+          description: |
+            Outcome of resolving the model's citation quote against the source
+            text. Null means resolution was never attempted for this finding --
+            distinct from quote_empty, which means the model returned no quote.
+        basis:
+          oneOf:
+            - { $ref: '#/components/schemas/LegalBasisReference' }
+            - { type: 'null' }
+          description: |
+            The ADMITTED legal basis. Persisted with the finding (FindingRecord.basis,
+            stored as basis_json) and returned for stored runs as well as live ones.
+            Null wherever no candidate was admitted -- including a candidate vetoed by
+            its provision record, which RF-05 v1.4 forbids presenting as a basis.
+        legal_locators:
+          type: array
+          items: { type: string }
+          description: |
+            Persisted locator strings for every candidate that cleared retrieval,
+            whether or not one was admitted. This is what carries a vetoed candidate,
+            reported alongside the basis_not_in_force finding code. It is not a
+            fallback for basis: both can be present on the same finding.
+
+    SynthesisGroup:
+      type: object
+      required: [title, summary, finding_ids]
+      properties:
+        title: { type: string }
+        summary: { type: string }
+        finding_ids:
+          type: array
+          items: { type: string }
+          description: >-
+            Identifiers of findings on this same run. A grouping citing anything else is
+            refused as an unusable model response, so each one resolves against findings.
+
+    RunStatus:
+      type: string
+      enum: [running, completed, failed, cancelled]
+
+    EventKind:
+      type: string
+      enum: [status, counter, finding, worksheet]
+
+    AttemptTelemetry:
+      type: object
+      required:
+        - id
+        - requested_model
+        - prompt_version
+        - temperature
+        - parameters
+        - input_tokens
+        - output_tokens
+        - latency_ms
+        - status
+        - retry_number
+        - prompt_hash
+      description: |
+        Per-attempt record. Prompt and response bodies are never persisted or returned.
+      properties:
+        id: { type: string, format: uuid }
+        requested_model: { type: string }
+        returned_model: { type: [string, 'null'] }
+        prompt_version: { type: string }
+        temperature: { type: number }
+        unit_id:
+          type: [string, 'null']
+          description: >
+            Which call unit spent this attempt. Null for run-level tasks -- the
+            synthesis, the explainer and the question it delegates -- and for any
+            attempt recorded before the field existed. It carries no document text,
+            only the identifier the findings already use.
+        parameters:
+          type: object
+          additionalProperties: true
+        input_tokens: { type: integer }
+        output_tokens: { type: integer }
+        latency_ms: { type: number }
+        status: { $ref: '#/components/schemas/AttemptStatus' }
+        retry_number: { type: integer }
+        error_code: { type: [string, 'null'] }
+        prompt_hash: { type: string }
+        response_hash: { type: [string, 'null'] }
+
+    CostRecord:
+      type: object
+      required: [monetary_cost_microunits, unknown_reason]
+      description: |
+        Monetary cost derived from a date-pinned price table. When no auditable table is
+        available, monetary_cost_microunits is null and unknown_reason carries a machine
+        code (not user prose — a client must not print it raw). When cost is known,
+        price_table_date and price_table_hash carry the provenance.
+      properties:
+        monetary_cost_microunits: { type: [integer, 'null'] }
+        price_table_date: { type: [string, 'null'], format: date }
+        price_table_hash: { type: [string, 'null'] }
+        unknown_reason:
+          type: [string, 'null']
+          description: |
+            Machine code validated by the storage layer. A client must not print it raw.
+
+    RunMetrics:
+      type: object
+      required:
+        - input_tokens
+        - output_tokens
+        - elapsed_ms
+        - units_total
+        - units_with_finding
+        - units_not_processed
+        - context_edge_count
+        - cost
+        - attempts
+      properties:
+        input_tokens: { type: integer }
+        output_tokens: { type: integer }
+        elapsed_ms: { type: number }
+        units_total: { type: integer }
+        units_with_finding: { type: integer }
+        units_not_processed:
+          type: integer
+          description: Exact count behind the interruption banner.
+        context_edge_count:
+          type: integer
+          nullable: true
+          description: >-
+            Resolved internal-reference edges the arm actually supplied as context.
+            Always 0 for OFF and MID, which are not given any; for ON it separates a
+            run that received context from one that ran with none because the
+            document had none. Null for a run recorded before the count existed.
+        finder_tool_turns: { type: [integer, 'null'] }
+        finder_search_calls: { type: [integer, 'null'] }
+        retrieval_cache_hits:
+          type: [integer, 'null']
+          description: >
+            Requests served from the run's own retrieval cache instead of the
+            corpus. The cache is keyed on the normalised phrase, document and corpus
+            snapshot and lives only inside one run. It is a lower bound on repeated
+            phrases and not a measure of repetition: two call units issuing the same
+            phrase at once both miss, and different raw phrases can normalise to one
+            key. Null for a run recorded before the count existed.
+        finder_budget_exhausted_units: { type: [integer, 'null'] }
+        verifier_tool_turns: { type: [integer, 'null'] }
+        provision_reads: { type: [integer, 'null'] }
+        defaulted_characterisations:
+          type: [integer, 'null']
+          description: >
+            Provisions the analyst could not characterise within its turn cap,
+            which the system closed with an undetermined character and the
+            reason unusable_model_answer. Distinguishes a contained failure
+            from a characterisation the analyst genuinely could not settle.
+        cost: { $ref: '#/components/schemas/CostRecord' }
+        attempts:
+          type: array
+          items: { $ref: '#/components/schemas/AttemptTelemetry' }
+
+    Run:
+      type: object
+      required:
+        - id
+        - document_id
+        - arm
+        - status
+        - measurement_valid
+        - content_available
+        - findings
+        - metrics
+      properties:
+        id: { type: string, format: uuid }
+        document_id: { type: string, format: uuid }
+        arm: { $ref: '#/components/schemas/ArmCode' }
+        status: { $ref: '#/components/schemas/RunStatus' }
+        measurement_valid:
+          type: boolean
+          description: False for demo-mode runs and for any run whose parity is broken.
+        parent_run_id: { type: [string, 'null'], format: uuid }
+        interaction:
+          oneOf:
+            - { type: string, enum: [ask, contest, analyse] }
+            - { type: 'null' }
+        interrupted:
+          type: boolean
+          description: |
+            True when a budget boundary was crossed. The client shows a critical
+            document-level banner with units_not_processed.
+        interruption_reason:
+          oneOf:
+            - type: string
+              enum: [wall_time]
+            - type: 'null'
+          description: Persisted boundary that caused an interrupted run.
+        content_available:
+          type: boolean
+          description: False once the document session is purged; content and chat return 410.
+        requested_model: { type: string }
+        returned_model: { type: [string, 'null'] }
+        input_hash: { type: string }
+        prompt_bundle_version: { type: string }
+        corpus_snapshot_id: { type: string }
+        config_version: { type: string }
+        tool_bundle_version: { type: string }
+        parameters:
+          type: object
+          additionalProperties: true
+        retry_policy: { type: string }
+        concurrency: { type: integer }
+        wall_budget_seconds: { type: number }
+        created_at: { type: string, format: date-time }
+        finished_at: { type: [string, 'null'], format: date-time }
+        error:
+          oneOf:
+            - { $ref: '#/components/schemas/Error' }
+            - { type: 'null' }
+        findings:
+          type: array
+          items: { $ref: '#/components/schemas/Finding' }
+        synthesis:
+          oneOf:
+            - type: array
+              items: { $ref: '#/components/schemas/SynthesisGroup' }
+            - type: 'null'
+          description: >-
+            Themed grouping of this run's findings, produced by the synthesis role and
+            held for the same retention window as the document text. Null before the
+            role has run, once the window closes, and on an installation that keeps no
+            document text at all.
+        metrics:
+          oneOf:
+            - { $ref: '#/components/schemas/RunMetrics' }
+            - { type: 'null' }
+
+    RunEvent:
+      type: object
+      required: [kind]
+      description: |
+        Carries status, counters and finding IDs only. Never text. The server adds run_id
+        at serialisation; it is not a field of RunEvent in the codebase.
+      properties:
+        kind: { $ref: '#/components/schemas/EventKind' }
+        status:
+          type: [string, 'null']
+          description: Free snake_case status string (kind=status events only).
+        counter_name:
+          oneOf:
+            - { $ref: '#/components/schemas/CounterName' }
+            - { type: 'null' }
+          description: Which counter this event carries (kind=counter events only).
+        count:
+          type: [integer, 'null']
+          description: Counter value (kind=counter events only).
+        finding_id:
+          type: [string, 'null']
+          format: uuid
+          description: Finding UUID (kind=finding events only).
+        role:
+          type: [string, 'null']
+          description: >-
+            Which role wrote the worksheet entry (kind=worksheet events only): one of
+            researcher, analyst, verifier, user, system. Never what it wrote.
+        entry_kind:
+          type: [string, 'null']
+          description: Kind of worksheet entry appended (kind=worksheet events only).
+        unit_id:
+          type: [string, 'null']
+          description: Call unit the worksheet belongs to (kind=worksheet events only).
+
+    ChatResponse:
+      type: object
+      required: [answer, cited_finding_ids, interaction_run_id, corpus_consulted]
+      description: |
+        Explanation response. When a question is out of scope, the server returns 422
+        with error code out_of_scope rather than a ChatResponse; the client shows the
+        refusal text from that error rather than a substitute answer.
+      properties:
+        answer: { type: string }
+        cited_finding_ids:
+          type: array
+          items: { type: string }
+        interaction_run_id:
+          type: string
+          format: uuid
+          description: The unmeasured ask child this answer was recorded as.
+        corpus_consulted:
+          type: boolean
+          description: >
+            Whether the answer used the frozen corpus, through a direct provision
+            read or through the one question delegated to the researcher.
+
+    WorksheetResponse:
+      type: object
+      required: [run_id, units]
+      properties:
+        run_id: { type: string, format: uuid }
+        units:
+          type: array
+          items:
+            type: object
+            required: [unit_id, entries]
+            properties:
+              unit_id: { type: string }
+              entries:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+
+    PublicConfig:
+      type: object
+      required:
+        - model_request_id
+        - model_endpoint
+        - prompt_bundle_version
+        - corpus_snapshot
+        - embedding_model
+        - embedding_space_fingerprint
+        - corpus_source_format
+        - tool_bundle_version
+        - arms
+        - measured_mode
+        - limits
+      description: Frozen public configuration. Never contains secrets.
+      properties:
+        model_request_id: { type: string }
+        model_endpoint:
+          type: string
+          description: >
+            Host of the endpoint that answers a model call. The identifier does
+            not name it, and two endpoints serving one identifier do not serve
+            it identically, so a batch pins the host as well as the model. Host
+            only; the credential is never served.
+        prompt_bundle_version: { type: string }
+        corpus_snapshot: { type: string }
+        embedding_space_fingerprint:
+          type: string
+          description: >
+            A hash of the vector space this deployment declares it encodes in --
+            the model identifier, the vector width and the pinned upstream. The
+            model identifier alone names the model and not the space: two hosts
+            have served one identifier and returned vectors at cosine 0.52 to
+            each other, so a caller comparing runs needs to know whether the
+            space is the same one. This fingerprints the declaration, so it is
+            necessary and not sufficient; the probe vector recorded on the corpus
+            snapshot is what compares the space that actually answered.
+        corpus_source_format:
+          type: string
+          enum: [as_declared, fallback, unrecorded]
+          description: >
+            Whether every act in the served corpus was read from the source format its
+            manifest asked for. ELI serves an act's HTML and its PDF from separate
+            routes and the HTML has failed on its own, so a build may have fallen
+            back to the PDF. The two source formats cut an act into different units, so
+            a fallback corpus is servable but is not the corpus the manifest
+            describes. `unrecorded` is a snapshot built before the source formats were
+            recorded, which cannot answer the question and is therefore not an
+            assurance that it is clean.
+        tool_bundle_version:
+          type: string
+          description: >
+            The policy digest every run of this deployment records, served here so
+            a caller can tell before a run whether it faces the same tool surface
+            and bounds as the runs it will be compared against.
+        embedding_model: { type: string }
+        arms:
+          type: array
+          items: { $ref: '#/components/schemas/ArmCode' }
+        measured_mode: { type: boolean }
+        evaluation_batch_open: { type: boolean }
+        limits:
+          type: object
+          required: [max_input_bytes, max_pdf_pages, content_ttl_seconds]
+          properties:
+            max_input_bytes: { type: integer }
+            max_pdf_pages: { type: integer }
+            content_ttl_seconds: { type: integer }
+
+    Readiness:
+      type: object
+      required: [ready, dependencies]
+      properties:
+        ready: { type: boolean }
+        dependencies:
+          type: array
+          items:
+            type: object
+            required: [name, ok]
+            properties:
+              name:
+                type: string
+                enum:
+                  [
+                    corpus,
+                    embedding_credential,
+                    ocr_language_data,
+                    doc_converter,
+                    model_credential,
+                  ]
+              ok: { type: boolean }
+              detail: { type: string }

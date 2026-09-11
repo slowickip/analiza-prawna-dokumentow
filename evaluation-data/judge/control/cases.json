@@ -1,0 +1,709 @@
+{
+ "schema_version": 1,
+ "cases": [
+  {
+   "case_id": "CTL-01",
+   "payload": {
+    "document": {
+     "document_key": "CTL-A",
+     "text": "UMOWA POŻYCZKI KONSUMENCKIEJ (fragment)\n\n§ 5. 2. Spłata pożyczki przed terminem wymaga uprzedniej pisemnej zgody Kredytodawcy.\n"
+    },
+    "assessed_finding": {
+     "code": "consistent",
+     "span": {
+      "start": 49,
+      "end": 126
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Spłata pożyczki przed terminem wymaga uprzedniej pisemnej zgody Kredytodawcy.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=48"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Strony mogą uzgodnić tryb wcześniejszej spłaty, a wymóg zgody porządkuje rozliczenie."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-01-K01",
+      "issue": "Warunek zgody przy wcześniejszej spłacie",
+      "quote": "Spłata pożyczki przed terminem wymaga uprzedniej pisemnej zgody Kredytodawcy.",
+      "span": {
+       "start": 49,
+       "end": 126
+      },
+      "expected_answers": [
+       {
+        "code": "contradictory",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=48"
+        ],
+        "justification": "Prawo wcześniejszej spłaty przysługuje konsumentowi w każdym czasie."
+       }
+      ],
+      "justification": "Oceniane jest uzależnienie ustawowego prawa od zgody kredytodawcy.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=48",
+       "act_identifier": "DU/2025/1362",
+       "article_identifier": "Art. 48",
+       "text": "Art. 48. 1. Konsument ma prawo w każdym czasie do spłaty całości lub części kredytu przed terminem określonym\nw umowie.\n2. Kredytodawca nie może uzależnić wcześniejszej spłaty kredytu od jego poinformowania przez konsumenta."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  },
+  {
+   "case_id": "CTL-02",
+   "payload": {
+    "document": {
+     "document_key": "CTL-B",
+     "text": "REGULAMIN USŁUGI PŁATNICZEJ (fragment)\n\n§ 9. 1. Reklamację można złożyć w każdej placówce obsługującej klientów, na piśmie, pocztą elektroniczną, a także ustnie – telefonicznie albo do protokołu podczas wizyty.\n"
+    },
+    "assessed_finding": {
+     "code": "consistent",
+     "span": {
+      "start": 48,
+      "end": 210
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Reklamację można złożyć w każdej placówce obsługującej klientów, na piśmie, pocztą elektroniczną, a także ustnie – telefonicznie albo do protokołu podczas wizyty.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=3"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Wskazane kanały obejmują placówkę, formę pisemną, elektroniczną i ustną, w tym telefoniczną."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-02-K01",
+      "issue": "Dostępne sposoby złożenia reklamacji",
+      "quote": "Reklamację można złożyć w każdej placówce obsługującej klientów, na piśmie, pocztą elektroniczną, a także ustnie – telefonicznie albo do protokołu podczas wizyty.",
+      "span": {
+       "start": 48,
+       "end": 210
+      },
+      "expected_answers": [
+       {
+        "code": "consistent",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=3"
+        ],
+        "justification": "Zapis odtwarza ustawowe kanały składania reklamacji."
+       }
+      ],
+      "justification": "Oceniany jest zakres wskazanych sposobów złożenia reklamacji.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=3",
+       "act_identifier": "DU/2026/823",
+       "article_identifier": "Art. 3",
+       "text": "Art. 3. 1. Reklamacja może być złożona w każdej jednostce podmiotu rynku finansowego obsługującej klientów.\n2.6) Reklamacja może być złożona:\n1) na piśmie:\na) w postaci papierowej – osobiście w jednostce, o której mowa w ust. 1, albo wysłana przesyłką pocztową w rozu-\nmieniu art. 3 pkt 21 ustawy z dnia 23 listopada 2012 r. – Prawo pocztowe (Dz. U. z 2026 r. poz. 558), albo nadana\nw placówce podmiotu zajmującego się doręczaniem korespondencji na terenie Unii Europejskiej, albo\nb) w postaci elektronicznej – z wykorzystaniem środka komunikacji elektronicznej albo wysłana na adres do dorę-\nczeń elektronicznych, o którym mowa w art. 2 pkt 1 ustawy z dnia 18 listopada 2020 r. o doręczeniach elektro-\nnicznych (Dz. U. z 2026 r. poz. 3 i 507), wpisany do bazy adresów elektronicznych, o której mowa w art. 25 tej\nustawy;\n2) ustnie – telefonicznie albo osobiście do protokołu podczas wizyty klienta w jednostce, o której mowa w ust. 1."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  },
+  {
+   "case_id": "CTL-03",
+   "payload": {
+    "document": {
+     "document_key": "CTL-C",
+     "text": "UMOWA O ROBOTY WYKOŃCZENIOWE (fragment)\n\n§ 7. 4. Zastrzeżenie kary umownej nie wyłącza dochodzenia odszkodowania przewyższającego jej wysokość.\n"
+    },
+    "assessed_finding": {
+     "code": "contradictory",
+     "span": {
+      "start": 49,
+      "end": 143
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Zastrzeżenie kary umownej nie wyłącza dochodzenia odszkodowania przewyższającego jej wysokość.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=484"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Ustawa nie dopuszcza żądania odszkodowania ponad zastrzeżoną karę umowną."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-03-K01",
+      "issue": "Odszkodowanie ponad karę umowną",
+      "quote": "Zastrzeżenie kary umownej nie wyłącza dochodzenia odszkodowania przewyższającego jej wysokość.",
+      "span": {
+       "start": 49,
+       "end": 143
+      },
+      "expected_answers": [
+       {
+        "code": "permissible_departure",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=484"
+        ],
+        "justification": "Strony korzystają z ustawowej możliwości odmiennego postanowienia."
+       }
+      ],
+      "justification": "Oceniane jest odstępstwo od reguły domyślnej.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=484",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 484",
+       "text": "Art. 484. § 1. W razie niewykonania lub nienależytego wykonania zobowiązania kara umowna należy się wierzycie-\nlowi w zastrzeżonej na ten wypadek wysokości bez względu na wysokość poniesionej szkody. Żądanie odszkodowania\nprzenoszącego wysokość zastrzeżonej kary nie jest dopuszczalne, chyba że strony inaczej postanowiły.\n§ 2. Jeżeli zobowiązanie zostało w znacznej części wykonane, dłużnik może żądać zmniejszenia kary umownej; to\nsamo dotyczy wypadku, gdy kara umowna jest rażąco wygórowana."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  },
+  {
+   "case_id": "CTL-04",
+   "payload": {
+    "document": {
+     "document_key": "CTL-D",
+     "text": "UMOWA O WYKONANIE ILUSTRACJI (fragment)\n\n§ 4. 2. Twórca przenosi na Zamawiającego autorskie prawa osobiste do ilustracji i zrzeka się prawa do oznaczania ich swoim nazwiskiem.\n"
+    },
+    "assessed_finding": {
+     "code": "contradictory",
+     "span": {
+      "start": 49,
+      "end": 175
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Twórca przenosi na Zamawiającego autorskie prawa osobiste do ilustracji i zrzeka się prawa do oznaczania ich swoim nazwiskiem.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=16"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Autorskie prawa osobiste nie podlegają zbyciu ani zrzeczeniu się."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-04-K01",
+      "issue": "Przeniesienie autorskich praw osobistych",
+      "quote": "Twórca przenosi na Zamawiającego autorskie prawa osobiste do ilustracji i zrzeka się prawa do oznaczania ich swoim nazwiskiem.",
+      "span": {
+       "start": 49,
+       "end": 175
+      },
+      "expected_answers": [
+       {
+        "code": "contradictory",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=16"
+        ],
+        "justification": "Więź twórcy z utworem nie podlega zbyciu ani zrzeczeniu się."
+       }
+      ],
+      "justification": "Oceniana jest dopuszczalność przeniesienia i zrzeczenia się praw osobistych.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=16",
+       "act_identifier": "DU/2025/24",
+       "article_identifier": "Art. 16",
+       "text": "Art. 16. Jeżeli ustawa nie stanowi inaczej, autorskie prawa osobiste chronią nieograniczoną w czasie i niepodlegającą\nzrzeczeniu się lub zbyciu więź twórcy z utworem, a w szczególności prawo do:\n1) autorstwa utworu;\n2) oznaczenia utworu swoim nazwiskiem lub pseudonimem albo do udostępniania go anonimowo;\n3) nienaruszalności treści i formy utworu oraz jego rzetelnego wykorzystania;\n4) decydowania o pierwszym udostępnieniu utworu publiczności;\n5) nadzoru nad sposobem korzystania z utworu.\n9) Oznaczenie artykułu zmienione przez art. 1 pkt 3 ustawy, o której mowa w odnośniku 2.\nOddział 2\nAutorskie prawa majątkowe"
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  },
+  {
+   "case_id": "CTL-05",
+   "payload": {
+    "document": {
+     "document_key": "CTL-E",
+     "text": "UMOWA ZLECENIA (fragment)\n\n§ 2. 1. Zleceniobiorca wykonuje pracę pod kierownictwem Zleceniodawcy, w miejscu i w godzinach przez niego wyznaczonych, a strony nazywają tę umowę umową zlecenia.\n"
+    },
+    "assessed_finding": {
+     "code": "contradictory",
+     "span": {
+      "start": 35,
+      "end": 190
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Zleceniobiorca wykonuje pracę pod kierownictwem Zleceniodawcy, w miejscu i w godzinach przez niego wyznaczonych, a strony nazywają tę umowę umową zlecenia.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2025/277/text.pdf#article=22"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Artykuł 22 Kodeksu pracy zakazuje zatrudniania osób, które nie ukończyły osiemnastu lat, a strony nie zastrzegły tego warunku."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-05-K01",
+      "issue": "Nazwa umowy wobec warunków wykonywania pracy",
+      "quote": "Zleceniobiorca wykonuje pracę pod kierownictwem Zleceniodawcy, w miejscu i w godzinach przez niego wyznaczonych, a strony nazywają tę umowę umową zlecenia.",
+      "span": {
+       "start": 35,
+       "end": 190
+      },
+      "expected_answers": [
+       {
+        "code": "contradictory",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2025/277/text.pdf#article=22"
+        ],
+        "justification": "Zatrudnienie w takich warunkach jest zatrudnieniem na podstawie stosunku pracy bez względu na nazwę umowy."
+       }
+      ],
+      "justification": "Oceniany jest opis warunków wykonywania pracy wobec nazwy umowy.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2025/277/text.pdf#article=22",
+       "act_identifier": "DU/2025/277",
+       "article_identifier": "Art. 22",
+       "text": "Art. 22. § 1. Przez nawiązanie stosunku pracy pracownik zobowiązuje się do wykonywania pracy określonego rodzaju\nna rzecz pracodawcy i pod jego kierownictwem oraz w miejscu i czasie wyznaczonym przez pracodawcę, a pracodawca –\ndo zatrudniania pracownika za wynagrodzeniem.\n§ 1[1]. Zatrudnienie w warunkach określonych w § 1 jest zatrudnieniem na podstawie stosunku pracy, bez względu na\nnazwę zawartej przez strony umowy.\n§ 1[2]. Nie jest dopuszczalne zastąpienie umowy o pracę umową cywilnoprawną przy zachowaniu warunków wykony-\nwania pracy, określonych w § 1.\n§ 2. Pracownikiem może być osoba, która ukończyła 18 lat. Na warunkach określonych w dziale dziewiątym pracow-\nnikiem może być również osoba, która nie ukończyła 18 lat.\n§ 3. Osoba ograniczona w zdolności do czynności prawnych może bez zgody przedstawiciela ustawowego nawiązać\nstosunek pracy oraz dokonywać czynności prawnych, które dotyczą tego stosunku. Jednakże gdy stosunek pracy sprzeciwia się\ndobru tej osoby, przedstawiciel ustawowy za zezwoleniem sądu opiekuńczego może stosunek pracy rozwiązać."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  },
+  {
+   "case_id": "CTL-06",
+   "payload": {
+    "document": {
+     "document_key": "CTL-F",
+     "text": "UMOWA O WYKONANIE MAKIETY (fragment)\n\n§ 3. 3. Wynagrodzenie płatne jest w trzech częściach, po odbiorze każdego z trzech etapów prac.\n"
+    },
+    "assessed_finding": {
+     "code": "permissible_departure",
+     "span": {
+      "start": 46,
+      "end": 133
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Wynagrodzenie płatne jest w trzech częściach, po odbiorze każdego z trzech etapów prac.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=642"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Umowa przesuwa wymagalność wynagrodzenia z chwili oddania całości na odbiór kolejnych etapów."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=642",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 642",
+       "text": "Art. 642. § 1. W braku odmiennej umowy przyjmującemu zamówienie należy się wynagrodzenie w chwili oddania\ndzieła.\n§ 2. Jeżeli dzieło ma być oddawane częściami, a wynagrodzenie zostało obliczone za każdą część z osobna, wynagro-\ndzenie należy się z chwilą spełnienia każdego ze świadczeń częściowych."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  },
+  {
+   "case_id": "CTL-07",
+   "payload": {
+    "document": {
+     "document_key": "CTL-G",
+     "text": "UMOWA POŻYCZKI KONSUMENCKIEJ (fragment)\n\n§ 6. 5. W razie odstąpienia od umowy Kredytodawca zatrzymuje opłatę przygotowawczą w wysokości 400 zł tytułem poniesionych kosztów własnych.\n"
+    },
+    "assessed_finding": {
+     "code": "consistent",
+     "span": {
+      "start": 49,
+      "end": 181
+     },
+     "anchor_resolved": true,
+     "quoted_text": "W razie odstąpienia od umowy Kredytodawca zatrzymuje opłatę przygotowawczą w wysokości 400 zł tytułem poniesionych kosztów własnych.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=54"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Kredytodawca może zachować opłatę odpowiadającą realnie poniesionym kosztom."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-07-K01",
+      "issue": "Opłaty zatrzymywane po odstąpieniu",
+      "quote": "W razie odstąpienia od umowy Kredytodawca zatrzymuje opłatę przygotowawczą w wysokości 400 zł tytułem poniesionych kosztów własnych.",
+      "span": {
+       "start": 49,
+       "end": 181
+      },
+      "expected_answers": [
+       {
+        "code": "contradictory",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=54"
+        ],
+        "justification": "Po odstąpieniu kredytodawcy nie przysługują inne opłaty niż bezzwrotne koszty poniesione na rzecz organów administracji publicznej."
+       }
+      ],
+      "justification": "Oceniane jest zatrzymanie prywatnej opłaty po odstąpieniu.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=54",
+       "act_identifier": "DU/2025/1362",
+       "article_identifier": "Art. 54",
+       "text": "Art. 54. 1. Konsument nie ponosi kosztów związanych z odstąpieniem od umowy o kredyt konsumencki, z wyjątkiem\nodsetek za okres od dnia wypłaty kredytu do dnia spłaty kredytu.\n2. Konsument zwraca niezwłocznie kredytodawcy kwotę udostępnionego kredytu wraz z odsetkami, o których mowa\nw ust. 1, nie później niż w terminie 30 dni od dnia złożenia oświadczenia o odstąpieniu od umowy.\n3. Dniem spłaty kredytu jest dzień przekazania środków pieniężnych kredytodawcy przez konsumenta.\n4. W przypadku odstąpienia od umowy, o którym mowa w art. 53, kredytodawcy nie przysługują żadne inne opłaty,\nz wyjątkiem bezzwrotnych kosztów poniesionych przez niego na rzecz organów administracji publicznej."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  },
+  {
+   "case_id": "CTL-08",
+   "payload": {
+    "document": {
+     "document_key": "CTL-H",
+     "text": "UMOWA O PODZIALE KOSZTÓW REMONTU (fragment)\n\n§ 5. 1. Każdy ze współwłaścicieli może rozporządzać swoim udziałem we współwłasności bez zgody pozostałych.\n"
+    },
+    "assessed_finding": {
+     "code": "contradictory",
+     "span": {
+      "start": 53,
+      "end": 152
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Każdy ze współwłaścicieli może rozporządzać swoim udziałem we współwłasności bez zgody pozostałych.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=198"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Rozporządzenie udziałem we współwłasności wymaga zgody pozostałych współwłaścicieli."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-08-K01",
+      "issue": "Rozporządzanie udziałem we współwłasności",
+      "quote": "Każdy ze współwłaścicieli może rozporządzać swoim udziałem we współwłasności bez zgody pozostałych.",
+      "span": {
+       "start": 53,
+       "end": 152
+      },
+      "expected_answers": [
+       {
+        "code": "consistent",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=198"
+        ],
+        "justification": "Zapis powtarza ustawową swobodę rozporządzania udziałem."
+       }
+      ],
+      "justification": "Oceniana jest zgodność zapisu z regułą rozporządzania udziałem.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=198",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 198",
+       "text": "Art. 198. Każdy ze współwłaścicieli może rozporządzać swoim udziałem bez zgody pozostałych współwłaścicieli."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  },
+  {
+   "case_id": "CTL-09",
+   "payload": {
+    "document": {
+     "document_key": "CTL-I",
+     "text": "REGULAMIN ROZPATRYWANIA REKLAMACJI (fragment)\n\n§ 4. 1. Odpowiedzi na reklamację udziela się w terminie dziewięćdziesięciu dni od dnia jej otrzymania.\n"
+    },
+    "assessed_finding": {
+     "code": "contradictory",
+     "span": {
+      "start": 55,
+      "end": 149
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Odpowiedzi na reklamację udziela się w terminie dziewięćdziesięciu dni od dnia jej otrzymania.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=6"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Ustawowy termin odpowiedzi wynosi trzydzieści dni od otrzymania reklamacji."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-09-K01",
+      "issue": "Termin odpowiedzi na reklamację",
+      "quote": "Odpowiedzi na reklamację udziela się w terminie dziewięćdziesięciu dni od dnia jej otrzymania.",
+      "span": {
+       "start": 55,
+       "end": 149
+      },
+      "expected_answers": [
+       {
+        "code": "contradictory",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=6"
+        ],
+        "justification": "Termin ustawowy wynosi trzydzieści dni."
+       }
+      ],
+      "justification": "Oceniany jest zwykły termin odpowiedzi.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=6",
+       "act_identifier": "DU/2026/823",
+       "article_identifier": "Art. 6",
+       "text": "Art. 6. Odpowiedzi, o której mowa w art. 5 ust. 1, należy udzielić bez zbędnej zwłoki, jednak niepóźniej niż w termi-\nnie 30 dni od dnia otrzymania reklamacji. Do zachowania terminu wystarczy wysłanie odpowiedzi przed jego upływem."
+      }
+     ],
+     "cited_by_the_key": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=7",
+       "act_identifier": "DU/2026/823",
+       "article_identifier": "Art. 7",
+       "text": "Art. 7. W szczególnie skomplikowanych przypadkach, uniemożliwiających rozpatrzenie reklamacji i udzielenie odpo-\nwiedzi w terminie, o którym mowa w art. 6, podmiot rynku finansowego w informacji przekazywanej klientowi, który wy-\nstąpił z reklamacją:\n1) wyjaśnia przyczynę opóźnienia;\n2) wskazuje okoliczności, które muszą zostać ustalone dla rozpatrzenia sprawy;\n3) określa przewidywany termin rozpatrzenia reklamacji i udzielenia odpowiedzi, który nie może przekroczyć 60 dni\nod dnia otrzymania reklamacji."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "case_id": "CTL-10",
+   "payload": {
+    "document": {
+     "document_key": "CTL-J",
+     "text": "UMOWA KOOPERATYWY MIESZKANIOWEJ (fragment)\n\n§ 1. 1. Umowę określającą zasady współdziałania członków kooperatywy mieszkaniowej zawiera się w zwykłej formie pisemnej.\n"
+    },
+    "assessed_finding": {
+     "code": "contradictory",
+     "span": {
+      "start": 52,
+      "end": 165
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Umowę określającą zasady współdziałania członków kooperatywy mieszkaniowej zawiera się w zwykłej formie pisemnej.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=9"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Przepis nie pozwala na zawarcie tej umowy w zwykłej formie pisemnej."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-10-K01",
+      "issue": "Forma umowy kooperatywy mieszkaniowej",
+      "quote": "Umowę określającą zasady współdziałania członków kooperatywy mieszkaniowej zawiera się w zwykłej formie pisemnej.",
+      "span": {
+       "start": 52,
+       "end": 165
+      },
+      "expected_answers": [
+       {
+        "code": "contradictory",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=5"
+        ],
+        "justification": "Umowę zawiera się w formie aktu notarialnego."
+       }
+      ],
+      "justification": "Oceniana jest wymagana forma umowy.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=9",
+       "act_identifier": "DU/2025/9",
+       "article_identifier": "Art. 9",
+       "text": "Art. 9. 1. W przypadku gdy liczba stron umowy określającej zasady współdziałania członków kooperatywy mieszka-\nniowej zmniejszy się do dwóch, umowa wygasa po upływie sześciu miesięcy od dnia, w którym nastąpiło to zmniejszenie,\nchyba że przed upływem tego terminu liczba stron umowy zwiększy się do co najmniej trzech.\n2. W przypadku gdy do zmniejszenia liczby stron umowy określającej zasady współdziałania członków kooperatywy\nmieszkaniowej dojdzie w wyniku śmierci strony, przepisu ust. 1 nie stosuje się.\nDziennik Ustaw – 8 – Poz. 9"
+      }
+     ],
+     "cited_by_the_key": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=5",
+       "act_identifier": "DU/2025/9",
+       "article_identifier": "Art. 5",
+       "text": "Art. 5. 1. Zasady współdziałania członków kooperatywy mieszkaniowej określa:\n1) umowa kooperatywy mieszkaniowej albo\n2) umowa spółki cywilnej.\n2. Umowę określającą zasady współdziałania członków kooperatywy mieszkaniowej zawiera się w formie aktu nota-\nrialnego."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "case_id": "CTL-11",
+   "payload": {
+    "document": {
+     "document_key": "CTL-K",
+     "text": "UMOWA LICENCYJNA NA FOTOGRAFIE (fragment)\n\n§ 2. 1. Twórca udziela Licencjobiorcy licencji niewyłącznej na zwielokrotnianie fotografii techniką cyfrową na terytorium Polski przez okres dwóch lat.\n"
+    },
+    "assessed_finding": {
+     "code": "consistent",
+     "span": {
+      "start": 51,
+      "end": 194
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Twórca udziela Licencjobiorcy licencji niewyłącznej na zwielokrotnianie fotografii techniką cyfrową na terytorium Polski przez okres dwóch lat.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=67"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Umowa wskazuje pole eksploatacji, zakres, miejsce i czas korzystania oraz nie zastrzega wyłączności."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [
+     {
+      "item_id": "CTL-11-K01",
+      "issue": "Zakres licencji niewyłącznej",
+      "quote": "Twórca udziela Licencjobiorcy licencji niewyłącznej na zwielokrotnianie fotografii techniką cyfrową na terytorium Polski przez okres dwóch lat.",
+      "span": {
+       "start": 51,
+       "end": 194
+      },
+      "expected_answers": [
+       {
+        "code": "consistent",
+        "accepted_bases": [
+         "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=67"
+        ],
+        "justification": "Upoważnienie określa pole eksploatacji, zakres, miejsce i czas korzystania."
+       }
+      ],
+      "justification": "Oceniana jest konstrukcja udzielonej licencji.",
+      "source_references": []
+     }
+    ],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=67",
+       "act_identifier": "DU/2025/24",
+       "article_identifier": "Art. 67",
+       "text": "Art. 67. 1. Twórca może udzielić upoważnienia do korzystania z utworu na wymienionych w umowie polach eksploatacji\nz określeniem zakresu, miejsca i czasu tego korzystania.\n2. Jeżeli umowa nie zastrzega wyłączności korzystania z utworu w określony sposób (licencja wyłączna), udzielenie\nlicencji nie ogranicza udzielenia przez twórcę upoważnienia innym osobom do korzystania z utworu na tym samym polu\neksploatacji (licencja niewyłączna).\n3. Jeżeli umowa nie stanowi inaczej, licencjobiorca nie może upoważnić innej osoby do korzystania z utworu w zakresie\nuzyskanej licencji.\n4. Jeżeli umowa nie stanowi inaczej, uprawniony z licencji wyłącznej może dochodzić roszczeń z tytułu naruszenia\nautorskich praw majątkowych, w zakresie objętym umową licencyjną.\n5. Umowa licencyjna wyłączna wymaga zachowania formy pisemnej pod rygorem nieważności."
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  },
+  {
+   "case_id": "CTL-12",
+   "payload": {
+    "document": {
+     "document_key": "CTL-L",
+     "text": "UMOWA POŻYCZKI KONSUMENCKIEJ (fragment)\n\n§ 7. 2. Kredytodawca może wypowiedzieć umowę, jeżeli sytuacja majątkowa Pożyczkobiorcy pogorszy się w stopniu zagrażającym spłacie.\n"
+    },
+    "assessed_finding": {
+     "code": "contradictory",
+     "span": {
+      "start": 49,
+      "end": 172
+     },
+     "anchor_resolved": true,
+     "quoted_text": "Kredytodawca może wypowiedzieć umowę, jeżeli sytuacja majątkowa Pożyczkobiorcy pogorszy się w stopniu zagrażającym spłacie.",
+     "claimed_bases": [
+      "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=385(1)"
+     ],
+     "claimed_bases_absent_from_the_corpus": [],
+     "claimed_provision_character": null,
+     "explanation": "Postanowienie kształtuje prawa konsumenta sprzecznie z dobrymi obyczajami i rażąco narusza jego interesy."
+    },
+    "criteria_applicability": {
+     "legal_basis": "required",
+     "explanation": "required"
+    },
+    "key_items": [],
+    "provisions": {
+     "claimed_by_the_finding": [
+      {
+       "locator": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=385(1)",
+       "act_identifier": "DU/2026/795",
+       "article_identifier": "Art. 385(1)",
+       "text": "Art. 385[1]. § 1. Postanowienia umowy zawieranej z konsumentem nieuzgodnione indywidualnie nie wiążą go, jeżeli\nkształtują jego prawa i obowiązki w sposób sprzeczny z dobrymi obyczajami, rażąco naruszając jego interesy (niedozwolone\npostanowienia umowne). Nie dotyczy to postanowień określających główne świadczenia stron, w tym cenę lub wynagro-\ndzenie, jeżeli zostały sformułowane w sposób jednoznaczny.\n§ 2. Jeżeli postanowienie umowy zgodnie z § 1 nie wiąże konsumenta, strony są związane umową w pozostałym zakresie.\n§ 3. Nieuzgodnione indywidualnie są te postanowienia umowy, na których treść konsument nie miał rzeczywistego\nwpływu. W szczególności odnosi się to do postanowień umowy przejętych z wzorca umowy zaproponowanego konsumen-\ntowi przez kontrahenta.\n§ 4. Ciężar dowodu, że postanowienie zostało uzgodnione indywidualnie, spoczywa na tym, kto się na to powołuje.\nDziennik Ustaw – 39 – Poz. 795"
+      }
+     ],
+     "cited_by_the_key": []
+    }
+   }
+  }
+ ]
+}

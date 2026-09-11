@@ -1,0 +1,80 @@
+{
+ "purpose": "Expected answers for the five development cases, used to tune the judge prompt and criteria. Not human ratings and not a control sample.",
+ "note": "Development cases never enter the reported comparison and are disjoint from the control set.",
+ "source_provenance": [
+  {
+   "source_id": "KC",
+   "act_id": "DU/2026/795",
+   "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf",
+   "snapshot_date": "2026-05-19",
+   "sha256": "c341c7d96481f12a21e3b41deb69a84cab9322bd9888d3e6406dab9e09eeef91",
+   "verified": "fetched bytes hash to the pin recorded in answer-key.json"
+  },
+  {
+   "source_id": "UKK",
+   "act_id": "DU/2025/1362",
+   "url": "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf",
+   "snapshot_date": "2025-09-15",
+   "sha256": "5009f544acda0d4bbe325bfb73b6927410333326113cf1a9319443b8bff45bfc",
+   "verified": "fetched bytes hash to the pin recorded in answer-key.json"
+  }
+ ],
+ "expectations": [
+  {
+   "case_id": "DEV-01",
+   "kind": "correct_claim",
+   "expected_classification": "correct",
+   "expected_legal_basis": "supported",
+   "expected_explanation": "supported",
+   "expected_key_matches": [
+    "DEV-A-K01"
+   ],
+   "expected_overall": "correct",
+   "why": "Art. 483 § 1 pozwala zastrzec karę za niewykonanie zobowiązania niepieniężnego; kwota jest oznaczona."
+  },
+  {
+   "case_id": "DEV-02",
+   "kind": "wrong_classification",
+   "expected_classification": "incorrect",
+   "expected_legal_basis": "supported",
+   "expected_explanation": "unsupported",
+   "expected_key_matches": [
+    "DEV-B-K01"
+   ],
+   "expected_overall": "incorrect",
+   "why": "Właściwy artykuł, lecz art. 473 § 2 wprost unieważnia takie zastrzeżenie; kod consistent jest błędny. To także fałszywe uspokojenie."
+  },
+  {
+   "case_id": "DEV-03",
+   "kind": "right_article_wrong_explanation",
+   "expected_classification": "correct",
+   "expected_legal_basis": "supported",
+   "expected_explanation": "unsupported",
+   "expected_key_matches": [
+    "DEV-C-K01"
+   ],
+   "expected_overall": "incorrect",
+   "why": "Kod i artykuł są trafne, ale wyjaśnienie podaje trzydzieści dni od wypłaty; art. 53 ust. 1 mówi o czternastu dniach od zawarcia umowy. Właściwy artykuł z błędnym wyjaśnieniem nie daje pełnej poprawności."
+  },
+  {
+   "case_id": "DEV-04",
+   "kind": "correct_claim_outside_key",
+   "expected_classification": "correct",
+   "expected_legal_basis": "supported",
+   "expected_explanation": "supported",
+   "expected_key_matches": [],
+   "expected_overall": "correct",
+   "why": "Ustalenie jest trafne wobec art. 509 § 1, ale dotyczy innego postanowienia niż jedyna pozycja klucza. Brak dopasowania nie czyni go błędem i nie zwiększa mianownika kompletności."
+  },
+  {
+   "case_id": "DEV-05",
+   "kind": "genuine_ambiguity",
+   "expected_classification": "unresolved",
+   "expected_legal_basis": "unresolved",
+   "expected_explanation": "unresolved",
+   "expected_key_matches": [],
+   "expected_overall": "unresolved",
+   "why": "Przeprowadzenie szkoleń to świadczenie starannego działania, a przekazanie materiałów wskazuje na rezultat. Sam fragment nie pozwala wybrać między art. 627 a art. 750; oczekiwana jest ocena nierozstrzygnięta, nie słabsze potwierdzenie."
+  }
+ ]
+}

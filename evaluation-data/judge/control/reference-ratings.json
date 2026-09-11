@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "reviewer_type": "llm",
+  "reviewer": "GPT assistant",
+  "exact_model_identifier": null,
+  "purpose": "Source-based reference assessments for comparison with Sol control verdicts. These are not human ratings.",
+  "reference_context": "The reviewer saw the case construction summary and expected key entries, but no Sol control verdicts.",
+  "source_cases_sha256": "922a3666d8d9f6ab3faee942e21cfe9ec8048dc7147af67dac55df179370519b",
+  "ratings": [
+    {
+      "case_id": "CTL-01",
+      "classification": "incorrect",
+      "legal_basis": "incorrect",
+      "explanation": "incorrect",
+      "overall": "incorrect",
+      "matching_issue_ids": [
+        "CTL-01-K01"
+      ],
+      "clear_breach_of_a_provision": true,
+      "error_tag": "false_reassurance",
+      "rationale": "Wymóg zgody ogranicza prawo wcześniejszej spłaty z art. 48; przepis nie uzasadnia takiego warunku."
+    },
+    {
+      "case_id": "CTL-02",
+      "classification": "correct",
+      "legal_basis": "correct",
+      "explanation": "correct",
+      "overall": "correct",
+      "matching_issue_ids": [
+        "CTL-02-K01"
+      ],
+      "clear_breach_of_a_provision": false,
+      "error_tag": null,
+      "rationale": "Wskazane sposoby składania reklamacji odpowiadają kanałom dopuszczonym w przytoczonym art. 3."
+    },
+    {
+      "case_id": "CTL-03",
+      "classification": "incorrect",
+      "legal_basis": "incorrect",
+      "explanation": "incorrect",
+      "overall": "incorrect",
+      "matching_issue_ids": [
+        "CTL-03-K01"
+      ],
+      "clear_breach_of_a_provision": false,
+      "error_tag": "false_alarm",
+      "rationale": "Art. 484 § 1 wyraźnie dopuszcza odmienne postanowienie stron o odszkodowaniu ponad karę."
+    },
+    {
+      "case_id": "CTL-04",
+      "classification": "correct",
+      "legal_basis": "correct",
+      "explanation": "correct",
+      "overall": "correct",
+      "matching_issue_ids": [
+        "CTL-04-K01"
+      ],
+      "clear_breach_of_a_provision": true,
+      "error_tag": null,
+      "rationale": "Art. 16 wyklucza zbycie i zrzeczenie się autorskich praw osobistych; odpowiedź trafnie wskazuje ten problem."
+    },
+    {
+      "case_id": "CTL-05",
+      "classification": "unresolved",
+      "legal_basis": "unresolved",
+      "explanation": "incorrect",
+      "overall": "incorrect",
+      "matching_issue_ids": [
+        "CTL-05-K01"
+      ],
+      "clear_breach_of_a_provision": null,
+      "error_tag": "incorrect_explanation",
+      "rationale": "Wyjaśnienie jest błędne: art. 22 dopuszcza zatrudnianie niepełnoletnich na określonych zasadach. Fragment opisuje kierownictwo, miejsce i czas pracy, ale nie podaje wynagrodzenia, więc pełna kwalifikacja stosunku pracy pozostaje nieustalona."
+    },
+    {
+      "case_id": "CTL-06",
+      "classification": "unresolved",
+      "legal_basis": "unresolved",
+      "explanation": "unresolved",
+      "overall": "unresolved",
+      "matching_issue_ids": [],
+      "clear_breach_of_a_provision": false,
+      "error_tag": null,
+      "rationale": "Płatności etapowe są dopuszczalne, lecz określenie ich jako odstępstwa zależy od zastosowania art. 642 § 2. Nie wiadomo, czy wynagrodzenie obliczono za każdą część osobno; wtedy zapis może odpowiadać regule ustawowej."
+    },
+    {
+      "case_id": "CTL-07",
+      "classification": "incorrect",
+      "legal_basis": "incorrect",
+      "explanation": "incorrect",
+      "overall": "incorrect",
+      "matching_issue_ids": [
+        "CTL-07-K01"
+      ],
+      "clear_breach_of_a_provision": true,
+      "error_tag": "false_reassurance",
+      "rationale": "Koszty własne kredytodawcy nie mieszczą się w wyjątku dotyczącym bezzwrotnych kosztów na rzecz organów administracji publicznej."
+    },
+    {
+      "case_id": "CTL-08",
+      "classification": "incorrect",
+      "legal_basis": "incorrect",
+      "explanation": "incorrect",
+      "overall": "incorrect",
+      "matching_issue_ids": [
+        "CTL-08-K01"
+      ],
+      "clear_breach_of_a_provision": false,
+      "error_tag": "false_alarm",
+      "rationale": "Art. 198 wprost dopuszcza rozporządzenie udziałem bez zgody pozostałych współwłaścicieli."
+    },
+    {
+      "case_id": "CTL-09",
+      "classification": "correct",
+      "legal_basis": "correct",
+      "explanation": "correct",
+      "overall": "correct",
+      "matching_issue_ids": [
+        "CTL-09-K01"
+      ],
+      "clear_breach_of_a_provision": true,
+      "error_tag": null,
+      "rationale": "Zwykły termin wynosi 30 dni, a wskazany w źródłach wyjątek najwyżej 60 dni; termin 90 dni jest sprzeczny z tymi regułami."
+    },
+    {
+      "case_id": "CTL-10",
+      "classification": "correct",
+      "legal_basis": "incorrect",
+      "explanation": "incorrect",
+      "overall": "incorrect",
+      "matching_issue_ids": [
+        "CTL-10-K01"
+      ],
+      "clear_breach_of_a_provision": true,
+      "error_tag": "incorrect_basis",
+      "rationale": "Wniosek o wymaganej formie jest trafny według art. 5 ust. 2. Wskazany art. 9 dotyczy liczby członków i nie uzasadnia twierdzenia o formie umowy."
+    },
+    {
+      "case_id": "CTL-11",
+      "classification": "correct",
+      "legal_basis": "correct",
+      "explanation": "correct",
+      "overall": "correct",
+      "matching_issue_ids": [
+        "CTL-11-K01"
+      ],
+      "clear_breach_of_a_provision": false,
+      "error_tag": null,
+      "rationale": "Postanowienie określa pole eksploatacji, zakres, miejsce i czas korzystania oraz niewyłączny charakter licencji zgodnie z art. 67."
+    },
+    {
+      "case_id": "CTL-12",
+      "classification": "unresolved",
+      "legal_basis": "unresolved",
+      "explanation": "unresolved",
+      "overall": "unresolved",
+      "matching_issue_ids": [],
+      "clear_breach_of_a_provision": null,
+      "error_tag": null,
+      "rationale": "Sam fragment nie pozwala ustalić przesłanek abuzywności, w tym indywidualnego uzgodnienia i rażącego naruszenia interesów konsumenta; wyjaśnienie tylko powtarza przesłanki przepisu."
+    }
+  ]
+}

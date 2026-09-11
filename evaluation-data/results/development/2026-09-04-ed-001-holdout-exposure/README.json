@@ -1,0 +1,32 @@
+{
+  "note": "Raw run records for the ED-001 holdout exposure of 2026-09-04. ED-001 is a holdout document; these runs breached holdout discipline and are retained as evidence, not as development material. They support the concurrency and cache figures recorded in protocol 2.5.1 and 2.5.2. See protocol.json holdout_discipline.ed_001_exposure.",
+  "document": "ED-001-residential-lease-structured (split: holdout)",
+  "input_hash": "74c8bcc1a2a3900ce24b6eb021283d669b033868cb5f3c020a0a4584211d7e58",
+  "registered_comparison_material": false,
+  "registered_comparison_material_note": "Not the per-run measurement_valid field. Every one of the 14 root records here carries measurement_valid true, because they were recorded under measured_mode; the interactive child carries false. This key is the separate batch-level fact: the batch breached holdout discipline, so none of it may enter a registered comparison whatever the per-run flag says. It is evidence of the exposure and the source of figures quoted elsewhere, and nothing more.",
+  "root_runs": 14,
+  "interactive_children": 1,
+  "by_arm": {
+    "mid": {
+      "failed": 1,
+      "completed": 5
+    },
+    "off": {
+      "completed": 3
+    },
+    "on": {
+      "completed": 4,
+      "failed": 1
+    }
+  },
+  "bundles_observed": [
+    "worksheet-roles-71cfca320fad",
+    "worksheet-roles-9aab610a56d6"
+  ],
+  "prompt_bundles_observed": [
+    "2720980cab9f477b",
+    "ec6bc8dbc32aa3fe",
+    "f834650da76825c3"
+  ],
+  "retention": "Records carry identifiers, hashes, counters, timings and attempt telemetry only; no document text, provision text or model prose."
+}

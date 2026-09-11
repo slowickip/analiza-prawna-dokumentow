@@ -1,0 +1,3034 @@
+{
+  "schema_version": 1,
+  "key_version": "1.2.2",
+  "state": "frozen",
+  "scoring_protocol_version": "3.0.0",
+  "review_state": "source_reconciliation_complete_author_approved",
+  "documents": {
+    "ED-005": {
+      "artifact_id": "ED-005",
+      "content_hash": "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c",
+      "chars": 4774
+    },
+    "ED-009": {
+      "artifact_id": "ED-009",
+      "content_hash": "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137",
+      "chars": 4443
+    },
+    "RT-001": {
+      "artifact_id": "RT-001-DOC",
+      "content_hash": "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5",
+      "chars": 39542
+    }
+  },
+  "sources": {
+    "KC": {
+      "act_id": "DU/2026/795",
+      "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf",
+      "snapshot_date": "2026-05-19",
+      "checked_on": "2026-09-08",
+      "sha256": "c341c7d96481f12a21e3b41deb69a84cab9322bd9888d3e6406dab9e09eeef91"
+    },
+    "PA": {
+      "act_id": "DU/2025/24",
+      "url": "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf",
+      "snapshot_date": "2024-12-03",
+      "checked_on": "2026-09-08",
+      "sha256": "1c2e9a082a66fad6e26bba1d4d01a22bd67871657416729cea62b4b9f71cff86"
+    },
+    "KP": {
+      "act_id": "DU/2025/277",
+      "url": "https://api.sejm.gov.pl/eli/acts/DU/2025/277/text.pdf",
+      "snapshot_date": "2025-02-07",
+      "checked_on": "2026-09-08",
+      "sha256": "d6ae73698d2c91cb501a8bc46229730c65cbc454071c9c8a9a7fa8fed2d46a00"
+    },
+    "UKK": {
+      "act_id": "DU/2025/1362",
+      "url": "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf",
+      "snapshot_date": "2025-09-15",
+      "checked_on": "2026-09-08",
+      "sha256": "5009f544acda0d4bbe325bfb73b6927410333326113cf1a9319443b8bff45bfc"
+    },
+    "REK": {
+      "act_id": "DU/2026/823",
+      "url": "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf",
+      "snapshot_date": "2026-06-10",
+      "checked_on": "2026-09-08",
+      "sha256": "1c938b71c0e8bdddac674c7f6d4145ebe5316775a19e2c28017230c2de3f524f"
+    },
+    "KOOP": {
+      "act_id": "DU/2025/9",
+      "url": "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf",
+      "snapshot_date": "2024-12-19",
+      "checked_on": "2026-09-08",
+      "sha256": "9eebbbe70202b730ee4ad83076dbbb534559a54525b639d777d602770bf7a43b"
+    },
+    "SN-2021-02": {
+      "url": "https://www.sn.pl/orzecznictwo/Biuletyn_IC_SN/Biuletyn%20Izby%20Cywilnej%20S%C4%85du%20Najwy%C5%BCszego%202_2021.pdf",
+      "publication_date": "2021-02",
+      "checked_on": "2026-09-08",
+      "sha256": "8c969913f454cd3de8ee17e04f8a93f2ec03741a62fc98491c49b54768eaaa76"
+    },
+    "PCC-external": {
+      "act_id": "DU/2024/295",
+      "url": "https://api.sejm.gov.pl/eli/acts/DU/2024/295/text.html",
+      "checked_on": "2026-09-08",
+      "outside_snapshot": true
+    },
+    "KKS-external": {
+      "act_id": "DU/2024/628",
+      "url": "https://api.sejm.gov.pl/eli/acts/DU/2024/628/text.pdf",
+      "checked_on": "2026-09-08",
+      "outside_snapshot": true
+    }
+  },
+  "items": [
+    {
+      "item_id": "ED-005-K02",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Odpowiedzialność za podwykonawcę",
+      "span": {
+        "start": 394,
+        "end": 568
+      },
+      "quote": "3. Wykonawca samodzielnie organizuje pracę i może korzystać z pomocy podwykonawcy po uprzednim zawiadomieniu Zamawiającego. Za podwykonawcę odpowiada jak za własne działanie.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:0:724"
+      ],
+      "accepted_answers": [
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=738"
+          ],
+          "justification": "Pełna odpowiedzialność modyfikuje regułę dotyczącą powierzenia wykonania zastępcy."
+        },
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=474"
+          ],
+          "justification": "Odpowiedzialność jak za własne działanie odpowiada ogólnej regule za pomocników."
+        }
+      ],
+      "justification": "Klauzula dopuszcza podwykonawstwo po zawiadomieniu i zachowuje pełną odpowiedzialność; dwa przepisy opisują różne dopuszczalne relacje.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 738 § 1–2; art. 474"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "fbbe89a4-bce3-4210-90cc-37446210ed03",
+        "115c14fd-49a8-49a2-8a75-43572ab31d73",
+        "001776c4-1e32-430c-82c5-cd91ec4dc955",
+        "eae5e9b0-f586-4b23-b5d8-00601e6d161b"
+      ]
+    },
+    {
+      "item_id": "ED-005-K03",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Brak podporządkowania pracowniczego w opisie",
+      "span": {
+        "start": 572,
+        "end": 722
+      },
+      "quote": "Umowa nie tworzy stosunku pracy. Wykonawca nie jest związany miejscem ani godzinami wykonywania usług, z wyjątkiem spotkań wskazanych w harmonogramie.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:0:724"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/277/text.pdf#article=22"
+          ],
+          "justification": "Opis wyłącza związanie miejscem i godzinami wykonywania usług."
+        }
+      ],
+      "justification": "Oceniany jest tekst postanowienia, nie rzeczywisty sposób wykonywania pracy poza dokumentem.",
+      "source_evidence": [
+        {
+          "source_id": "KP",
+          "reference": "art. 22 § 1–1(2)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "f5ae4bde-4f10-440a-a32a-206be96c2ef5",
+        "a5318564-9ffa-42f0-9a1b-8b9cbb206215"
+      ]
+    },
+    {
+      "item_id": "ED-005-K04",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Współdziałanie i przesunięcie terminu",
+      "span": {
+        "start": 872,
+        "end": 990
+      },
+      "quote": "Termin przesuwa się o czas opóźnienia Zamawiającego w przekazaniu materiałów lub decyzji niezbędnych do dalszej pracy.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:724:1221"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=354"
+          ],
+          "justification": "Obowiązek dostarczenia materiałów i decyzji odpowiada współdziałaniu wierzyciela."
+        }
+      ],
+      "justification": "Art. 640 dotyczy wyznaczenia terminu i odstąpienia przy braku współdziałania przy dziele, a nie bezpośrednio umownego przesunięcia harmonogramu.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 354 § 2; art. 640; art. 486 § 2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "ff189a31-8c5d-459b-97bd-bd64add75253",
+        "34f61e75-a06f-4a99-a40a-7854d79526c3",
+        "9991e463-849e-4d69-bf60-0b8752ca5b3f",
+        "53366f37-36f6-4da1-969b-5e9614487564"
+      ]
+    },
+    {
+      "item_id": "ED-005-K05",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Uzgodnienie dodatkowego zakresu",
+      "span": {
+        "start": 1063,
+        "end": 1219
+      },
+      "quote": "Dodatkowa prośba wykraczająca poza załącznik nr 1 jest zmianą zakresu. Wykonawca przedstawia jej wpływ na cenę i termin przed rozpoczęciem dodatkowych prac.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:724:1221"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)"
+          ],
+          "justification": "Strony mogą uzgadniać cenę i termin dodatkowego zakresu."
+        }
+      ],
+      "justification": "Zapis nie wskazuje wynagrodzenia kosztorysowego wymaganego dla szczególnej reguły art. 630.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 353(1); art. 630"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "805b17f4-c111-4602-bb74-8b6898b21a1b"
+      ]
+    },
+    {
+      "item_id": "ED-005-K06",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Ustalenie wynagrodzenia podstawowego",
+      "span": {
+        "start": 1241,
+        "end": 1319
+      },
+      "quote": "1. Łączne wynagrodzenie wynosi 24 000 zł netto, powiększone o należny podatek.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:1221:1677"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=628"
+          ],
+          "justification": "Przy kwalifikacji odpowiedniego świadczenia jako dzieła umowa określa wynagrodzenie, zgodnie z art. 628."
+        },
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=735"
+          ],
+          "justification": "Przy kwalifikacji odpowiedniego świadczenia jako usług umowa ustala należne wynagrodzenie, zgodnie z art. 735 stosowanym przez art. 750."
+        }
+      ],
+      "justification": "Zapis określa wynagrodzenie. Dopuszczalne są osobne odczytania odpowiedniego świadczenia jako dzieła albo usług; przyjęcie podstawy wynagrodzenia nie przesądza kwalifikacji całej umowy. Art. 750 wyznacza odpowiednie stosowanie przepisów o zleceniu do usług, lecz sam nie reguluje wynagrodzenia; dlatego jest kontekstem kwalifikacji, a nie samodzielną podstawą ocenianego ustalenia o wynagrodzeniu.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 353(1); art. 628 § 1; art. 735 § 1–2 w zw. z art. 750"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "91601090-3982-47c1-a6f8-85c062662be1"
+      ]
+    },
+    {
+      "item_id": "ED-005-K07",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Stawka za dodatkowe prace",
+      "span": {
+        "start": 1607,
+        "end": 1675
+      },
+      "quote": "Dodatkowe prace są rozliczane według stawki 220 zł netto za godzinę.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:1221:1677"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=628"
+          ],
+          "justification": "Przy kwalifikacji odpowiedniego świadczenia jako dzieła umowa określa wynagrodzenie, zgodnie z art. 628."
+        },
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=735"
+          ],
+          "justification": "Przy kwalifikacji odpowiedniego świadczenia jako usług umowa ustala należne wynagrodzenie, zgodnie z art. 735 stosowanym przez art. 750."
+        }
+      ],
+      "justification": "Zapis określa wynagrodzenie. Dopuszczalne są osobne odczytania odpowiedniego świadczenia jako dzieła albo usług; przyjęcie podstawy wynagrodzenia nie przesądza kwalifikacji całej umowy. Art. 750 wyznacza odpowiednie stosowanie przepisów o zleceniu do usług, lecz sam nie reguluje wynagrodzenia; dlatego jest kontekstem kwalifikacji, a nie samodzielną podstawą ocenianego ustalenia o wynagrodzeniu.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 353(1); art. 628 § 1; art. 735 § 1–2 w zw. z art. 750"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "67e83b0a-f1aa-4934-a8f4-6ba01f07fd5b"
+      ]
+    },
+    {
+      "item_id": "ED-005-K12",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Przeniesienie praw po zapłacie",
+      "span": {
+        "start": 2313,
+        "end": 2552
+      },
+      "quote": "Po zapłacie wynagrodzenia za dany etap Wykonawca przenosi na Zamawiającego prawa do specjalnie przygotowanych materiałów w zakresie potrzebnym do ich utrwalania, kopiowania, modyfikowania, udostępniania wewnątrz organizacji i publikowania.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:2284:2938"
+      ],
+      "accepted_answers": [
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=64"
+          ],
+          "justification": "Zapłata zastępuje ustawowy moment przyjęcia utworu."
+        }
+      ],
+      "justification": "Art. 64 dopuszcza inne postanowienie umowy co do chwili przeniesienia praw; klauzula korzysta z tej możliwości.",
+      "source_evidence": [
+        {
+          "source_id": "PA",
+          "reference": "art. 64"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "dc67e79a-486b-4561-96d3-09c4087dc690"
+      ]
+    },
+    {
+      "item_id": "ED-005-K13",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Niewyłączna licencja na wcześniejsze materiały",
+      "span": {
+        "start": 2658,
+        "end": 2750
+      },
+      "quote": "Zamawiający otrzymuje niewyłączną licencję na ich używanie jako części odebranego rezultatu.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:2284:2938"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=67"
+          ],
+          "justification": "Zapis udziela niewyłącznej licencji na określone korzystanie."
+        }
+      ],
+      "justification": "Pozostawienie wcześniejszych narzędzi przy wykonawcy nie wyklucza udzielenia licencji na ich używanie w rezultacie.",
+      "source_evidence": [
+        {
+          "source_id": "PA",
+          "reference": "art. 67 ust. 1–2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "edc92824-7ac6-470b-a776-b7ed030ca100",
+        "6675fbe6-cfc4-4794-a194-986bf0f3d843"
+      ]
+    },
+    {
+      "item_id": "ED-005-K14",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Wynagrodzenie za przeniesienie praw",
+      "span": {
+        "start": 2874,
+        "end": 2936
+      },
+      "quote": "4. Wynagrodzenie obejmuje przeniesienie praw opisane w ust. 1.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:2284:2938"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=43"
+          ],
+          "justification": "Zapis przewiduje wynagrodzenie za przeniesienie praw."
+        }
+      ],
+      "justification": "Oczekiwanie dotyczy odpłatności z art. 43 ust. 1, nie potwierdzenia odpowiedniości kwoty w rozumieniu ust. 2.",
+      "source_evidence": [
+        {
+          "source_id": "PA",
+          "reference": "art. 43 ust. 1–2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "179fde1e-9f24-47e0-bf23-52f65d6376d8",
+        "edf2f820-c99a-45c9-b2f5-f4c9ba69b81e",
+        "0817c5f1-437c-4176-bad1-e48675631e11"
+      ]
+    },
+    {
+      "item_id": "ED-005-K15",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Umowna poufność",
+      "span": {
+        "start": 3262,
+        "end": 3379
+      },
+      "quote": "Strona wykorzystuje informacje poufne wyłącznie do wykonania umowy i udostępnia je tylko osobom, które muszą je znać.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:2938:3431"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)"
+          ],
+          "justification": "Strony mogą ograniczyć użycie i ujawnianie informacji poufnych."
+        }
+      ],
+      "justification": "Brak szczególnego przepisu o tym postanowieniu nie usuwa relacji z ogólną swobodą umów.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 353(1)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "11be1b02-6977-4844-92d2-c194a3d1107e",
+        "14eddcdc-53cd-40ed-a759-48cf0e191511"
+      ]
+    },
+    {
+      "item_id": "ED-005-K16",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Ograniczenie odszkodowania do szkody rzeczywistej",
+      "span": {
+        "start": 3454,
+        "end": 3531
+      },
+      "quote": "1. Każda strona odpowiada za rzeczywistą szkodę wynikłą z niewykonania umowy.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:3431:3934"
+      ],
+      "accepted_answers": [
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=361",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=471"
+          ],
+          "justification": "Odpowiedzialność za niewykonanie umowy z art. 471 zostaje ograniczona do szkody rzeczywistej względem zakresu obejmującego także utracone korzyści z art. 361 § 2."
+        }
+      ],
+      "justification": "Klauzula ogranicza zakres odszkodowania należnego za niewykonanie umowy z art. 471. Art. 361 § 2 dopuszcza umowne odstępstwo od zakresu obejmującego stratę i utracone korzyści; wpływ umyślności wymaga odrębnego odczytania obu ustępów umowy.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 361 § 2; art. 471; art. 473 § 2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "2c50a9aa-13ca-4f83-bc84-3f353f509230",
+        "866ef39b-5933-43f3-9b8b-f6e1059aa9a4",
+        "05b39144-6f91-4a2e-9bd8-15402d745758",
+        "6e9eb1a8-58af-4b4c-bfd0-8474a0ea6220",
+        "07ae54b4-4672-477d-a7c9-310b4951b67a"
+      ]
+    },
+    {
+      "item_id": "ED-005-K17",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Limit odpowiedzialności z wyjątkiem szkody umyślnej",
+      "span": {
+        "start": 3532,
+        "end": 3711
+      },
+      "quote": "2. Łączna odpowiedzialność Wykonawcy jest ograniczona do wysokości wynagrodzenia zapłaconego na podstawie umowy, z wyjątkiem szkody wyrządzonej umyślnie oraz naruszenia poufności.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:3431:3934"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=473",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)"
+          ],
+          "justification": "Limit nie obejmuje szkody wyrządzonej umyślnie. Umowny limit respektuje wyrażony wyjątek dla szkody umyślnej."
+        }
+      ],
+      "justification": "Ocena dotyczy limitu z ust. 2 i jego wyłączeń, nie przenosi tych wyłączeń automatycznie na inne postanowienia.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 473 § 2; art. 353(1)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "d338743e-fc8e-4cea-b509-8a7e86fd83a6",
+        "93b41ba9-c51b-4a38-9360-d4948bbf10b4",
+        "c01d69db-4662-4479-8561-14f9fe167756",
+        "e045cbe7-6c14-4b59-9b32-1502976182ba"
+      ]
+    },
+    {
+      "item_id": "ED-005-K18",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Kara za zawinione opóźnienie prac",
+      "span": {
+        "start": 3712,
+        "end": 3865
+      },
+      "quote": "3. Za każdy dzień opóźnienia zawinionego przez Wykonawcę Zamawiający może naliczyć karę 0,5% wartości opóźnionego etapu, nie więcej niż 20% tej wartości.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:3431:3934"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=483"
+          ],
+          "justification": "Kara zabezpiecza zobowiązanie niepieniężne i jest oznaczalna procentowo."
+        }
+      ],
+      "justification": "Klauzula wiąże karę z wykonaniem prac, nie z opóźnieniem zapłaty.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 483 § 1"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "4dd381a6-34a3-4438-af83-b80960fdf64a",
+        "fd0ce392-4f6f-40a3-9f0c-c61ad146ba7c",
+        "2a1cb836-aa7d-414d-afc1-d8a0b15d0e07"
+      ]
+    },
+    {
+      "item_id": "ED-005-K19",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Odszkodowanie ponad karę",
+      "span": {
+        "start": 3866,
+        "end": 3932
+      },
+      "quote": "4. Zamawiający może dochodzić odszkodowania przewyższającego karę.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:3431:3934"
+      ],
+      "accepted_answers": [
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=484"
+          ],
+          "justification": "Strony dopuszczają odszkodowanie ponad karę wbrew ustawowej regule domyślnej."
+        }
+      ],
+      "justification": "Art. 484 § 1 dopuszcza odmienne zastrzeżenie. Jego wprowadzenie jest dopuszczalnym odstępstwem, nie brakiem odstępstwa.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 484 § 1 zd. 2; § 2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "01a5ab79-d8c8-4ad9-aaf4-5c9c9423052f",
+        "86905300-2db6-47a0-bafd-31dab1151221",
+        "0fe34618-6b8d-4222-9c55-9fdd186ba1d7"
+      ]
+    },
+    {
+      "item_id": "ED-005-K20",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Czternastodniowe wypowiedzenie",
+      "span": {
+        "start": 3952,
+        "end": 4026
+      },
+      "quote": "1. Każda strona może wypowiedzieć umowę z czternastodniowym wyprzedzeniem.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:3934:4411"
+      ],
+      "accepted_answers": [
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=746"
+          ],
+          "justification": "Okres wypowiedzenia modyfikuje dyspozytywne zasady zwykłego zakończenia usług."
+        },
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)"
+          ],
+          "justification": "Sam okres wypowiedzenia nie jest zakazanym zrzeczeniem się uprawnienia z ważnych powodów."
+        },
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=644"
+          ],
+          "justification": "Przy odczytaniu świadczenia jako dzieła symetryczny czternastodniowy tryb modyfikuje ustawowy model zakończenia przez zamawiającego. Nie łączy się tej podstawy z odrębnym reżimem usług."
+        }
+      ],
+      "justification": "Zapis nie wyłącza wprost zakończenia z ważnych powodów. Art. 746 § 3 nie zakazuje każdego okresu wypowiedzenia; kwalifikacja całej umowy pozostaje osobnym ograniczeniem.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 746 § 1–3; art. 353(1)"
+        },
+        {
+          "source_id": "SN-2021-02",
+          "reference": "s. 60, omówienie V CSK 492/18"
+        },
+        {
+          "source_id": "KC",
+          "reference": "art. 644"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "44fe2d5b-0d1e-4863-8bb4-5a2a4ad7e599",
+        "9bf48231-6dff-4915-9700-29f4854c9097",
+        "0f5a5d9c-3a16-4903-8dc6-b9e495dc7dbc",
+        "9f9b6cf5-7679-4ebd-9910-cf6961fe69db",
+        "8d14dc46-d1ff-4955-9a14-6a121c7b3f76",
+        "bcd6d3e5-fb78-4085-a394-3cf031b34069"
+      ]
+    },
+    {
+      "item_id": "ED-005-K23",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Pisemne uzgodnienie zmian",
+      "span": {
+        "start": 4482,
+        "end": 4533
+      },
+      "quote": "2. Zmiany wymagają uzgodnienia obu stron na piśmie.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:4411:4774"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=77",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=76"
+          ],
+          "justification": "Strony zastrzegają pisemne uzgodnienie zmian. Obustronne uzgodnienie zmian mieści się w swobodzie umów."
+        }
+      ],
+      "justification": "Ocena dotyczy zastrzeżenia formy w tekście, nie faktu podpisania późniejszej zmiany. Art. 76 dopuszcza umowne zastrzeżenie formy; przy braku określenia skutków jej niezachowania forma pisemna jest w razie wątpliwości zastrzeżona dla celów dowodowych. Nie przyjmuje się automatycznie rygoru nieważności.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 77 § 1; art. 76; art. 353(1)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "807fd17a-a6b9-40b5-b3d9-8ffb38db4eec",
+        "cf256116-7fc7-4dcd-952a-6e795ed85e23",
+        "14853928-5169-4ade-856e-638ad15683d8"
+      ]
+    },
+    {
+      "item_id": "ED-009-K01",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Konsumencki charakter pożyczki",
+      "span": {
+        "start": 69,
+        "end": 300
+      },
+      "quote": "UMOWA POŻYCZKI KONSUMENCKIEJ NR [NUMER_UMOWY_A]\n\npomiędzy [KREDYTODAWCA_A], zwanym „Kredytodawcą”, a [KONSUMENT_A], zwanym „Pożyczkobiorcą”.\n\n§ 1. Kwota i wypłata\n\n1. Kredytodawca udziela Pożyczkobiorcy pożyczki w kwocie 18 000 zł.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:0:654"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=3",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=720"
+          ],
+          "justification": "Opis stron, kwota i zobowiązanie do zwrotu wskazują pożyczkę konsumencką w granicach definicji ustawowej."
+        }
+      ],
+      "justification": "Opis stron, kwota i zobowiązanie do zwrotu wskazują pożyczkę konsumencką w granicach definicji ustawowej.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "3"
+        },
+        {
+          "source_id": "KC",
+          "reference": "720 §1"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "80a33213-e37d-4fe1-bee7-95b1e31ebd0f",
+        "a7508a2a-1d4b-4d23-9eef-e6e91d5b1aeb",
+        "4b2b8531-5e01-4318-a467-dff108ec2b04",
+        "35cd2564-0bd8-4151-aefb-304c4b34059c"
+      ]
+    },
+    {
+      "item_id": "ED-009-K04",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Warunek zawiadomienia przed wcześniejszą spłatą",
+      "span": {
+        "start": 2378,
+        "end": 2503
+      },
+      "quote": "1. Pożyczkobiorca może spłacić całość pożyczki przed terminem po zawiadomieniu Kredytodawcy co najmniej siedem dni wcześniej.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:2352:2894"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=48"
+          ],
+          "justification": "Konsument może spłacić kredyt w każdym czasie; uzależnienie tego od siedmiodniowego zawiadomienia narusza art. 48."
+        }
+      ],
+      "justification": "Konsument może spłacić kredyt w każdym czasie; uzależnienie tego od siedmiodniowego zawiadomienia narusza art. 48.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "48(1)-(2)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "9e2f63db-cf6b-459e-9c87-dad4b8843e5f",
+        "9d4a05ba-3ac0-4abf-bd33-3c588864048a",
+        "eb004a8c-6912-4423-9c0e-ee1eeeb9c09c"
+      ]
+    },
+    {
+      "item_id": "ED-009-K05",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Zwrot prowizji po wcześniejszej spłacie",
+      "span": {
+        "start": 2600,
+        "end": 2708
+      },
+      "quote": "3. Prowizja z § 2 ust. 2 nie podlega zwrotowi, ponieważ jest należna za przygotowanie i udzielenie pożyczki.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:2352:2894"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=49"
+          ],
+          "justification": "Art. 49 obejmuje proporcjonalną redukcją także wcześniej poniesione koszty; art. 50 nie dotyczy zwrotu prowizji za udzielenie."
+        }
+      ],
+      "justification": "Art. 49 obejmuje proporcjonalną redukcją także wcześniej poniesione koszty; art. 50 nie dotyczy zwrotu prowizji za udzielenie.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "49(1)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "606a4c47-ccde-480f-8ba6-2b59eb0a4411",
+        "970aff49-75c7-431a-80f3-d206834462ce",
+        "588a76eb-6560-4ae8-aafe-03b53e5563e1",
+        "f7d62c71-9026-4255-b93d-647a18b01aee"
+      ]
+    },
+    {
+      "item_id": "ED-009-K06",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Czternastodniowe odstąpienie",
+      "span": {
+        "start": 2912,
+        "end": 3013
+      },
+      "quote": "1. Pożyczkobiorca może złożyć oświadczenie o odstąpieniu w terminie czternastu dni od zawarcia umowy.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:2894:3386"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=53"
+          ],
+          "justification": "Zapis powtarza ustawowy termin odstąpienia od umowy."
+        }
+      ],
+      "justification": "Zapis powtarza ustawowy termin odstąpienia od umowy.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "53(1)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "25ce6624-43f6-4bff-844e-909fd8f8489e",
+        "70ea4279-fb94-4000-9ea1-cbf7483f6170",
+        "0fc01201-29ec-4099-bf52-913aebebac27"
+      ]
+    },
+    {
+      "item_id": "ED-009-K07",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Niezwracanie opłat po odstąpieniu",
+      "span": {
+        "start": 3211,
+        "end": 3339
+      },
+      "quote": "4. Prowizja i opłata administracyjna nie są zwracane, jeżeli Kredytodawca rozpoczął wykonywanie umowy na żądanie Pożyczkobiorcy.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:2894:3386"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=54"
+          ],
+          "justification": "Po odstąpieniu poza odsetkami pozostają tylko przewidziane ustawą bezzwrotne opłaty publiczne, nie prywatna prowizja i opłata administracyjna."
+        }
+      ],
+      "justification": "Po odstąpieniu poza odsetkami pozostają tylko przewidziane ustawą bezzwrotne opłaty publiczne, nie prywatna prowizja i opłata administracyjna.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "54(1),(4)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "0728ed4f-612d-4c8b-aaaf-c4f63e8bf168"
+      ]
+    },
+    {
+      "item_id": "ED-009-K08",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Limit pozaodsetkowych kosztów",
+      "span": {
+        "start": 729,
+        "end": 853
+      },
+      "quote": "2. Prowizja za udzielenie wynosi 2 700 zł i jest finansowana z pożyczki.\n3. Opłata administracyjna wynosi 19 zł miesięcznie.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:654:1288"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=36a"
+          ],
+          "justification": "Podane prowizja i miesięczna opłata nie przekraczają prima facie ustawowych granic; nie przesądza to poprawności RRSO ani innych opłat."
+        }
+      ],
+      "justification": "Podane prowizja i miesięczna opłata nie przekraczają prima facie ustawowych granic; nie przesądza to poprawności RRSO ani innych opłat.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "36a(1)-(2)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "c31c1a25-bf88-40fe-9b24-7ffd4a6bbc8b",
+        "2dd49398-d1f4-448b-b24a-a21e8c0abc57"
+      ]
+    },
+    {
+      "item_id": "ED-009-K09",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Przelew bez zgody dłużnika",
+      "span": {
+        "start": 3829,
+        "end": 3900
+      },
+      "quote": "1. Kredytodawca może bez zgody przenieść wierzytelność na inny podmiot.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:3787:4199"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=509"
+          ],
+          "justification": "Przelew nie wymaga co do zasady zgody dłużnika."
+        }
+      ],
+      "justification": "Art. 509 dopuszcza przelew bez zgody dłużnika. Klauzula nie wyłącza wprost zarzutów ani informacji chronionych art. 44.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "44(1)-(2)"
+        },
+        {
+          "source_id": "KC",
+          "reference": "509 §1"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "ed620f78-b7e0-4c00-ac98-3560b7e33522",
+        "41527acd-a8a8-4ed4-8bbe-fad073d746e7",
+        "20da3d15-96fd-4529-b9d6-ac1010bd09c9"
+      ]
+    },
+    {
+      "item_id": "ED-009-K10",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Maksymalne odsetki za opóźnienie",
+      "span": {
+        "start": 1786,
+        "end": 1881
+      },
+      "quote": "1. Od zaległej kwoty naliczane są odsetki za opóźnienie według najwyższej dopuszczalnej stawki.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:1769:2352"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=481"
+          ],
+          "justification": "Odwołanie do najwyższej dopuszczalnej stawki nie zastrzega stawki wyższej od ustawowego maksimum."
+        }
+      ],
+      "justification": "Odwołanie do najwyższej dopuszczalnej stawki nie zastrzega stawki wyższej od ustawowego maksimum.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "481 §2^1"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "c0782125-173f-412d-8844-b1b4ea01f251",
+        "80a53feb-708e-40b4-8166-3159eff6c4b6",
+        "b4027ae6-3c55-43a3-b3c4-383ca3f6d804"
+      ]
+    },
+    {
+      "item_id": "ED-009-K12",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Czternastodniowe uprzedzenie o zmianie opłat",
+      "span": {
+        "start": 3571,
+        "end": 3697
+      },
+      "quote": "3. Zmiana tabeli opłat zostanie ogłoszona na koncie z czternastodniowym wyprzedzeniem. Brak wypowiedzenia umowy oznacza zgodę.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:3386:3787"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=30a"
+          ],
+          "justification": "Art. 30a wymaga co do zasady informacji co najmniej 30 dni przed zmianą; zapis przewiduje tylko czternaście dni."
+        }
+      ],
+      "justification": "Art. 30a wymaga co do zasady informacji co najmniej 30 dni przed zmianą; zapis przewiduje tylko czternaście dni.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "30a(1)-(3)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "224060c7-9e98-4de4-a9cb-82e75db70d3c",
+        "14dbf1b5-ecff-4021-ae99-648b73a7ac73",
+        "c6812f74-228b-4889-acc2-994ada9173ed"
+      ]
+    },
+    {
+      "item_id": "ED-009-K13",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Dostępne sposoby złożenia reklamacji",
+      "span": {
+        "start": 3987,
+        "end": 4036
+      },
+      "quote": "Reklamację można złożyć pisemnie lub przez konto.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:3787:4199"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=3"
+          ],
+          "justification": "Klauzula ogranicza ustawowe kanały reklamacji."
+        }
+      ],
+      "justification": "Ograniczenie do pisma i konta pomija wymagane sposoby ustne, w tym telefoniczne.",
+      "source_evidence": [
+        {
+          "source_id": "REK",
+          "reference": "art. 3 ust. 1–2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "0f4cb5ac-5dbe-4d1e-9c3f-b812b422d300"
+      ]
+    },
+    {
+      "item_id": "ED-009-K14",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Odmowa wypłaty z powodu ryzyka",
+      "span": {
+        "start": 477,
+        "end": 592
+      },
+      "quote": "Kredytodawca może odmówić wypłaty, jeżeli po podpisaniu uzyska informację, która według jego oceny zwiększa ryzyko.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:0:654"
+      ],
+      "accepted_answers": [
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=721"
+          ],
+          "justification": "Zapis rozszerza dyspozytywną regułę odmowy wypłaty o subiektywną ocenę ryzyka; odrębna ocena abuzywności wymaga dodatkowych faktów."
+        }
+      ],
+      "justification": "Zapis rozszerza dyspozytywną regułę odmowy wypłaty o subiektywną ocenę ryzyka; odrębna ocena abuzywności wymaga dodatkowych faktów.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "721"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "e63d6b72-cf63-4935-a06c-3e151f80f01b",
+        "e0efc71d-1347-45b8-8ffc-34af47b4caa0"
+      ]
+    },
+    {
+      "item_id": "ED-009-K15",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Kolejność zaliczania wpłat",
+      "span": {
+        "start": 1550,
+        "end": 1673
+      },
+      "quote": "4. Wpłata jest zaliczana kolejno na koszty dochodzenia należności, opłaty, odsetki za opóźnienie, odsetki umowne i kapitał.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:1288:1769"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=451",
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=30"
+          ],
+          "justification": "Kolejność w ramach tej pożyczki jest zgodna z dopuszczalnym pierwszeństwem zaległych należności ubocznych; zapis nie odbiera wyboru między kilkoma długami. Podanie kolejności zaliczania wpłat spełnia obowiązek informacyjny z art. 30 ust. 1 pkt 8."
+        }
+      ],
+      "justification": "Klauzula określa kolejność zaliczania wpłat w ramach tej pożyczki, nie wyłącza wyboru dłużnika między kilkoma długami. Pierwszeństwo zaległych należności ubocznych dopuszcza art. 451 § 1 zd. 2; podanie kolejności stanowi też informację wymaganą w umowie kredytowej.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 451 § 1 zd. 2"
+        },
+        {
+          "source_id": "UKK",
+          "reference": "art. 30 ust. 1 pkt 8"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "d2781b93-45f7-4199-8922-d62bfc987784",
+        "47fdb900-48c4-48cc-9dff-d0e5270194da"
+      ]
+    },
+    {
+      "item_id": "ED-009-K16",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Informacja o RRSO",
+      "span": {
+        "start": 935,
+        "end": 1069
+      },
+      "quote": "5. Rzeczywista roczna stopa oprocentowania wynosi 29,4%, przy założeniu jednorazowej wypłaty, terminowej spłaty i niezmienności opłat.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:654:1288"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=30"
+          ],
+          "justification": "Umowa podaje RRSO i założenia; nie jest to sprawdzenie poprawności liczby 29,4 procent."
+        }
+      ],
+      "justification": "Umowa podaje RRSO i założenia; nie jest to sprawdzenie poprawności liczby 29,4 procent.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "30(1)(7)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "088aedc7-2a3d-4f1d-ad3b-0b3a4546be33",
+        "bb73acff-5f50-43b7-ab2c-909a11d2cc2a"
+      ]
+    },
+    {
+      "item_id": "ED-009-K17",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Warunki przedłużenia odpowiedzi na reklamację",
+      "span": {
+        "start": 4080,
+        "end": 4135
+      },
+      "quote": "a w sprawie skomplikowanej w ciągu sześćdziesięciu dni.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:3787:4199"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=7"
+          ],
+          "justification": "Klauzula dopuszcza sześćdziesiąt dni już w sprawie skomplikowanej. Art. 7 przewiduje ten termin dla szczególnie skomplikowanego przypadku, który uniemożliwia rozpatrzenie reklamacji i udzielenie odpowiedzi w trzydzieści dni; umowa rozszerza tę przesłankę."
+        }
+      ],
+      "justification": "Klauzula dopuszcza sześćdziesiąt dni już w sprawie skomplikowanej. Art. 7 przewiduje ten termin dla szczególnie skomplikowanego przypadku, który uniemożliwia rozpatrzenie reklamacji i udzielenie odpowiedzi w trzydzieści dni; umowa rozszerza tę przesłankę.",
+      "source_evidence": [
+        {
+          "source_id": "REK",
+          "reference": "art. 7, przesłanka szczególnie skomplikowanego przypadku uniemożliwiającego odpowiedź w terminie z art. 6"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "9ca3a72f-0567-4978-9760-1ec04ca0bbb5",
+        "03781774-67e2-46e7-837c-7f2d0a932817"
+      ]
+    },
+    {
+      "item_id": "ED-009-K18",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Warunki i termin wypłaty",
+      "span": {
+        "start": 301,
+        "end": 473
+      },
+      "quote": "2. Kwota zostanie wypłacona na rachunek wskazany przez Pożyczkobiorcę w ciągu dwóch dni roboczych po podpisaniu umowy i pozytywnej ponownej weryfikacji zdolności do spłaty.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:0:654"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=30"
+          ],
+          "justification": "Zapis podaje rachunek i termin udostępnienia kwoty; ocena nie przesądza zgodności dodatkowej weryfikacji zdolności."
+        }
+      ],
+      "justification": "Zapis podaje rachunek i termin udostępnienia kwoty; ocena nie przesądza zgodności dodatkowej weryfikacji zdolności.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "30(1)(5)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "15a2d0ec-0388-4976-b6ba-fc1b2483a301"
+      ]
+    },
+    {
+      "item_id": "ED-009-K19",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Zwrot kapitału i odsetek po odstąpieniu",
+      "span": {
+        "start": 3100,
+        "end": 3210
+      },
+      "quote": "Po odstąpieniu Pożyczkobiorca zwraca wypłacony kapitał i odsetki za okres korzystania w ciągu trzydziestu dni.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:2894:3386"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=54"
+          ],
+          "justification": "Zwrot wypłaconego kapitału z odsetkami za okres korzystania w ciągu 30 dni odpowiada art. 54 ust. 2."
+        }
+      ],
+      "justification": "Zwrot wypłaconego kapitału z odsetkami za okres korzystania w ciągu 30 dni odpowiada art. 54 ust. 2.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "54(2)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "3e1d6d4b-b0bc-406f-b887-f0d9b5e6a3b7",
+        "0fc642d5-b82f-4b47-965f-a75109634e64"
+      ]
+    },
+    {
+      "item_id": "ED-009-K20",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Założenia obliczenia RRSO",
+      "span": {
+        "start": 935,
+        "end": 1069
+      },
+      "quote": "5. Rzeczywista roczna stopa oprocentowania wynosi 29,4%, przy założeniu jednorazowej wypłaty, terminowej spłaty i niezmienności opłat.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:654:1288"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=25"
+          ],
+          "justification": "Wskazano jednorazową wypłatę, terminową spłatę i niezmienność opłat; oceniana jest treść założeń, nie rachunek."
+        }
+      ],
+      "justification": "Wskazano jednorazową wypłatę, terminową spłatę i niezmienność opłat; oceniana jest treść założeń, nie rachunek.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "25(1)-(2)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "405ddb86-1d8b-472f-b669-34f52db39300",
+        "c1db9c94-4eea-4b42-bf92-eb9d5d9d605e"
+      ]
+    },
+    {
+      "item_id": "ED-009-K21",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Informacja o harmonogramie spłat",
+      "span": {
+        "start": 1304,
+        "end": 1444
+      },
+      "quote": "Pożyczkobiorca spłaci zobowiązanie w 24 równych ratach po 966 zł, do piętnastego dnia każdego miesiąca, począwszy od 15 października 2030 r.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:1288:1769"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=30",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)"
+          ],
+          "justification": "Umowa wskazuje liczbę, kwotę i termin rat. Zgodność arytmetyczna kosztów nie wynika z samej obecności tych informacji."
+        }
+      ],
+      "justification": "Umowa wskazuje liczbę, kwotę i termin rat. Zgodność arytmetyczna kosztów nie wynika z samej obecności tych informacji.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 353(1)"
+        },
+        {
+          "source_id": "UKK",
+          "reference": "30(1)(8)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "343bc94b-f09e-4151-9a78-53255706f8d9"
+      ]
+    },
+    {
+      "item_id": "ED-009-K23",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Opłaty za monity obok maksymalnych odsetek",
+      "span": {
+        "start": 1882,
+        "end": 2012
+      },
+      "quote": "2. Za każde wezwanie wysłane pocztą Kredytodawca pobiera 35 zł, za wiadomość elektroniczną 12 zł, a za kontakt telefoniczny 20 zł.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:1769:2352"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=33a"
+          ],
+          "justification": "Dodatkowe opłaty za kontakty przy odsetkach maksymalnych naruszają wspólny limit obciążeń z tytułu opóźnienia."
+        }
+      ],
+      "justification": "Dodatkowe opłaty za kontakty przy odsetkach maksymalnych naruszają wspólny limit obciążeń z tytułu opóźnienia.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "33a"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "5cb10deb-9a12-4c14-bb0e-1ba85193eb9c",
+        "7b5fe017-1655-485a-bcdb-3218769b0a51"
+      ]
+    },
+    {
+      "item_id": "ED-009-K24",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Skutek braku odpowiedzi na reklamację",
+      "span": {
+        "start": 4136,
+        "end": 4197
+      },
+      "quote": "4. Brak odpowiedzi w terminie nie oznacza uznania reklamacji.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:3787:4199"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=8"
+          ],
+          "justification": "Klauzula wyłącza skutek uznania reklamacji, który art. 8 wiąże z brakiem odpowiedzi w terminie."
+        }
+      ],
+      "justification": "Klauzula wyłącza skutek uznania reklamacji, który art. 8 wiąże z brakiem odpowiedzi w terminie.",
+      "source_evidence": [
+        {
+          "source_id": "REK",
+          "reference": "8"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "06e19902-1ec9-473d-a324-9a4794244668"
+      ]
+    },
+    {
+      "item_id": "ED-009-K27",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Wezwanie poprzedzające przyspieszoną spłatę",
+      "span": {
+        "start": 2103,
+        "end": 2287
+      },
+      "quote": "Jeżeli opóźnienie przekracza czternaście dni, Kredytodawca może zażądać natychmiastowej spłaty całego pozostałego zadłużenia po dodatkowym siedmiodniowym terminie wskazanym w wezwaniu.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:1769:2352"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=21a"
+          ],
+          "justification": "Siedmiodniowy dodatkowy termin i brak informacji o restrukturyzacji nie spełniają reguły co najmniej 14 dni roboczych od otrzymania wezwania."
+        }
+      ],
+      "justification": "Siedmiodniowy dodatkowy termin i brak informacji o restrukturyzacji nie spełniają reguły co najmniej 14 dni roboczych od otrzymania wezwania.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "21a(1)-(3)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "0337cfd1-2ebd-404b-b137-e84d322b629a",
+        "84be4014-5899-4c2f-9752-322661739d65"
+      ]
+    },
+    {
+      "item_id": "ED-009-K29",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Rozliczenie tylko odsetek przy wcześniejszej spłacie",
+      "span": {
+        "start": 2709,
+        "end": 2806
+      },
+      "quote": "4. W razie wcześniejszej spłaty Kredytodawca rozliczy wyłącznie odsetki za okres po dacie spłaty.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:2352:2894"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=49"
+          ],
+          "justification": "Ograniczenie rozliczenia do odsetek jest zbyt wąskie."
+        }
+      ],
+      "justification": "Redukcja z art. 49 obejmuje całkowity koszt kredytu, nie wyłącznie odsetki.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "art. 49"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "256720b2-cd6c-4f6c-b5eb-1b63e4782552"
+      ]
+    },
+    {
+      "item_id": "RT-001-K01",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Wybrana umowa kooperatywy",
+      "span": {
+        "start": 1723,
+        "end": 2196
+      },
+      "quote": "UMOWA KOOPERATYWY MIESZKANIOWEJ\n§ 1.\n1.\t…………, ………… i ………… (zwani dalej Członkami) oświadczają, że mocą tego aktu określają zasady współdziałania członków kooperatywy mieszkaniowej w rozumieniu ustawy z dnia 4 listopada 2022 r. o kooperatywach mieszkaniowych oraz zasadach zbywania nieruchomości należących do gminnego zasobu nieruchomości w celu wsparcia realizacji inwestycji mieszkaniowych (Dz. U. z 2023 r. poz. 28) i w tym celu zawierają umowę kooperatywy mieszkaniowej",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:0:11188"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=5"
+          ],
+          "justification": "Dokument wybiera umowę kooperatywy mieszkaniowej, jedną z dopuszczalnych form współdziałania. Ocena nie potwierdza faktycznego zawarcia aktu."
+        }
+      ],
+      "justification": "Dokument wybiera umowę kooperatywy mieszkaniowej, jedną z dopuszczalnych form współdziałania. Ocena nie potwierdza faktycznego zawarcia aktu.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 5 ust. 1–2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "f391ae71-4ad7-4b3b-b212-38acac3c7a55",
+        "91ee1036-9f5a-40de-831c-1fd9d3d53342",
+        "7d86ce0c-13c8-43d1-9832-a55017406b28",
+        "51e565ff-97a4-45de-b350-18daec82ceee"
+      ]
+    },
+    {
+      "item_id": "RT-001-K02",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Solidarna odpowiedzialność za inwestycję",
+      "span": {
+        "start": 24491,
+        "end": 24605
+      },
+      "quote": "4. Za zobowiązania wynikające z realizacji inwestycji mieszkaniowej Członkowie ponoszą solidarną odpowiedzialność.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:23358:24688"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Postanowienie przewiduje odpowiedzialność solidarną za zobowiązania inwestycji, zgodnie z art. 6 ust. 2."
+        }
+      ],
+      "justification": "Postanowienie przewiduje odpowiedzialność solidarną za zobowiązania inwestycji, zgodnie z art. 6 ust. 2.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "6(2)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "78d8f713-fb77-4972-9ce9-f310d26cee5f",
+        "bcd04d07-0ac1-4071-b4ca-e364c8e6d609",
+        "7e6017b6-5b3a-4dc4-87f6-687ce76141c6"
+      ]
+    },
+    {
+      "item_id": "RT-001-K03",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Cel inwestycji mieszkaniowej",
+      "span": {
+        "start": 2202,
+        "end": 2435
+      },
+      "quote": "zobowiązują się do realizacji wspólnego celu polegającego na realizacji inwestycji mieszkaniowej w rozumieniu art. 2 ust. 1 tej ustawy / współdziałania w celu realizacji inwestycji mieszkaniowej w rozumieniu art. 2 ust. 1 tej ustawy.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:0:11188"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=2"
+          ],
+          "justification": "Opis celu odwołuje się do inwestycji mieszkaniowej z art. 2; oceniany jest plan wskazany we wzorze."
+        }
+      ],
+      "justification": "Opis celu odwołuje się do inwestycji mieszkaniowej z art. 2; oceniany jest plan wskazany we wzorze.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "2(1)-(2)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "9f9e2793-9280-4dd1-b995-d7fb10f8074b",
+        "3a399ca6-c2ff-492b-9631-6574f6f456ae",
+        "bb158801-2fab-45ce-bc40-9275615ab031"
+      ]
+    },
+    {
+      "item_id": "RT-001-K04",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Wyłączenie ochrony deweloperskiej",
+      "span": {
+        "start": 38852,
+        "end": 39226
+      },
+      "quote": "Do współdziałania na podstawie niniejszej umowy nie mają zastosowania przepisy ustawy z dnia 20 maja 2021 r. o ochronie praw nabywcy lokalu mieszkalnego lub domu jednorodzinnego oraz Deweloperskim Funduszu Gwarancyjnym (Dz. U. poz. 1177, z późn. zm.), w szczególności środki pieniężne wpłacane na poczet realizacji tej umowy nie są objęte ochroną przewidzianą w tej ustawie.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:37327:39542"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=8"
+          ],
+          "justification": "Treść ostrzeżenia powtarza ustawowe wyłączenie ochrony; nie dowodzi faktycznego doręczenia załącznika."
+        }
+      ],
+      "justification": "Treść ostrzeżenia powtarza ustawowe wyłączenie ochrony; nie dowodzi faktycznego doręczenia załącznika.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "8"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "df739468-acce-48fa-8045-13ed8991ae47",
+        "0e1089a8-2a46-41cd-81ce-677c5a3207e8",
+        "f495b5fd-57f7-4018-8c10-9e17140eea34",
+        "bfb332c4-b2fc-4c15-86ff-8e8b71e9cad7",
+        "efb25a4b-ce05-4456-ac9d-6e716b3a59fd"
+      ]
+    },
+    {
+      "item_id": "RT-001-K05",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Pouczenie o formie przeniesienia własności",
+      "span": {
+        "start": 37053,
+        "end": 37224
+      },
+      "quote": "Notariusz pouczył stawających o tym, że do przeniesienia własności nieruchomości, o którym mowa w treści niniejszego aktu wymagane jest zachowanie formy aktu notarialnego.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:36170:37327"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=158"
+          ],
+          "justification": "Pouczenie prawidłowo wskazuje potrzebę aktu notarialnego; nie potwierdza wykonania czynności."
+        }
+      ],
+      "justification": "Pouczenie prawidłowo wskazuje potrzebę aktu notarialnego; nie potwierdza wykonania czynności.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "158"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "ca45752e-3b17-4f81-91a5-3e641d238cd7",
+        "b47cc421-c4d0-436c-bc4a-228cd1ae760b",
+        "45aacb77-9b8a-4791-9486-d8dbae1dba64"
+      ]
+    },
+    {
+      "item_id": "RT-001-K06",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Kara za naruszenie obowiązku niezbywania",
+      "span": {
+        "start": 27678,
+        "end": 27846
+      },
+      "quote": "2. Naruszenie zobowiązania, o którym mowa w ust. 1, skutkować będzie możliwością dochodzenia przez pozostałych Członków łącznie kary umownej w wysokości ………… zł (…………).",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:27152:27955"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=483",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=484"
+          ],
+          "justification": "Oceniana jest konstrukcja kary za naruszenie niepieniężnego zobowiązania do niezbywania. Kwota we wzorze pozostaje pusta; ocena nie potwierdza określenia sumy ani skutecznego ustanowienia kary w zawartej umowie. Brak powtórzenia reguł art. 484 nie oznacza ich wyłączenia."
+        }
+      ],
+      "justification": "Oceniana jest konstrukcja kary za naruszenie niepieniężnego zobowiązania do niezbywania. Kwota we wzorze pozostaje pusta; ocena nie potwierdza określenia sumy ani skutecznego ustanowienia kary w zawartej umowie. Brak powtórzenia reguł art. 484 nie oznacza ich wyłączenia.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "483 §1"
+        },
+        {
+          "source_id": "KC",
+          "reference": "484 §1-2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "e04b0a97-f857-4372-95c9-f19e432959de",
+        "0dcc41d9-07af-4b78-a890-f661c5991045",
+        "f1e5b9e2-57c1-4ca1-af16-0c87471d9415",
+        "e27f686b-524f-4655-b137-7b955ca82589"
+      ]
+    },
+    {
+      "item_id": "RT-001-K07",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Zobowiązanie do niezbywania udziału",
+      "span": {
+        "start": 27341,
+        "end": 27616
+      },
+      "quote": "bez zgody wszystkich pozostałych Członków, nie będą rozporządzać przysługującymi im udziałami we współwłasności nieruchomości, o której mowa § 1 i § 2 / § 3, i innymi prawami objętymi niniejszą umową, jak i nie będą ustanawiać na tej nieruchomości żadnych praw oraz obciążeń.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:27152:27955"
+      ],
+      "accepted_answers": [
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=198"
+          ],
+          "justification": "Obowiązek umowny ogranicza korzystanie ze swobody rozporządzenia udziałem."
+        },
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=57",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)"
+          ],
+          "justification": "Zobowiązanie do nierozporządzania jest dopuszczalne bez odebrania samej kompetencji. Umowny obowiązek nie usuwa ustawowej kompetencji do rozporządzenia."
+        }
+      ],
+      "justification": "Umowa może zobowiązywać do niezbywania udziału, lecz nie pozbawia samego uprawnienia do rozporządzenia. Art. 199 dotyczy zarządu rzeczą wspólną, nie własnym udziałem.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "198"
+        },
+        {
+          "source_id": "KC",
+          "reference": "57 §1-2"
+        },
+        {
+          "source_id": "KC",
+          "reference": "art. 353(1)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "7f78bbb5-fa8b-4b9c-b947-20e56c79707f",
+        "5aaee717-1811-49ad-bcb6-1b76bee01bac",
+        "f51e283f-d9af-4807-bf1d-c65be75aa9d6"
+      ]
+    },
+    {
+      "item_id": "RT-001-K08",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Rachunek obsługujący wydatki",
+      "span": {
+        "start": 24693,
+        "end": 24966
+      },
+      "quote": "Wydatki ponoszone w związku z realizacją inwestycji mieszkaniowej Członkowie pokrywają za pośrednictwem rachunku powierniczego, o którym mowa w art. 59 ust. 1 ustawy z dnia 29 sierpnia 1997 r. – Prawo bankowe (Dz. U. z 2022 r. poz. 2324, z późn. zm.) prowadzonego przez ………",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:24688:25118"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=10"
+          ],
+          "justification": "Wariant wskazuje rachunek powierniczy; odpowiada domyślnej regule art. 10, który dopuszcza inne ustalenie w umowie."
+        }
+      ],
+      "justification": "Wariant wskazuje rachunek powierniczy; odpowiada domyślnej regule art. 10, który dopuszcza inne ustalenie w umowie.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "10"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "bb9a8c20-c15e-4dc4-9dbc-c00b35014172",
+        "e33fb88e-d180-4cac-8d02-6316fbeab1cd"
+      ]
+    },
+    {
+      "item_id": "RT-001-K09",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Zmiana składu z ważnych powodów",
+      "span": {
+        "start": 27963,
+        "end": 28688
+      },
+      "quote": "Członek może żądać zmiany umowy z ważnych powodów, w szczególności z powodu utraty zdolności kredytowej, zmiany sytuacji osobistej lub majątkowej uniemożliwiającej w sposób trwały wywiązanie się ze zobowiązań wynikających z umowy, zmiany miejsca zamieszkania, ………….-------------------------------------------------------------------------------------------\n2. Z powodów, o których mowa w ust. 1, pozostali Członkowie mogą żądać zmiany umowy w odniesieniu do Członka, w stosunku do którego zachodzą okoliczności lub przeszkody uniemożliwiające lub utrudniające dalsze współdziałanie w celu realizacji inwestycji mieszkaniowej.----------------------------------------------------------------------------------------------------",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:27955:29560"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)"
+          ],
+          "justification": "Strony mogą przewidzieć uprawnienie do żądania zmiany; zapis nie oznacza automatycznej jednostronnej zmiany całej umowy."
+        }
+      ],
+      "justification": "Strony mogą przewidzieć uprawnienie do żądania zmiany; zapis nie oznacza automatycznej jednostronnej zmiany całej umowy.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 353(1)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "67d749dd-4d3a-439a-8d59-5f646bb2fb79"
+      ]
+    },
+    {
+      "item_id": "RT-001-K10",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Docelowa własność po inwestycji",
+      "span": {
+        "start": 21114,
+        "end": 23358
+      },
+      "quote": "§ 4.\nCzłonkowie określają, że w wyniku realizacji inwestycji mieszkaniowej:------------------------------\n1) ………… nabędzie nieruchomość zabudowaną budynkiem mieszkalnym jednorodzinnym [znajdującym się pod adresem …………, o powierzchni użytkowej budynku ………… m2 (…………) i powierzchni działki ………… m2 (…………)];--------------------------------------------------\n2) ………… nabędzie nieruchomość zabudowaną budynkiem mieszkalnym jednorodzinnym [znajdującym się pod adresem …………, o powierzchni użytkowej budynku ………… m2 (…………) i powierzchni działki ………… m2 (…………)];--------------------------------------------------\n3) ………… nabędzie lokal mieszkalny wraz z udziałem w części wspólnej [znajdujący się pod adresem …………, o powierzchni użytkowej ………… m2 (…………), położony na kondygnacji …………];----------------------------------------------------------------------------------------------------------\n4) …………, syn …………, nabędzie lokal mieszkalny wraz z udziałem w części wspólnej [znajdujący się pod adresem …………, o powierzchni użytkowej ………… m2 (…………), położony na kondygnacji …………].------------------------------------------------------------------------\n/Członkowie określają, że w wyniku realizacji inwestycji mieszkaniowej poszczególni Członkowie nabędą ………… / lokale mieszkalne wraz z udziałami w częściach wspólnych zgodnie z załącznikiem numer ………… do umowy.----------------------------------------------------------\n/Członkowie określają, że w wyniku realizacji inwestycji mieszkaniowej poszczególni Członkowie i …………, syn …………, nabędą ………… / lokale mieszkalne wraz z udziałami w częściach wspólnych zgodnie z załącznikiem numer ………… do umowy.---------------------------\n/Członkowie oświadczają, że zasady przydzielania budynków / lokali objętych inwestycją mieszkaniową w celu ich nabycia przez poszczególnych Członków zostaną określone w odrębnej umowie zawartej przez Członków niezwłocznie po sporządzeniu ………… / w drodze aneksu do niniejszej umowy zawartego niezwłocznie po sporządzeniu ………… / przydzielenie budynku / budynków / lokali objętych inwestycją mieszkaniową w celu ich nabycia przez poszczególnych Członków nastąpi w sposób i na zasadach określonych w drodze aneksu do niniejszej umowy zawartego niezwłocznie po sporządzeniu ………….-------\n",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:21114:23358"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=11"
+          ],
+          "justification": "Warianty określają podział albo odrębną własność po zakończeniu inwestycji, zgodnie z art. 11."
+        }
+      ],
+      "justification": "Warianty określają podział albo odrębną własność po zakończeniu inwestycji, zgodnie z art. 11.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "11(1)-(2)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "44626ddd-3d05-48ff-a658-19e39a3e96d6",
+        "99c12534-7498-4a2d-a7cf-6f0ccfa76747"
+      ]
+    },
+    {
+      "item_id": "RT-001-K11",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Czas trwania współdziałania",
+      "span": {
+        "start": 29566,
+        "end": 29668
+      },
+      "quote": "Czas trwania umowy jest oznaczony, na okres realizacji inwestycji mieszkaniowej opisanej w § 1 ust. 3.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:29560:29776"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)"
+          ],
+          "justification": "Wzór oznacza czas trwania przez zakończenie inwestycji, spełniając wymaganie określenia czasu umowy."
+        }
+      ],
+      "justification": "Wzór oznacza czas trwania przez zakończenie inwestycji, spełniając wymaganie określenia czasu umowy.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 353(1)"
+        },
+        {
+          "source_id": "KOOP",
+          "reference": "6(1)(8)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "84afe801-2e52-40b3-9919-ac42dbba243a",
+        "0a11848d-c8f7-40ee-9d97-676792cecff9"
+      ]
+    },
+    {
+      "item_id": "RT-001-K12",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Obowiązek sprzedaży udziału wskazanemu nabywcy",
+      "span": {
+        "start": 28851,
+        "end": 29159
+      },
+      "quote": "do zbycia przysługujących mu udziału we współwłasności nieruchomości, o której mowa w § 1 i § 2 / § 3, i innych praw objętych niniejszą umową na rzecz pozostałych Członków albo osoby trzeciej, zaakceptowanej przez pozostałych Członków, która jednocześnie przystąpi do niniejszej umowy w miejsce tego Członka.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:27955:29560"
+      ],
+      "accepted_answers": [
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=198"
+          ],
+          "justification": "Zobowiązanie ogranicza swobodę wyboru nabywcy."
+        },
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=57"
+          ],
+          "justification": "Zobowiązanie dotyczące rozporządzenia nie znosi uprawnienia do niego."
+        }
+      ],
+      "justification": "Umowne zobowiązanie do zbycia udziału określonej osobie nie odbiera samej kompetencji rozporządzania.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "198"
+        },
+        {
+          "source_id": "KC",
+          "reference": "57 §1-2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "981a705a-fcdd-441a-9839-c382e8884498"
+      ]
+    },
+    {
+      "item_id": "RT-001-K13",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Pełnomocnictwo do zwykłego zarządu",
+      "span": {
+        "start": 25293,
+        "end": 25476
+      },
+      "quote": "2. W zakresie spraw, o których mowa w ust. 1, wszyscy Członkowie udzielą odpowiedniego pełnomocnictwa stosownie do potrzeb i charakteru czynności.-------------------------------------",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:25118:27152"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=98"
+          ],
+          "justification": "Wzór przewiduje udzielenie pełnomocnictwa w zakresie zwykłego zarządu; nie dowodzi, że już zostało udzielone."
+        }
+      ],
+      "justification": "Wzór przewiduje udzielenie pełnomocnictwa w zakresie zwykłego zarządu; nie dowodzi, że już zostało udzielone.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "98"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "b592c4a7-c499-4984-b815-b59c11330d61",
+        "2fbab6b4-fbed-42c7-bf53-68a8b3f82f47"
+      ]
+    },
+    {
+      "item_id": "RT-001-K14",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Podział i własność po zakończeniu",
+      "span": {
+        "start": 31476,
+        "end": 31884
+      },
+      "quote": "3. Członkowie zobowiązują się, że niezwłocznie po zakończeniu realizacji inwestycji mieszkaniowej wystąpią z wnioskiem o podział nieruchomości objętej tą inwestycją w celu zniesienia współwłasności nieruchomości / [oraz] podejmą czynności zmierzające do ustanowienia na ich rzecz odrębnej własności lokali objętych tą inwestycją na zasadach określonych w ustawie z dnia 24 czerwca 1994 r. o własności lokali.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:29776:33756"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=11"
+          ],
+          "justification": "Zobowiązanie do wystąpienia o podział lub ustanowienie własności realizuje docelowy stan przewidziany w art. 11."
+        }
+      ],
+      "justification": "Zobowiązanie do wystąpienia o podział lub ustanowienie własności realizuje docelowy stan przewidziany w art. 11.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "11(1)-(2)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "301e514a-b6ef-4c62-86d2-14375bcebd7b",
+        "7c41401c-8057-4f5e-b4a0-9917c44d108a"
+      ]
+    },
+    {
+      "item_id": "RT-001-K15",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Kara za brak zbycia udziału przy zmianie składu",
+      "span": {
+        "start": 29453,
+        "end": 29552
+      },
+      "quote": "wszystkim pozostałym Członkom łącznie należna jest od niego kara umowna w wysokości ………… zł (…………).",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:27955:29560"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=483",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=484"
+          ],
+          "justification": "Oceniana jest konstrukcja kary za niewykonanie zobowiązania z ust. 3, czyli za brak zbycia udziału we współwłasności i innych praw objętych umową; jest to zachowanie niepieniężne w rozumieniu art. 483 § 1. Kara za sam brak woli zmiany umowy pozostaje poza tym oczekiwaniem. Kwota jest pusta, więc nie potwierdza się określenia sumy ani skutecznego ustanowienia kary w zawartej umowie."
+        }
+      ],
+      "justification": "Oczekiwanie ogranicza się do kary za niewykonanie zobowiązania z ust. 3, czyli za brak zbycia udziału we współwłasności i innych praw; jest to zobowiązanie niepieniężne w rozumieniu art. 483 § 1. Ocena nie obejmuje drugiego członu ust. 4, czyli kary za sam brak woli zmiany umowy: odmowa zgody na zmianę nie jest istniejącym zobowiązaniem członka i tej relacji się nie przesądza. Kwota pozostaje pusta; nie potwierdza się określenia sumy ani skutecznego ustanowienia kary w zawartej umowie.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "483 §1"
+        },
+        {
+          "source_id": "KC",
+          "reference": "484 §1-2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "200448e1-d55b-422e-9297-65e38dd56d63",
+        "a06a9dcd-31c9-4cf3-8c8c-4bd94430a707",
+        "c7f93669-4e96-402f-9df9-77e2e3070add"
+      ]
+    },
+    {
+      "item_id": "RT-001-K16",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Udział w przetargu ograniczonym",
+      "span": {
+        "start": 19900,
+        "end": 20086
+      },
+      "quote": "/W ramach realizacji inwestycji mieszkaniowej Członkowie zobowiązują się przystąpić do przetargu na zbycie nieruchomości z gminnego zasobu nieruchomości, organizowanego przez Gminę …………,",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:11188:21114"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=12",
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=13"
+          ],
+          "justification": "Wariant przewiduje udział członków w przetargu dotyczącym gruntu gminnego. Nie dowodzi faktycznego ogłoszenia ani wygrania przetargu."
+        }
+      ],
+      "justification": "Wariant przewiduje udział członków w przetargu dotyczącym gruntu gminnego. Nie dowodzi faktycznego ogłoszenia ani wygrania przetargu.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "12"
+        },
+        {
+          "source_id": "KOOP",
+          "reference": "13"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "5a13562c-2411-43bb-bf58-cc4fcbf3b333",
+        "f323399a-7e49-4240-9830-e9f31db6b8db",
+        "5a60d079-19f2-4642-a774-72c7eeef2c56"
+      ]
+    },
+    {
+      "item_id": "RT-001-K17",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Zdarzenia kończące inwestycję",
+      "span": {
+        "start": 30748,
+        "end": 31476
+      },
+      "quote": "2. Przez zakończenie realizacji inwestycji mieszkaniowej należy rozumieć dzień:------------------\n– w którym można przystąpić do użytkowania ostatniego budynku mieszkalnego objętego tą inwestycją.--------------------------------------------------------------------------------------------------\n/– zakończenia robót budowlanych wskazany w protokole odbioru końcowego, o którym mowa w art. 3 pkt 13 ustawy z dnia 7 lipca 1994 r. – Prawo budowlane (Dz. U. z 2023 r. poz. 682, z późn. zm.), dotyczącym odbioru ostatnich robót budowlanych, po których zakończeniu będą użytkowane lokale mieszkalne lub budynki mieszkalne jednorodzinne.-------------------------------------------------------------------------------------------------\n",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:29776:33756"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=3"
+          ],
+          "justification": "Alternatywne zdarzenia zakończenia odpowiadają ustawowym wariantom inwestycji."
+        }
+      ],
+      "justification": "Alternatywne zdarzenia zakończenia odpowiadają ustawowym wariantom inwestycji.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "3 pkt 1-2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "e74401cb-3022-40d5-96d6-d690a003322d",
+        "4e7fc66b-6a27-446a-8524-4ac60697b54d"
+      ]
+    },
+    {
+      "item_id": "RT-001-K18",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Jednomyślność poza zwykłym zarządem",
+      "span": {
+        "start": 25671,
+        "end": 25769
+      },
+      "quote": "4. Do czynności przekraczających zakres zwykłego zarządu konieczna jest zgoda wszystkich Członków.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:25118:27152"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=199"
+          ],
+          "justification": "Zgoda wszystkich na czynności przekraczające zwykły zarząd odpowiada art. 199; art. 201 reguluje inny zakres."
+        }
+      ],
+      "justification": "Zgoda wszystkich na czynności przekraczające zwykły zarząd odpowiada art. 199; art. 201 reguluje inny zakres.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "199"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "b69d7402-d54f-4701-aa2c-f4f7612784ae",
+        "71013e7b-adfb-4cdc-8dfb-3dada84a4bb3",
+        "396ef192-f11f-4a28-993b-2542e9e27ddd"
+      ]
+    },
+    {
+      "item_id": "RT-001-K19",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Rozwiązanie umowy po realizacji celu",
+      "span": {
+        "start": 29782,
+        "end": 30197
+      },
+      "quote": "1. Umowa ulega rozwiązaniu z chwilą zakończenia realizacji inwestycji mieszkaniowej opisanej w § 1 ust. 3 oraz zniesienia współwłasności nieruchomości zabudowanej budynkami mieszkalnymi jednorodzinnymi objętymi tą inwestycją / ustanowienia na rzecz Członków odrębnej własności lokali objętych tą inwestycją na zasadach określonych w ustawie z dnia 24 czerwca 1994 r. o własności lokali (Dz. U. z 2021 r. poz. 1048).",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:29776:33756"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Zapis określa zasady rozwiązania umowy, wymagane przez art. 6 ust. 1 pkt 9."
+        }
+      ],
+      "justification": "Zapis określa zasady rozwiązania umowy, wymagane przez art. 6 ust. 1 pkt 9.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "6(1)(9)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "b590392a-47b2-41d1-961a-b115716fca09",
+        "e6e434a2-ec53-4d0c-8732-1e0a6dbb8e3b"
+      ]
+    },
+    {
+      "item_id": "RT-001-K20",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Nabycie gruntu przez wszystkich członków",
+      "span": {
+        "start": 19900,
+        "end": 20239
+      },
+      "quote": "/W ramach realizacji inwestycji mieszkaniowej Członkowie zobowiązują się przystąpić do przetargu na zbycie nieruchomości z gminnego zasobu nieruchomości, organizowanego przez Gminę …………, przy czym wielkość udziału we współwłasności nabytej nieruchomości wyniesie w stosunku do ………… – ………… części, do ………… – ………… części, do ……….------------",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:11188:21114"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=15"
+          ],
+          "justification": "Pierwszy wariant przewiduje wspólne nabycie gruntu przez członków i określenie ich udziałów, zgodnie z art. 15. Oceniana jest treść wzoru, nie dokonanie sprzedaży."
+        }
+      ],
+      "justification": "Pierwszy wariant przewiduje wspólne nabycie gruntu przez członków i określenie ich udziałów, zgodnie z art. 15. Oceniana jest treść wzoru, nie dokonanie sprzedaży.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "15"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "03817001-8004-4d40-9f99-e3b704239d12",
+        "a916d6e2-2aff-414d-9635-fb2f3641510a"
+      ]
+    },
+    {
+      "item_id": "RT-001-K21",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Przyczyny rozwiązania umowy",
+      "span": {
+        "start": 33756,
+        "end": 34330
+      },
+      "quote": "§ 12.\n1. Rozwiązanie umowy może nastąpić również w wyniku:-----------------------------------------------\n– podjęcia jednomyślnej decyzji wszystkich Członków,-------------------------------------------------\n– braku nabycia prawa własności nieruchomości opisanej w § 1 i § 2 [w terminie ………….].--\n/2. W przypadku, o którym mowa w ust. 1, Członkowie dokonują niezwłocznie rozliczenia inwestycji mieszkaniowej na zasadach określonych w załączniku numer …………. do umowy / w odrębnym dokumencie.-----------------------------------------------------------------------------------\n",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:33756:34330"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Katalog określa zasady rozwiązania wymagane w umowie kooperatywy. Art. 7 dotyczy odrębnej formy spółki cywilnej."
+        }
+      ],
+      "justification": "Katalog określa zasady rozwiązania wymagane w umowie kooperatywy. Art. 7 dotyczy odrębnej formy spółki cywilnej.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "6(1)(9)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "2842f3cb-9bba-45f4-be0f-1bc1a6e6b39c",
+        "008787af-2ef4-4ac3-b5b6-7e2a57f6c34c",
+        "bfb1f379-66cb-4cb9-a9d6-ae76bd893818"
+      ]
+    },
+    {
+      "item_id": "RT-001-K22",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Wygaśnięcie po spadku liczby członków do dwóch",
+      "span": {
+        "start": 34339,
+        "end": 34542
+      },
+      "quote": "Umowa wygasa po upływie sześciu miesięcy od dnia, w którym liczba Stron niniejszej umowy zmniejszy się do dwóch, chyba że przed upływem tego terminu liczba Stron umowy zwiększy się do co najmniej trzech.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:34330:34785"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=9",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=353(1)"
+          ],
+          "justification": "Sześciomiesięczny termin odpowiada art. 9 ust. 1; wyjątek śmierci jest odrębnym oczekiwaniem."
+        }
+      ],
+      "justification": "Sześciomiesięczny termin odpowiada art. 9 ust. 1; wyjątek śmierci jest odrębnym oczekiwaniem.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 353(1)"
+        },
+        {
+          "source_id": "KOOP",
+          "reference": "9(1)"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "39e18049-f833-4331-bb1f-4a0518592e65",
+        "029f70cb-926a-4cca-acd3-b6858c14adf5"
+      ]
+    },
+    {
+      "item_id": "RT-001-K23",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Kara za niewykonanie obowiązków po inwestycji",
+      "span": {
+        "start": 33395,
+        "end": 33663
+      },
+      "quote": "W przypadku niewykonania zobowiązań, o których mowa w ust. 3 lub 4, wszystkim pozostałym Członkom łącznie należna jest kara umowna w wysokości ………… zł (…………) od Członka, którego zaniechanie lub działanie uniemożliwia dokonania czynności, o których mowa w ust. 3 lub 4.",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:29776:33756"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=484",
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=483"
+          ],
+          "justification": "Oceniana jest konstrukcja kary zabezpieczającej niepieniężne czynności potrzebne do podziału, ustanowienia własności i dokonania rozliczenia. Nie zalicza się do nich samego obowiązku zapłaty. Pusta kwota nie pozwala potwierdzić określenia sumy ani skutecznego ustanowienia kary w zawartej umowie."
+        }
+      ],
+      "justification": "Oceniana jest konstrukcja kary zabezpieczającej niepieniężne czynności potrzebne do podziału, ustanowienia własności i dokonania rozliczenia. Nie zalicza się do nich samego obowiązku zapłaty. Pusta kwota nie pozwala potwierdzić określenia sumy ani skutecznego ustanowienia kary w zawartej umowie.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "484 §1-2"
+        },
+        {
+          "source_id": "KC",
+          "reference": "483 §1"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "8e8dab6a-4766-4099-a2c9-11486e9c6320",
+        "b7c4a224-f16d-41a6-b00b-f9fff15cb01b",
+        "15d0ca0d-51c2-4b2d-a88d-f90de60bdaa4"
+      ]
+    },
+    {
+      "item_id": "RT-001-K24",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Czynności nagłe w zarządzie",
+      "span": {
+        "start": 26159,
+        "end": 26418
+      },
+      "quote": "6. Każdy Członek bez uprzedniej zgody osób, o których mowa w ust. 1, lub wszystkich Członków może wykonać czynność nagłą, której zaniechanie mogłoby narazić Członków na niepowetowane straty, informując jednocześnie o tym pozostałych Członków.-----------------",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:25118:27152"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Wzór określa sposób podejmowania decyzji; reguła spółki cywilnej z art. 865 nie jest podstawą tej formy współdziałania."
+        }
+      ],
+      "justification": "Wzór określa sposób podejmowania decyzji; reguła spółki cywilnej z art. 865 nie jest podstawą tej formy współdziałania.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 6 ust. 1 pkt 5"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "652c364c-2519-4ea0-96aa-59ca237fa31c",
+        "58268ee7-d977-4502-b2fe-ee8ea056743c"
+      ]
+    },
+    {
+      "item_id": "RT-001-K25",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Prowadzenie zwykłych spraw",
+      "span": {
+        "start": 25123,
+        "end": 25292
+      },
+      "quote": "1. Do prowadzenia spraw wynikających z umowy w zakresie nieprzekraczającym zwykłego zarządu uprawniony jest …………, ………… i …………, każdy z osobna / łącznie z ………….----------",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:25118:27152"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Umowa wskazuje osoby i sposób podejmowania decyzji w zwykłych sprawach."
+        }
+      ],
+      "justification": "Umowa wskazuje osoby i sposób podejmowania decyzji w zwykłych sprawach.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 6 ust. 1 pkt 5"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "223b1f9a-a84b-458f-9d8f-68daa2cbda3c"
+      ]
+    },
+    {
+      "item_id": "RT-001-K26",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Wkład w postaci udziałów",
+      "span": {
+        "start": 11302,
+        "end": 11519
+      },
+      "quote": "zobowiązują się wnieść do realizacji inwestycji mieszkaniowej tytułem wkładu stanowiące ich własność udziały wynoszące po ………… (…………) części w nieruchomości stanowiącej zabudowaną / niezabudowaną nieruchomość gruntową",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:11188:21114"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Zapis określa wkład w finansowanie inwestycji; art. 861 dotyczy spółki cywilnej."
+        }
+      ],
+      "justification": "Zapis określa wkład w finansowanie inwestycji; art. 861 dotyczy spółki cywilnej.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 6 ust. 1 pkt 3"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "34631d52-12d1-466c-b899-cc1ff4422e79"
+      ]
+    },
+    {
+      "item_id": "RT-001-K27",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Wkład w wariancie inwestycji",
+      "span": {
+        "start": 17550,
+        "end": 18081
+      },
+      "quote": "każdy z Członków zobowiązuje się wnieść tytułem wkładu w realizację inwestycji mieszkaniowej:----------------------------------\n1) …………, ………… i gotówkę …………;-------------------------------------------------------------------------\n2) …………, ………… i własność rzeczy …………;---------------------------------------------------------------\n3) …………, ………… i inne prawa …………;---------------------------------------------------------------------\n4) …………, ………… i świadczenie usług w postaci  ………….----------------------------------------------\n",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:11188:21114"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Wariant określa wkład do realizacji inwestycji; nie jest to wkład do spółki cywilnej."
+        }
+      ],
+      "justification": "Wariant określa wkład do realizacji inwestycji; nie jest to wkład do spółki cywilnej.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 6 ust. 1 pkt 3"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "64a47b69-231a-446b-828c-f77c5ca41225"
+      ]
+    },
+    {
+      "item_id": "RT-001-K28",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Udział członków w kosztach",
+      "span": {
+        "start": 23367,
+        "end": 23877
+      },
+      "quote": "Członkowie ponoszą wydatki na pokrycie kosztów realizacji inwestycji mieszkaniowej w następującym wymiarze:------------------------------------------------------------------------------------\n1) ………… – ………… % kosztów;--------------------------------------------------------------------------------\n2) ………… – ………… % kosztów;--------------------------------------------------------------------------------\n3) ………… – ………… % kosztów.--------------------------------------------------------------------------------\n",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:23358:24688"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Wzór ustanawia zasadę finansowania: koszty realizacji inwestycji obciążają Członków w oznaczonych procentowo częściach, przypisanych imiennie. Oceniana jest ta zasada podziału, a nie konkretne wartości procentowe, które pozostają niewypełnione i nie są potwierdzane."
+        }
+      ],
+      "justification": "Art. 6 ust. 1 pkt 3 wymaga zasad finansowania, czyli reguły, a nie pojedynczej danej liczbowej; regułę procentowego podziału kosztów między imiennie wskazanych Członków wzór podaje. Rodzaj rachunku z art. 10 pozostaje odrębnym zagadnieniem K08.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 6 ust. 1 pkt 3"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "589ad33f-b23e-4748-9d6e-fa9e093840be"
+      ]
+    },
+    {
+      "item_id": "RT-001-K29",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Ustanowienie reprezentantów",
+      "span": {
+        "start": 26419,
+        "end": 26682
+      },
+      "quote": "7. Ustanowienie pełnomocnika / pełnomocników do reprezentowania Członków w sprawach związanych z realizacją inwestycji mieszkaniowej wymaga zgody wszystkich Członków. Pełnomocnikiem może być osoba nie będąca Członkiem.---------------------------------------------",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:25118:27152"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Umowa określa reprezentację członków; art. 866 o spółce cywilnej nie jest właściwą podstawą."
+        }
+      ],
+      "justification": "Umowa określa reprezentację członków; art. 866 o spółce cywilnej nie jest właściwą podstawą.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 6 ust. 1 pkt 6"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "4165fc60-7783-4344-a265-e992bef4dbb6"
+      ]
+    },
+    {
+      "item_id": "ED-009-K32",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Nieograniczone koszty zewnętrznej windykacji",
+      "span": {
+        "start": 2291,
+        "end": 2350
+      },
+      "quote": "Pożyczkobiorca pokrywa pełne koszty zewnętrznej windykacji.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:1769:2352"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=33a"
+          ],
+          "justification": "Dodatkowy nieograniczony koszt narusza wspólny limit przy odsetkach maksymalnych."
+        }
+      ],
+      "justification": "Klauzula nakłada pełne koszty dodatkowo do maksymalnych odsetek za opóźnienie.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "art. 33a"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": []
+    },
+    {
+      "item_id": "ED-009-K33",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Zgoda i minimum przy częściowej wcześniejszej spłacie",
+      "span": {
+        "start": 2507,
+        "end": 2599
+      },
+      "quote": "Wcześniejsza częściowa spłata wymaga zgody Kredytodawcy i nie może być niższa niż dwie raty.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:2352:2894"
+      ],
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=48"
+          ],
+          "justification": "Prawo częściowej spłaty nie zależy od zgody ani minimum dwóch rat."
+        }
+      ],
+      "justification": "Warunki umowne ograniczają ustawowe prawo wcześniejszej częściowej spłaty.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "art. 48 ust. 1–2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": []
+    },
+    {
+      "item_id": "RT-001-K31",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Co najmniej trzy osoby fizyczne we wzorze",
+      "span": {
+        "start": 315,
+        "end": 1723
+      },
+      "quote": "1.\t…………, syn …………,----------------------------------------------------------------------------------------------\n\tposiadający numer PESEL …………, legitymujący się dowodem osobistym seria ………… numer …………, zamieszkały w ………… w lokalu numer ………… w budynku przy ulicy ………….-\n2.\t…………, syn …………,----------------------------------------------------------------------------------------------\n\tposiadający numer PESEL …………, legitymujący się dowodem osobistym seria ………… numer …………, zamieszkały w ………… w lokalu numer ………… w budynku przy ulicy ………….-\n3.\t…………, córka …………,-------------------------------------------------------------------------------------------\n\tposiadająca numer PESEL …………, legitymująca się dowodem osobistym seria ………… numer …………, zamieszkała w ………… w budynku numer ………… przy ulicy ………….-------------\n4. …………---------------------------------------------------------------------------------------------------------------\nTożsamość stawających notariusz stwierdził na podstawie okazanych dowodów osobistych powołanych przy nazwiskach, których terminy ważności nie upłynęły; adresy zamieszkania notariusz ustalił na podstawie złożonych oświadczeń.-----------------------------------------------------\nStawający oświadczyli, że w odniesieniu do ich dowodów osobistych nie zachodzą przesłanki uzasadniające ich unieważnienie.-------------------------------------------------------------------------------\n",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:0:11188"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=4"
+          ],
+          "justification": "Wzór przewiduje co najmniej trzy osoby fizyczne."
+        }
+      ],
+      "justification": "Oceniana jest przewidziana konfiguracja stron, nie tożsamość ani faktyczne podpisanie.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 4 ust. 2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": []
+    },
+    {
+      "item_id": "RT-001-K33",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Wyjątek śmierci przy liczbie dwóch członków",
+      "span": {
+        "start": 34604,
+        "end": 34784
+      },
+      "quote": "Umowa nie wygasa w przypadku, gdy liczba Stron niniejszej umowy zmniejszy się do dwóch, jeżeli to zmniejszenie nastąpiło w wyniku śmierci Strony.-----------------------------------",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:34330:34785"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=9"
+          ],
+          "justification": "Spadek do dwóch w wyniku śmierci nie powoduje wygaśnięcia."
+        }
+      ],
+      "justification": "Zapis powtarza wyjątek z art. 9 ust. 2.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 9 ust. 2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": []
+    },
+    {
+      "item_id": "ED-009-K36",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Wymagane informacje o rozpatrywaniu reklamacji",
+      "accepted_answers": [
+        {
+          "code": "contradictory",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=4"
+          ],
+          "justification": "Postanowienie nie podaje miejsca złożenia reklamacji ani sposobu powiadomienia o jej rozpatrzeniu, wymaganych w umowie przez art. 4."
+        }
+      ],
+      "justification": "Postanowienie nie podaje miejsca złożenia reklamacji ani sposobu powiadomienia o jej rozpatrzeniu, wymaganych w umowie przez art. 4.",
+      "source_evidence": [
+        {
+          "source_id": "REK",
+          "reference": "art. 4 ust. 1 pkt 1–3"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "8963fa0a-633d-4a1c-8ef8-6cce2fc89058",
+        "8afbf9f1-4278-489d-a62f-7daf2c717621"
+      ],
+      "span": {
+        "start": 3984,
+        "end": 4135
+      },
+      "quote": "3. Reklamację można złożyć pisemnie lub przez konto. Odpowiedź nastąpi w ciągu trzydziestu dni, a w sprawie skomplikowanej w ciągu sześćdziesięciu dni.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:3787:4199"
+      ]
+    },
+    {
+      "item_id": "ED-009-K37",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Zwykły termin odpowiedzi na reklamację",
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/823/text.pdf#article=6"
+          ],
+          "justification": "Zwykły termin odpowiedzi wynosi trzydzieści dni. Warunki przedłużenia są odrębnym oczekiwaniem."
+        }
+      ],
+      "justification": "Zwykły termin odpowiedzi wynosi trzydzieści dni. Warunki przedłużenia są odrębnym oczekiwaniem.",
+      "source_evidence": [
+        {
+          "source_id": "REK",
+          "reference": "art. 6"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": [
+        "4e9b8de4-5434-4539-ba70-9ba5a024c4fa",
+        "39602df6-bfab-45a3-806a-5a3fd43805fb"
+      ],
+      "span": {
+        "start": 4037,
+        "end": 4078
+      },
+      "quote": "Odpowiedź nastąpi w ciągu trzydziestu dni",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:3787:4199"
+      ]
+    },
+    {
+      "item_id": "ED-005-K24",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Domyślny czas i terytorium licencji",
+      "span": {
+        "start": 2658,
+        "end": 2750
+      },
+      "quote": "Zamawiający otrzymuje niewyłączną licencję na ich używanie jako części odebranego rezultatu.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:2284:2938"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/24/text.pdf#article=66"
+          ],
+          "justification": "Zapis nie określa innego czasu ani terytorium licencji. Działa więc reguła pięciu lat na terytorium państwa siedziby albo miejsca zamieszkania licencjobiorcy, po których uprawnienie wygasa; nie jest to licencja bezterminowa."
+        }
+      ],
+      "justification": "Zapis nie określa innego czasu ani terytorium licencji. Działa więc reguła pięciu lat na terytorium państwa siedziby albo miejsca zamieszkania licencjobiorcy, po których uprawnienie wygasa; nie jest to licencja bezterminowa.",
+      "source_evidence": [
+        {
+          "source_id": "PA",
+          "reference": "art. 66 ust. 1–2"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": []
+    },
+    {
+      "item_id": "ED-005-K27",
+      "document_key": "ED-005",
+      "artifact_id": "ED-005",
+      "issue": "Wymagalność wynagrodzenia za etap",
+      "span": {
+        "start": 1323,
+        "end": 1494
+      },
+      "quote": "Po odbiorze każdego etapu Wykonawca może wystawić fakturę na jedną trzecią wynagrodzenia.\n3. Zamawiający płaci w terminie czternastu dni od otrzymania prawidłowej faktury.",
+      "unit_ids": [
+        "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c:1221:1677"
+      ],
+      "accepted_answers": [
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=642"
+          ],
+          "justification": "Przy odczytaniu świadczenia jako dzieła umowa odstępuje od reguł wymagalności z art. 642: wynagrodzenie nie staje się wymagalne ani z chwilą oddania dzieła, ani z chwilą spełnienia świadczenia częściowego, lecz po upływie czternastu dni od otrzymania prawidłowej faktury wystawionej po odbiorze etapu."
+        },
+        {
+          "code": "permissible_departure",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2026/795/text.pdf#article=744"
+          ],
+          "justification": "Przy odczytaniu, w którym do świadczenia stosuje się przepisy o zleceniu, umowa stanowi inaczej niż reguła art. 744, według której wynagrodzenie należy się dopiero po wykonaniu zlecenia."
+        }
+      ],
+      "justification": "Ustęp 2 dotyczy prawa do wystawienia faktury po odbiorze etapu, a ustęp 3 wyznacza termin zapłaty na czternaście dni od otrzymania prawidłowej faktury; wymagalność wynagrodzenia wynika z obu ustępów łącznie, nie z samego odbioru etapu. Dlatego nie przyjmuje się odpowiedzi consistent: reguły art. 642 wiążą wymagalność z oddaniem dzieła albo ze spełnieniem świadczenia częściowego, a nie z terminem liczonym od faktury. Kwalifikacja umowy pozostaje nieustalona, lecz przy każdym z dwóch odczytań zapis jest dopuszczalnym odstępstwem od reguły dyspozytywnej, więc kod jest jeden. Wysokość wynagrodzenia obejmują K06 i K07.",
+      "source_evidence": [
+        {
+          "source_id": "KC",
+          "reference": "art. 642 § 1–2"
+        },
+        {
+          "source_id": "KC",
+          "reference": "art. 744"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": []
+    },
+    {
+      "item_id": "ED-009-K39",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Informacja o całkowitej kwocie do zapłaty",
+      "span": {
+        "start": 857,
+        "end": 934
+      },
+      "quote": "Całkowita kwota do zapłaty według założeń na dzień zawarcia wynosi 23 184 zł.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:654:1288"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=30"
+          ],
+          "justification": "Umowa podaje kwotę oznaczoną jako całkowita kwota do zapłaty, ustaloną na dzień zawarcia umowy. Oceniane jest wyłącznie podanie tej informacji; poprawności jej wyliczenia nie potwierdza się."
+        }
+      ],
+      "justification": "Oczekiwanie obejmuje wyłącznie obecność wymaganej informacji. Samo podanie kwoty nie potwierdza zgodności rachunku z pozostałymi kosztami.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "art. 30 ust. 1 pkt 7; definicja w art. 5 pkt 8"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": []
+    },
+    {
+      "item_id": "ED-009-K40",
+      "document_key": "ED-009",
+      "artifact_id": "ED-009",
+      "issue": "Informacja o stopie oprocentowania kredytu",
+      "span": {
+        "start": 670,
+        "end": 728
+      },
+      "quote": "Oprocentowanie jest stałe i wynosi 12% w stosunku rocznym.",
+      "unit_ids": [
+        "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137:654:1288"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/1362/text.pdf#article=30"
+          ],
+          "justification": "Umowa podaje stopę oprocentowania kredytu i wskazuje, że jest stała, więc nie występują okresy, warunki ani procedury jej zmiany."
+        }
+      ],
+      "justification": "Oceniane jest spełnienie obowiązku informacyjnego co do stopy oprocentowania. Podanie stopy oprocentowania nie przesądza jej zgodności z maksimum z art. 359 § 2(1) k.c.",
+      "source_evidence": [
+        {
+          "source_id": "UKK",
+          "reference": "art. 30 ust. 1 pkt 6"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": []
+    },
+    {
+      "item_id": "RT-001-K37",
+      "document_key": "RT-001",
+      "artifact_id": "RT-001-DOC",
+      "issue": "Zasady rozliczenia inwestycji",
+      "span": {
+        "start": 32465,
+        "end": 32640
+      },
+      "quote": "Członkowie zobowiązują się, że niezwłocznie po zakończeniu realizacji inwestycji mieszkaniowej dokonają końcowego rozliczenia finansowego inwestycji, które będzie uwzględniać:",
+      "unit_ids": [
+        "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5:29776:33756"
+      ],
+      "accepted_answers": [
+        {
+          "code": "consistent",
+          "accepted_bases": [
+            "https://api.sejm.gov.pl/eli/acts/DU/2025/9/text.pdf#article=6"
+          ],
+          "justification": "Wzór wskazuje moment i elementy końcowego rozliczenia inwestycji, wymagane przez art. 6 ust. 1 pkt 4."
+        }
+      ],
+      "justification": "Oceniana jest treść wzoru. Pozycja dotyczy zasad rozliczenia, odrębnych od zasad finansowania z K26–K28 i od zasad rozwiązania umowy z K19 i K21.",
+      "source_evidence": [
+        {
+          "source_id": "KOOP",
+          "reference": "art. 6 ust. 1 pkt 4"
+        }
+      ],
+      "status": "scored",
+      "outside_snapshot": false,
+      "candidate_finding_ids": []
+    }
+  ],
+  "review_scope": "All expected answers and their supporting passages were checked against document and provision texts in two model-assisted source reviews. The reconciled key is approved by the author and frozen for full judging.",
+  "scoring_protocol_version_note": "Approved frozen reference key for whole-run judging under scoring protocol 3.0.0. Expected answers and source texts are unchanged."
+}

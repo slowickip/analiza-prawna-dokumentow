@@ -1,0 +1,31 @@
+[
+  {
+    "id": "part_1",
+    "title": "Treść ustawy",
+    "type": "part",
+    "symbol": "part_1",
+    "children": [
+      {
+        "id": "arti_11",
+        "symbol": "arti_11",
+        "type": "arti",
+        "name": "11",
+        "title": "Art. 11."
+      },
+      {
+        "id": "arti_19a",
+        "symbol": "arti_19a",
+        "type": "arti",
+        "name": "19a",
+        "title": "Art. 19a."
+      },
+      {
+        "id": "arti_41_1",
+        "symbol": "arti_41_1",
+        "type": "arti",
+        "name": "41(1)",
+        "title": "Art. 41<sup>1</sup>."
+      }
+    ]
+  }
+]

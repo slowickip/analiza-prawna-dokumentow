@@ -1,0 +1,223 @@
+{
+  "version": 2,
+  "corpus_target_date": "2026-08-30",
+  "acts": [
+    {
+      "publisher": "DU",
+      "year": 2026,
+      "position": 795,
+      "source_format": "pdf",
+      "base_act": "DU/1964/93",
+      "legal_status_date": "2026-05-19",
+      "amendments_not_carried": [],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2023,
+      "position": 725,
+      "source_format": "html",
+      "base_act": "DU/2001/733",
+      "legal_status_date": "2023-03-09",
+      "amendments_not_carried": [],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2025,
+      "position": 277,
+      "source_format": "pdf",
+      "base_act": "DU/1974/141",
+      "legal_status_date": "2025-02-07",
+      "amendments_not_carried": [
+        {
+          "id": "DU/2024/1871",
+          "eli_relation_date": "2025-03-19"
+        },
+        {
+          "id": "DU/2025/1661",
+          "eli_relation_date": "2025-12-13"
+        },
+        {
+          "id": "DU/2025/807",
+          "eli_relation_date": "2025-12-24"
+        },
+        {
+          "id": "DU/2025/1423",
+          "eli_relation_date": "2026-01-01"
+        },
+        {
+          "id": "DU/2026/25",
+          "eli_relation_date": "2026-01-27"
+        },
+        {
+          "id": "DU/2026/473",
+          "eli_relation_date": "2026-07-08"
+        }
+      ],
+      "repeated_articles": [
+        {
+          "article": "184",
+          "printings": 2
+        },
+        {
+          "article": "186(4)",
+          "printings": 2
+        }
+      ]
+    },
+    {
+      "publisher": "DU",
+      "year": 2024,
+      "position": 1796,
+      "source_format": "html",
+      "base_act": "DU/2014/827",
+      "legal_status_date": "2024-11-21",
+      "amendments_not_carried": [
+        {
+          "id": "DU/2025/1172",
+          "eli_relation_date": "2025-11-27"
+        }
+      ],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2024,
+      "position": 1513,
+      "source_format": "html",
+      "base_act": "DU/2002/1204",
+      "legal_status_date": "2024-10-09",
+      "amendments_not_carried": [
+        {
+          "id": "DU/2024/1222",
+          "eli_relation_date": "2024-11-10"
+        }
+      ],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2025,
+      "position": 1362,
+      "source_format": "pdf",
+      "base_act": "DU/2011/715",
+      "legal_status_date": "2025-09-15",
+      "amendments_not_carried": [],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2025,
+      "position": 24,
+      "source_format": "pdf",
+      "base_act": "DU/1994/83",
+      "legal_status_date": "2024-12-03",
+      "amendments_not_carried": [],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2026,
+      "position": 823,
+      "source_format": "pdf",
+      "base_act": "DU/2015/1348",
+      "legal_status_date": "2026-06-10",
+      "amendments_not_carried": [],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2025,
+      "position": 9,
+      "source_format": "pdf",
+      "base_act": "DU/2023/28",
+      "legal_status_date": "2024-12-19",
+      "amendments_not_carried": [],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2025,
+      "position": 647,
+      "source_format": "pdf",
+      "base_act": "DU/2001/627",
+      "legal_status_date": "2025-04-29",
+      "amendments_not_carried": [
+        {
+          "id": "DU/2025/1080",
+          "eli_relation_date": "2025-09-07"
+        },
+        {
+          "id": "DU/2025/1812",
+          "eli_relation_date": "2025-12-31"
+        },
+        {
+          "id": "DU/2025/1863",
+          "eli_relation_date": "2026-01-13"
+        },
+        {
+          "id": "DU/2026/426",
+          "eli_relation_date": "2026-04-14"
+        },
+        {
+          "id": "DU/2026/605",
+          "eli_relation_date": "2026-05-21"
+        },
+        {
+          "id": "DU/2026/607",
+          "eli_relation_date": "2026-05-21"
+        },
+        {
+          "id": "DU/2026/635",
+          "eli_relation_date": "2026-05-27"
+        },
+        {
+          "id": "DU/2026/982",
+          "eli_relation_date": "2026-07-23"
+        },
+        {
+          "id": "DU/2026/912",
+          "eli_relation_date": "2026-07-31"
+        }
+      ],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2025,
+      "position": 1483,
+      "source_format": "pdf",
+      "base_act": "DU/2009/1240",
+      "legal_status_date": "2025-09-15",
+      "amendments_not_carried": [
+        {
+          "id": "DU/2025/1844",
+          "eli_relation_date": "2026-01-01"
+        },
+        {
+          "id": "DU/2025/1846",
+          "eli_relation_date": "2026-01-07"
+        },
+        {
+          "id": "DU/2026/426",
+          "eli_relation_date": "2026-04-14"
+        },
+        {
+          "id": "DU/2026/635",
+          "eli_relation_date": "2026-05-27"
+        },
+        {
+          "id": "DU/2026/912",
+          "eli_relation_date": "2026-07-31"
+        }
+      ],
+      "repeated_articles": [
+        {
+          "article": "112ab",
+          "printings": 2
+        }
+      ]
+    }
+  ]
+}

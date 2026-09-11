@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "captured_date": "2026-08-31",
+  "scope": "CA-009 development-only live smoke; not an evaluation result",
+  "holdout_opened_or_run": false,
+  "code_provenance": {
+    "exact_runtime_state_recorded_at_run_time": false,
+    "live_scope": "uncapped ordinary runs, low reasoning, temperature zero, ON path and 900-second configured deadline",
+    "post_run_scope_verified_by_deterministic_tests": "in-flight deadline cancellation telemetry, persisted interruption cause and tightened characterisation cross-field schema"
+  },
+  "reproduction": {
+    "document_selection": "jq '.documents[] | select(.id == \"ED-003\" or .id == \"RT-003-DOCX\") | {id,split,stratum,format,path,sha256,measured}' evaluation-data/manifest.json",
+    "source_hash": "jq '.files[] | select(.filename == \"RT-003-employment-contract.docx\") | {filename,stored_byte_count,stored_sha256}' evaluation-data/source-files/acquisition.json",
+    "file_hashes": "shasum -a 256 evaluation-data/documents/ED-003-employment-fixed-term.txt evaluation-data/source-files/RT-003-employment-contract.docx",
+    "run_record": "curl -fsS http://127.0.0.1:8000/api/v1/runs/<run-id>"
+  },
+  "documents": [
+    {
+      "id": "ED-003",
+      "split": "development",
+      "stratum": "synthetic_fixture",
+      "format": "txt",
+      "path": "evaluation-data/documents/ED-003-employment-fixed-term.txt",
+      "sha256": "1d7318306c74bd21f10e70fc4aeeb367d80b687120561c9a071a6f28313b3cd3",
+      "on_context_edges": 2,
+      "run": {
+        "id": "6b59ffd3-ab0d-476c-ada6-86e8c3dc4049",
+        "arm": "on",
+        "status": "completed",
+        "measurement_valid_flag": true,
+        "requested_model": "deepseek-v4-flash",
+        "returned_model": "deepseek-v4-flash",
+        "parameters": {
+          "reasoning_effort": "low",
+          "temperature": 0.0
+        },
+        "retry_policy": "bounded-3",
+        "concurrency": 2,
+        "token_budget": null,
+        "wall_budget_seconds": 900.0,
+        "input_tokens": 106264,
+        "output_tokens": 64023,
+        "total_tokens": 170287,
+        "elapsed_ms": 874212.2779000056,
+        "units_total": 9,
+        "units_with_finding": 9,
+        "units_not_processed": 0,
+        "findings": 16,
+        "attempts": 55,
+        "attempt_statuses": {
+          "success": 52,
+          "http_error": 2,
+          "transport_error": 1
+        },
+        "attempt_error_codes": {
+          "model_http_500": 2,
+          "model_transport_error": 1
+        },
+        "interruption": null,
+        "error_code": null
+      }
+    },
+    {
+      "id": "RT-003-DOCX",
+      "split": "development",
+      "stratum": "real_source",
+      "format": "docx",
+      "path": "evaluation-data/source-files/RT-003-employment-contract.docx",
+      "sha256": "cbd000d50053a01395cc14e05d51b2c5dd397a860ca68cc2690316ddfc2b7002",
+      "on_context_edges": 0,
+      "run": {
+        "id": "40a12a55-fd7f-4d45-b776-1f4b997ab5a1",
+        "arm": "on",
+        "status": "failed",
+        "measurement_valid_flag": true,
+        "requested_model": "deepseek-v4-flash",
+        "returned_model": "deepseek-v4-flash",
+        "parameters": {
+          "reasoning_effort": "low",
+          "temperature": 0.0
+        },
+        "retry_policy": "bounded-3",
+        "concurrency": 2,
+        "token_budget": null,
+        "wall_budget_seconds": 900.0,
+        "input_tokens": 49049,
+        "output_tokens": 13052,
+        "total_tokens": 62101,
+        "elapsed_ms": 752510.5315099936,
+        "units_total": 1,
+        "units_with_finding": 1,
+        "units_not_processed": 0,
+        "findings": 3,
+        "attempts": 14,
+        "attempt_statuses": {
+          "success": 11,
+          "transport_error": 3
+        },
+        "attempt_error_codes": {
+          "model_transport_error": 3
+        },
+        "interruption": null,
+        "error_code": "model_transport_error"
+      }
+    }
+  ],
+  "interpretation": [
+    "ED-003 demonstrates that an ordinary run can exceed the removed 50000-token aggregate default and still complete.",
+    "RT-003-DOCX is a negative provider-reliability smoke: three transport failures exhausted retries before the 900-second run deadline.",
+    "Neither retained final run exercised cancellation at the 900-second deadline; that later code path and its telemetry are covered by deterministic blocking-transport tests.",
+    "The exact runtime state was not captured, so the retained live evidence is bounded to the behavior named in code_provenance rather than the entire implementation.",
+    "The API-created runs retain measurement_valid=true because the public run endpoint does not expose that internal flag; these development smokes are not final evaluation measurements."
+  ]
+}

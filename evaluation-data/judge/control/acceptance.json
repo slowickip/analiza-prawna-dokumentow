@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "reference_type": "llm",
+  "case_count": 12,
+  "minimum_overall_agreements": 10,
+  "maximum_key_match_disagreements": 1,
+  "maximum_false_reassurances": 0,
+  "all_cases_must_have_validated_verdicts": true,
+  "false_reassurance_rule": "A candidate claiming consistent or permissible_departure on a reference clear breach must not receive an overall correct verdict. A candidate that correctly identifies a breach may receive correct.",
+  "overall_rule": "Any incorrect required criterion makes incorrect; otherwise any unresolved criterion makes unresolved; otherwise correct. Key issue matching is checked separately.",
+  "selection_rule": "First validated verdict per unchanged case and judge configuration; no repeating a valid verdict to seek agreement. Conflicting repeated valid verdicts are an error.",
+  "failure_rule": "A failed acceptance check requires revision and a new control sample before the full run. Technical failed attempts are retained and may be resumed.",
+  "interpretation": "Engineering check of agreement with model-prepared source-based references; not measured agreement with human or expert ratings.",
+  "cases_sha256": "922a3666d8d9f6ab3faee942e21cfe9ec8048dc7147af67dac55df179370519b",
+  "reference_sha256": "5b6ab3b33a44d6bce22ed1838b2699ef454056d34cf7b3f72840ac436b652020"
+}

@@ -1,0 +1,25 @@
+{
+  "ELI": "DU/1964/93",
+  "title": "Kodeks cywilny",
+  "displayAddress": "Dz.U. 1964 nr 16 poz. 93",
+  "status": "obowiazujacy",
+  "inForce": "IN_FORCE",
+  "legalStatusDate": "2020-01-01",
+  "textHTML": true,
+  "textPDF": true,
+  "type": "Ustawa",
+  "references": {
+    "Akty zmieniające": [
+      {
+        "id": "DU/2018/100",
+        "date": "2018-06-01",
+        "title": "Ustawa zmieniająca Kodeks cywilny (before compilation)"
+      },
+      {
+        "id": "DU/2027/999",
+        "date": "2027-01-01",
+        "title": "Ustawa zmieniająca Kodeks cywilny (after target date)"
+      }
+    ]
+  }
+}

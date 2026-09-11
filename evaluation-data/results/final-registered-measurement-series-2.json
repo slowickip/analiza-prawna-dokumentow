@@ -1,0 +1,28 @@
+{
+  "started_at": "2026-09-09T03:33:48.037417+00:00",
+  "batch_id": "492888378b644e378d17140cd3bb62e1",
+  "registered_cohort": [
+    "ED-005",
+    "ED-009",
+    "RT-001"
+  ],
+  "out_dir": "evaluation-data/results/final/2026-09-09-holdout-series-2",
+  "identity": {
+    "protocol_version": "2.8.0",
+    "protocol_sha256": "b9addd69d8f08275f9149ef9c30b3fc1980ebcac68c1b7dac3e12a6a6723af35",
+    "manifest_sha256": "d6d69807ad2a45d8719826ad85c32a84f11937a125ce8e97bed9932d06486325",
+    "split": "holdout",
+    "implementation_fingerprint": "895fe0f802468768a251aacc951d4b65ade3fb18377291b5dc0f30a57d541754",
+    "config_fingerprint": "7ec96645d923fbe573e5e3260601da704ff0a31f86874c447c21e03d1479e0da"
+  },
+  "note": "Written immediately before the first measured request of the registered final batch. registered_cohort is the whole clean holdout the comparison is over; one invocation may work through part of it, and out_dir/.batch_identity.json records what the batch has been asked for so far. An invocation continuing that directory resumes this batch; any other is refused. Delete this only alongside a protocol version that records why.",
+  "registered_series": 2,
+  "authorized_by": "protocol registered_repeat_series; this series has a claim of its own and does not release any other series' claim",
+  "path_representation": {
+    "migrated": "2026-09-09",
+    "what_changed": "out_dir was recorded as the absolute directory the batch ran in and is now the same directory relative to the artefact root. The absolute form named the machine and the working directory, which the submitted artefact has no use for and may not carry.",
+    "what_did_not_change": "The batch it identifies, its id, its cohort, its identity fields, its timestamp and every recorded hash. The directory is the same directory.",
+    "original_sha256": "85af5a3f36126c45dc8e5db91bf40529085a9a6395da8f1b17ca381527780530",
+    "not_the_original_capture": "This file is no longer byte-identical to the claim written before the first measured request. The digest above is that file's, and the original is preserved outside the artefact."
+  }
+}

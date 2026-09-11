@@ -1,0 +1,157 @@
+{
+  "$defs": {
+    "Evidence": {
+      "additionalProperties": false,
+      "description": "Where in the supplied material the judgement is grounded.",
+      "properties": {
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "quote"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "JudgeVerdict": {
+      "additionalProperties": false,
+      "description": "The judge's answer about one finding, in the only shape accepted.",
+      "properties": {
+        "classification": {
+          "enum": [
+            "correct",
+            "incorrect",
+            "unresolved"
+          ],
+          "title": "Classification",
+          "type": "string"
+        },
+        "error_tags": {
+          "items": {
+            "enum": [
+              "wrong_classification",
+              "basis_does_not_support",
+              "basis_not_in_corpus",
+              "quote_not_in_document",
+              "claim_not_in_document",
+              "expectation_missed",
+              "outside_the_key",
+              "overreach",
+              "other"
+            ],
+            "type": "string"
+          },
+          "title": "Error Tags",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "explanation": {
+          "enum": [
+            "supported",
+            "unsupported",
+            "unresolved",
+            "not_applicable"
+          ],
+          "title": "Explanation",
+          "type": "string"
+        },
+        "finding_id": {
+          "minLength": 1,
+          "title": "Finding Id",
+          "type": "string"
+        },
+        "key_matches": {
+          "items": {
+            "$ref": "#/$defs/KeyMatch"
+          },
+          "title": "Key Matches",
+          "type": "array"
+        },
+        "legal_basis": {
+          "enum": [
+            "supported",
+            "unsupported",
+            "unresolved",
+            "not_applicable"
+          ],
+          "title": "Legal Basis",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "finding_id",
+        "key_matches",
+        "classification",
+        "legal_basis",
+        "explanation",
+        "evidence",
+        "reason",
+        "error_tags"
+      ],
+      "title": "JudgeVerdict",
+      "type": "object"
+    },
+    "KeyMatch": {
+      "additionalProperties": false,
+      "description": "One key expectation the judge says this finding is actually about.",
+      "properties": {
+        "covers_expectation": {
+          "title": "Covers Expectation",
+          "type": "boolean"
+        },
+        "item_id": {
+          "title": "Item Id",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "item_id",
+        "covers_expectation",
+        "reason"
+      ],
+      "title": "KeyMatch",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One reply about one whole run: an answer for each finding it carried.",
+  "properties": {
+    "assessments": {
+      "items": {
+        "$ref": "#/$defs/JudgeVerdict"
+      },
+      "title": "Assessments",
+      "type": "array"
+    }
+  },
+  "required": [
+    "assessments"
+  ],
+  "title": "JudgeReply",
+  "type": "object"
+}

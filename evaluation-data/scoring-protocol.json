@@ -1,0 +1,463 @@
+{
+  "schema_version": 2,
+  "scoring_protocol_id": "contract-analyzer-answer-key-scoring",
+  "scoring_protocol_version": "3.0.0",
+  "state": "whole_run_scoring_complete",
+  "state_definition": "Source-based judge control passed. All approved recorded runs have validated whole-run assessments, and the offline quality report accounts for every finding.",
+  "answer_key_state": "author_approved_frozen",
+  "scoring_state": "completed",
+  "what_this_file_owns": "Judging rules, quality dimensions, denominators, aggregation, comparison thresholds and execution readiness.",
+  "relation_to_evaluation_protocol": {
+    "measurement_protocol": "evaluation-data/protocol.json",
+    "measurement_protocol_version_at_the_run": "Per series, in scored_runs.series[].measurement_protocol_version.",
+    "what_the_measurement_protocol_owns": "Arms, dataset split, cohorts, run parameters, parity conditions and measurement evidence. This file owns scoring.",
+    "unchanged_by_this_file": "The runs, their outputs and their telemetry; the arms; the split; the dataset; the cohorts; the parity conditions; the recorded limitations and the ED-001 exposure. No run is repeated, re-executed or edited by anything defined here, and no analyzer call is made by it.",
+    "aggregation_forbidden": "The quality dimensions are never summed, averaged or collapsed into one score."
+  },
+  "retrospective_disclosure": {
+    "defined_after_outputs_were_seen": true,
+    "what_had_been_seen": "Both analyzer series and prior model assessments were available when the whole-run scoring procedure was fixed. The approved expectations, quality dimensions and comparison thresholds are fixed for this assessment.",
+    "interpretation": "The scoring criteria are fixed before full judging, not before analyzer measurement. The recorded analyzer outputs remain frozen."
+  },
+  "scored_runs": {
+    "cohort": [
+      "ED-005",
+      "ED-009",
+      "RT-001"
+    ],
+    "documents": {
+      "ED-005": {
+        "artifact": "ED-005",
+        "stratum": "synthetic_fixture",
+        "dir": "ED-005"
+      },
+      "ED-009": {
+        "artifact": "ED-009",
+        "stratum": "synthetic_fixture",
+        "dir": "ED-009"
+      },
+      "RT-001": {
+        "artifact": "RT-001-DOC",
+        "stratum": "real_source",
+        "dir": "RT-001-DOC"
+      }
+    },
+    "cells_per_series": 9,
+    "document_content_sha256": {
+      "ED-005": "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c",
+      "ED-009": "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137",
+      "RT-001": "9ab817895fb68eec83ac739699b98ff66f29cd2c6423ab570ab4f8caf77f49f5"
+    },
+    "manifest_sha256": "615ea8053408265666a25a45d2572cbec058751be1673c9d62cd7cf245ae9e64",
+    "integrity": "The scorer verifies every listed batch file, the manifest hash, and the canonical document content hashes. The key documents map must carry these same content hashes; each item joins that map through document_key. A mismatch stops scoring. The recorded outputs and text coordinate axes cannot change silently.",
+    "series_states": {
+      "recorded": "The series ran to nine completed, measurement-valid cells and its files are listed with their hashes. Only a recorded series is scored.",
+      "authorized": "The series is registered in protocol.json and has not run.",
+      "failed": "The series ran and did not reach nine completed, measurement-valid cells. It is not scored, and failure states what happened. Marking a series that ran as anything but recorded or failed would drop it silently, which is the one thing this state may not be used for."
+    },
+    "series": [
+      {
+        "series": 1,
+        "state": "recorded",
+        "batch": "evaluation-data/results/final/2026-09-08-holdout/",
+        "batch_id": "78c2ea3d14604fd59d57a99f428db64d",
+        "executed": "2026-09-08",
+        "measurement_protocol_version": "2.6.29",
+        "findings_recorded": 199,
+        "sha256": {
+          "ED-005/off.json": "80f6cddc5cc2912cf6e10509b3290ba83b7fe647553d25f6496218d24dc325e3",
+          "ED-005/mid.json": "88454b442e66fd930185030c3be87a924bef23771d0311226edbc2a7ea5a4bd1",
+          "ED-005/on.json": "a0067604826831ae1b2d5c2dce65b14e89e103d25e5fd01bfeea1f470e8426cd",
+          "ED-009/off.json": "dc81069f5b8c0ec17b888e9f417aa99a6902b6d8f82a124567a8730ad8a392ad",
+          "ED-009/mid.json": "ca64f4cc8fe7abde6c93aa8fb4e748f99a7436435abdbd2902e114324ec997fd",
+          "ED-009/on.json": "27d8f469090d6ca45d45ec563b1faf4eb7c731a5a258b1f9e909c4c51809fd47",
+          "RT-001-DOC/off.json": "a2936145fdc1b70069627991c2b676184f190de6fba5cd13d6447d9cffb00598",
+          "RT-001-DOC/mid.json": "79ed8b063786e8288a6093ec374a41b8096b89cb4799e33effd54d36bd0ccebd",
+          "RT-001-DOC/on.json": "f673199b07b071bb35b0a6e37979c847d3ac5c7087b24f37229d794058a6f495",
+          "summary.json": "1a7e042b389e71870b79e0c4e23901f1abce462435bc53c2ea14d17522f390fb",
+          "ED-005/document.json": "4d887755329122a0ccf0006924c80f7703bd6ec13414ce0e4ea85db35599ce93",
+          "ED-009/document.json": "9fd5eb3483e7bf6ada97b1656374458363c2a4c2cda24c82b82eb4cb083ac5fd",
+          "RT-001-DOC/document.json": "83f7caf5cd03995e7803236fad57f4851a204781d9fd18935da749b8bb7259db"
+        }
+      },
+      {
+        "series": 2,
+        "state": "recorded",
+        "batch": "evaluation-data/results/final/2026-09-09-holdout-series-2/",
+        "measurement_protocol_version": "2.8.0",
+        "findings_recorded": 211,
+        "sha256": {
+          "summary.json": "f7fe44abdf7f83a9ab97909d4889320054a0a6b8e74029ea225ea6e8ceca3e37",
+          "ED-005/document.json": "c6f2a68e2369a684f119eee94224c95afc732822e84cbb3f6dd2821c12c270a8",
+          "ED-005/off.json": "ad25f1c9cff70186977f6e30c556f7e93bb0591ade604bbc171e23f26bede1e8",
+          "ED-005/mid.json": "eff580397817f2a70626fd537eb76031aee8361797fb57183cf2530ae1f1dc43",
+          "ED-005/on.json": "ae8ff4b38e59dff7080151da9898ec2afe4c93fe94b53603a4583beae5e30441",
+          "ED-009/document.json": "f802664abacd49257b09a9a9dcd5dbd31691fdedb0efa4e9a53ab0bd3f32953b",
+          "ED-009/off.json": "6f7f2774b2af88c32263ee29a6338318b835a3000ace46b9e7f7937b3f052b2e",
+          "ED-009/mid.json": "2fcbc62e8c112b836e1f5d390dae7898df73fc176775382fc0b3c9bcae2bafda",
+          "ED-009/on.json": "4dd744189ae01bfa92645ada4410127312901d29551ed3e039af3d84447e5108",
+          "RT-001-DOC/document.json": "17bc4c2e94cdb9b896a21a3e390a4b36e7cc80050531b7c6b85eb3038eef5bcf",
+          "RT-001-DOC/off.json": "37e79b598102207e118ce3ad06f3a94f2f0ecea89f54758520f88e646fa9ce5d",
+          "RT-001-DOC/mid.json": "2031ce54c3b5726f34c038b2cbb1bf4e6cc67e1577c5e4a4cae94aa147b112c8",
+          "RT-001-DOC/on.json": "d471131848674a2a7b307e410a8ee906d76040112d3ecfbcedf9b2ab72c14a38"
+        },
+        "batch_id": "492888378b644e378d17140cd3bb62e1",
+        "executed": "2026-09-09"
+      }
+    ],
+    "completing_a_series_record": "Each retained series lists its batch identifier, finding count and file hashes. These identify the measured inputs without changing the scoring rules.",
+    "answer_key_sha256": "f5ed9f91cd7a4f701d0f24b0b2d937f62798dcf4176c4a9c7171561db926c925",
+    "answer_key_sha256_note": "Hash of the approved frozen key used for packet preparation and report denominators.",
+    "series_state_validation": "Every series record must carry one of the states above. A state this file does not define stops the computation: an unrecognised value would otherwise drop a series that ran, which is the one thing the states may not be used for.",
+    "series_numbering": "The two recorded series are numbered 1 and 2 here, in the order they were run. batch_id and batch identify each one's source batch; the measurement protocol's registered_repeat_series names the same two batches by the same ids under the series numbers it registered them as."
+  },
+  "answer_key": {
+    "file": "evaluation-data/answer-key.json",
+    "file_state": "author_approved_frozen",
+    "covers": "The three documents of the registered final cohort only. The two development cases are out of scope: no key is built for them and no figure is reported over them.",
+    "what_it_is": "A list of the legal findings expected from the system on those three documents, each tied to a character span of the document and to the provisions that would support it.",
+    "review_for_this_version": "Each expected answer is checked against document and provision texts, alongside a full-document review for omitted issues. The author approved the reconciled key and authorized full judging.",
+    "frozen_before_judging": "Once approved, the key is frozen for the whole judged set. A correct finding the judge matched to no key item is listed beside the figures as a candidate for an expectation the key may not carry; nothing is added to the denominator after judgements exist.",
+    "construction": {
+      "candidate_source": "Recorded findings are checked against the document text and the cited provisions. Supported expectations with settled answer alternatives enter the key.",
+      "omission_source": "The full text of each document is read separately from the candidates, so that passages no arm reported can still enter the key. This is what gives the completeness denominator a value the arms did not define.",
+      "who": "The study author, with general-purpose language-model assistance on both passes.",
+      "human_legal_review": false,
+      "second_human_rater": false,
+      "independent_of_the_evaluated_system": false,
+      "independent_of_the_judge": false,
+      "why_not_independent_of_the_judge": "The same model family may assist the key review and later judge the findings. Separate calls are not independent judgement, and nothing here is presented as external validation.",
+      "agreement_is_not_truth": "Agreement between model-assisted passes is a working rule for closing the key, not evidence that an entry is legally correct. Every figure computed here measures agreement with this key and with the sources as the judge read them, not correctness under Polish law.",
+      "never_an_input": "The key is judging material. It is never supplied to any arm, prompt, retrieval query or interactive run of the evaluated system."
+    },
+    "key_item_status": {
+      "scored": "Every item enters the document completeness denominator; it is covered when at least one correct finding of that run satisfies its expectation."
+    },
+    "multiplicity": "A unit may carry any number of key items. One clause routinely engages several provisions, and collapsing a unit to one expected label would make every additional obligation invisible to the completeness denominator and every correct additional finding look like a false positive.",
+    "item_schema": "Each item identifies a document passage, the expected answer alternatives with their legal bases, and source evidence. Every item is a settled expectation with status scored."
+  },
+  "judge": {
+    "role": "The judge assesses every substantive finding of one complete analyzer run against the supplied document, key and sources. It returns a separate identified verdict for each finding; the program computes all metrics. It does not rank arms or see another run.",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "high",
+    "reasoning_effort_note": "One level for every judgement. A judgement made at another level is a judgement under another configuration and is not reused.",
+    "authentication": "ChatGPT sign-in. Falling back to a paid API path is refused rather than done silently.",
+    "concurrency": 4,
+    "model_substitution_permitted": false,
+    "retry_policy": "A technical failure is recorded and stops the run; it may be retried. A technically valid call is never repeated because its verdict was unwelcome.",
+    "instructions_file": "judge/instructions-pl.md",
+    "response_schema_file": "judge/response-schema.json",
+    "response_schema_owner": "The Pydantic model JudgeReply in scripts/evaluate.py. The adapter is given that model and constrains the reply to its schema; the program then checks the reply again against the packet. The schema file is generated from the same model by `evaluate.py schema` and a test fails if the two disagree.",
+    "source_bundle_dir": "judge/sources",
+    "verdicts_file": "results/judge/verdicts.jsonl",
+    "report_file": "results/judge/report.json",
+    "isolation": "The judge runs against a disposable runtime home and an empty working directory, with no repository access, no memory, no browsing tool and no earlier verdict. What the runtime is allowed to read is enforced by the runtime's own permission configuration, not by the prompt. Transport to the model service stays open; the prohibition is on the judge fetching its own material.",
+    "credentials": "Inherited provider keys and endpoint overrides are blanked in the judging process by the adapter. The only secret material that moves is auth.json, from the operator's signed-in home into the temporary home for the duration of the run.",
+    "max_packet_chars": 400000,
+    "max_packet_chars_argument": "A fixed ceiling on the serialized case. It is a stop, not a trimming rule: an oversized packet fails as a preparation error, because quietly dropping sources would make the judgement rest on material the record does not show. The value is a convention, not a measured context limit.",
+    "blinding": "The packet carries no arm name, no series number, no provider, no earlier verdict, and no key provenance. Identity of the run is kept in the local packet map, which is never part of a prompt.",
+    "what_the_packet_carries": [
+      "the canonical full document text once",
+      "every substantive finding of the run with an opaque identifier, code, span, quote, claimed bases and criterion applicability",
+      "all key expectations for the document, without scoring metadata or original finding identifiers",
+      "the union of real provision texts cited by the run findings and accepted by the document key"
+    ],
+    "candidate_list_is_not_a_decision": "Every key item of the document is offered as a candidate and the judge may match any of them or none. The candidate list is the document's whole key, never a shortlist prepared for this finding, so nothing chosen before the judgement can decide it.",
+    "context_rule": "Context is prepared identically for every arm. The judge is never restricted to the material the assessed arm happened to retrieve; doing so would make it inherit that arm's omissions.",
+    "calibration_verdicts_file": "results/judge/calibration-verdicts.jsonl",
+    "runtime_lifecycle": "Each worker uses its own disposable runtime home and empty workspace outside the artefact. A new conversation is created for each run. Temporary credentials are removed when the worker finishes; cleanup failures are reported.",
+    "response_schema_contract": "The endpoint requires every property of every object in the schema to be listed as required, with additional properties refused. An optional field is therefore not a stylistic choice here but a rejected request, and the emitted schema is checked against that contract.",
+    "configured_instrument_is_checked": "The model and reasoning effort named here must equal the constants the adapter fixes, and judging refuses to start if they differ. A figure may not be attributed to a configuration that did not produce it.",
+    "one_thread_per_run": true,
+    "concurrency_note": "At most four independent whole-run assessments run concurrently. Each worker has its own isolated runtime; each run receives a fresh conversation. Parallelism does not change the model, prompt, sources or scoring criteria.",
+    "assessment_unit": "One document, one analyzer configuration, one recorded series: 18 model-facing run packets in total. The two series and the three configurations are judged in separate conversations.",
+    "one_verdict_per_finding": "The response must contain exactly one identified assessment for every substantive finding in the run packet. Missing, duplicate or foreign identifiers invalidate the whole response; they never count against the analyzer.",
+    "role_of_other_findings": "Findings from the same run share one judging context. Each finding must be supported by the document and legal sources rather than by another finding; no other arm or series is supplied."
+  },
+  "source_material": {
+    "requirement": "Every judgement is made against real declared source text: the canonical document text the runs were measured on, and the provision text of the frozen corpus.",
+    "preparation_is_a_separate_command": "`evaluate.py prepare` fetches the corpus text through the artefact's own seeder parsers and writes it, with hashes, into the source bundle. Judging never fetches anything. A missing prepared source stops packet preparation with a named error.",
+    "documents": "Prepared through the artefact's own ingestion for formats that need conversion, and checked against the content hash the runs recorded. A document whose prepared text does not hash to that value is refused.",
+    "provisions": "Article-level text keyed by act and article identity, exactly the granularity of the recorded locators.",
+    "snippets_from_the_runs_are_not_a_source": "The provision text an arm quoted in its own output is part of what is being judged. It is never used as the source the judgement is checked against.",
+    "bundle_hash_binds_a_verdict": "Every saved judgement records the hash of the source bundle it was made under. Changed source material invalidates the judgements made against the old material rather than silently reusing them.",
+    "a_missing_source_is_an_evaluation_error": "Failure to prepare a source is a failure of the evaluation and is never counted against the analyzer.",
+    "source_preparation": "`evaluate.py prepare` reads the acts through the artefact's seeder and verifies the resulting corpus identity against the recorded runs. The prepared source texts are included for offline judging and report generation.",
+    "an_unprepared_act_is_not_a_citation_error": "The bundle records both the acts whose text it carries and every act the corpus declares. A claimed locator whose act the corpus declares but the bundle has not prepared refuses the packet as a preparation failure. A locator the corpus declares and does not contain, or one naming an act the corpus never declared, is a citation error of the claim. Confusing the two would charge the analyzer for what the evaluation failed to fetch.",
+    "provision_integrity": "Every prepared provision carries the sha256 of its own text and the locator the corpus minted for it. Loading the bundle recomputes both, so a provision cannot be edited, renamed or moved under another identity without the check failing.",
+    "corpus_identity": "Preparation recomputes the corpus snapshot identity from the prepared units, by the same manifest hash and unit digest the seeder uses, and compares it with the identity every recorded run carries. Only a match licenses reading a provision's absence as a fact about the body of law the analyzer could search.",
+    "unverified_corpus_is_never_charged": "Where that identity does not match, or an act was not prepared, or the key itself accepts the locator, a claimed provision the bundle cannot show refuses the packet as a preparation failure. Only a proved absence -- verified corpus, prepared act, locator the key does not accept -- is a citation error, together with a string that is no locator at all, which no preparation could supply.",
+    "stable_identity": "The bundle's identity is taken over the documents and the provisions and leaves the build timestamp out, as the corpus identity does. Preparing the same sources again therefore keeps every judgement made against them."
+  },
+  "what_is_judged": {
+    "unit": "One recorded substantive finding, after exact duplicates within a single run are collapsed.",
+    "substantive_codes": [
+      "consistent",
+      "contradictory",
+      "permissible_departure"
+    ],
+    "non_substantive_codes": [
+      "no_relation",
+      "no_basis_found",
+      "basis_not_in_force",
+      "unit_not_adjudicable",
+      "not_processed",
+      "uncertain"
+    ],
+    "every_finding_is_accounted_for": "Each recorded finding has exactly one disposition: judged, exact duplicate of a named finding of the same run, or non-substantive. A finding with no disposition stops the computation.",
+    "duplicates": {
+      "rule": "Two findings of the same run are the same emission when their code, their anchored character span and their set of claimed locators are identical. The first is judged and the rest are counted as duplicates.",
+      "within_one_run_only": "Duplicates are never collapsed across arms or across series. Two identical emissions in different runs are two observations; joining them would need an identity rule that does not exist and would change a denominator after the outputs exist.",
+      "reported": "The duplicate count is reported per run beside its figures."
+    },
+    "non_substantive_outputs": {
+      "judged": false,
+      "why": "A statement that there is no relation, no basis, or that a unit was not processed is not a claim about the law that a source can confirm or refute. It is reported as behaviour, not scored as an answer.",
+      "denominator_policy": "Non-substantive outputs enter no quality denominator. They never satisfy a key item and never add a correct answer, so an arm cannot raise completeness or precision by emitting them.",
+      "reported": "Counts per code, per run, beside the quality figures."
+    }
+  },
+  "verdict_to_status": {
+    "criteria": {
+      "classification": "correct, incorrect or unresolved: whether the finding's code is right for the passage in the light of the source text.",
+      "legal_basis": "supported, unsupported, unresolved or not_applicable: whether the provision the finding cites actually supports its conclusion. An article that exists is not yet an apt basis.",
+      "explanation": "supported, unsupported, unresolved or not_applicable: whether the explanation the finding gives agrees with the sources."
+    },
+    "explanation_is_usually_not_applicable": "The recorded findings carry a code, an anchor, a basis and locators; they carry no per-finding explanation text. Where there is none, the criterion is not applicable: it is not reconstructed, and the grouped synthesis summaries are not read in its place. They describe groups of findings, which is a different unit. The dimension is therefore reported with the denominator it actually has, which may be zero and is then undefined.",
+    "deterministic_checks": {
+      "owner": "the program, not the judge",
+      "quote_not_in_document": "A finding whose recorded quote resolution is quote_fabricated fails, because the characters it claims are not in the document.",
+      "basis_not_in_corpus": "A claimed locator the frozen corpus does not hold fails as a citation error. This is a property of the claim: the corpus is the only legal material the analyzer could read.",
+      "not_a_missing_source": "These checks are about the claim. They are not the missing-prepared-source case, which stops the evaluation instead."
+    },
+    "status_rule": {
+      "incorrect": "any deterministic check fails, or any required criterion is incorrect or unsupported",
+      "unresolved": "no failure, and at least one required criterion is unresolved",
+      "correct": "every required criterion is met; a not_applicable criterion neither helps nor harms"
+    },
+    "unresolved_is_a_result": "An unresolved judgement is the judge's substantive answer that the material does not settle the question. It is never rounded into a weaker confirmation, never counted as an analyzer error and never dropped from the report.",
+    "judge_uncertainty_is_not_system_uncertainty": "The judge's unresolved and the analyzer's uncertain are different events, counted separately.",
+    "basis_is_always_a_criterion": "A substantive finding asserts a relation between a passage and the law, so its basis is judged: a not_applicable answer would excuse the finding from a denominator it belongs in. A finding citing nothing is unsupported, not exempt. The packet states which criteria apply and a reply that disagrees is refused.",
+    "evidence_is_required_for_a_decision": "A settled criterion must cite at least one source from the packet, and every quote must appear in the source it names. A reply that decides without evidence, or quotes text the packet does not contain, is not a judgement of the finding: it is refused, counted as a failure of the instrument, and never read as an error of the analyzer.",
+    "a_decided_basis_cites_the_law": "Where the packet carries provision texts, a supported or unsupported legal basis must cite at least one of them; the document alone decides the basis only in a packet that carries no provision, where the absence is what is read. This is the source-grounding rule applied to the criterion, not an addition to the response schema or the prompt."
+  },
+  "matching_to_the_key": {
+    "who_decides": "The judge, per finding, over all key items of that document.",
+    "coverage_condition": "A key item is covered by a run when at least one correct finding of that run is matched to it with covers_expectation true. The finding must concern the same obligation: the same clause, or the same article, is not enough.",
+    "an_incorrect_companion_does_not_remove_coverage": "A wrong answer about an obligation another finding answered correctly still counts against resolved precision, and is reported as a conflicting pair, but it does not erase the fact that the obligation was found.",
+    "correct_outside_the_key": "A correct finding matched to no key item counts as a correct answer in precision and leaves the completeness denominator unchanged. Absence from the key is not evidence of error.",
+    "unresolved_anchor": "A finding whose anchor did not resolve carries no quoted characters, so the passage it concerns was never established and it cannot cover a key item. It is still judged and still counts in precision: what is missing is the location, not the correctness. The count is reported per run.",
+    "key_gap_candidates": "The report lists the findings judged correct and matched to no key item, by finding id. That list is derived from the judgements alone: it names candidates for expectations the key may not carry, and asserts no deficiency of the key, because no one has reviewed those passages against it. It moves no figure and is never a reason to count a finding as correct."
+  },
+  "quality_dimensions": [
+    {
+      "id": "precision_of_resolved_findings",
+      "pl": "precyzja rozstrzygniętych ustaleń",
+      "numerator": "correct findings",
+      "denominator": "correct plus incorrect findings",
+      "note": "Unresolved findings are outside this denominator and must be read beside it, never instead of it."
+    },
+    {
+      "id": "completeness_against_key",
+      "pl": "kompletność względem klucza",
+      "numerator": "scored key items covered by at least one correct finding of this run",
+      "denominator": "all scored key items of this document",
+      "note": "The unit of completeness is the key item; the unit of precision is the finding."
+    },
+    {
+      "id": "unresolved_share",
+      "pl": "odsetek ocen nierozstrzygniętych",
+      "numerator": "unresolved findings",
+      "denominator": "all judged findings",
+      "note": "Reported next to precision in every table, so that a high precision over few resolved cases cannot read as confidence."
+    },
+    {
+      "id": "confirmed_share",
+      "pl": "odsetek ustaleń potwierdzonych",
+      "numerator": "correct findings",
+      "denominator": "all judged findings",
+      "role": "auxiliary",
+      "note": "The same numerator as precision over the whole judged set. It is not a second headline and does not treat unresolved as error."
+    },
+    {
+      "id": "classification_accuracy",
+      "pl": "poprawność klasyfikacji",
+      "numerator": "findings whose classification criterion is correct",
+      "denominator": "findings whose classification criterion was decided",
+      "note": "Conditional diagnostic separating a wrong code from a wrong basis."
+    },
+    {
+      "id": "legal_basis_accuracy",
+      "pl": "poprawność podstawy prawnej",
+      "numerator": "findings whose cited provision supports the conclusion",
+      "denominator": "findings where the basis criterion was decided",
+      "note": "Agreement with the frozen corpus text as the judge read it, not with present-day law."
+    },
+    {
+      "id": "explanation_accuracy",
+      "pl": "poprawność wyjaśnienia",
+      "numerator": "findings whose explanation agrees with the sources",
+      "denominator": "findings that carry an explanation and where the criterion was decided",
+      "note": "Expected to be undefined for the recorded runs, which carry no per-finding explanation. An undefined dimension is reported as undefined."
+    }
+  ],
+  "quality_dimensions_note": "Separately reported rates, never averaged into one score. They overlap by definition and their agreement is not independent confirmation.",
+  "additional_reporting": [
+    "counts of correct, incorrect and unresolved findings with every rate",
+    "exact duplicates collapsed within each run",
+    "key items answered both correctly and incorrectly by the same run",
+    "correct findings matched to no key item",
+    "error tags, including the deterministic quote and citation failures",
+    "non-substantive outputs per code",
+    "candidate key gaps: the finding ids judged correct outside the key",
+    "technical failures of the judging instrument"
+  ],
+  "denominators_and_missing_values": {
+    "empty_denominator": "A zero denominator is undefined, never zero and never one. The counts and the reason are printed instead.",
+    "macro_average": "A document macro average is undefined when any document in its scope is undefined. Averages over different document sets are never compared.",
+    "unprocessed_unit": "A key item lying in a unit an arm never processed stays in the completeness denominator and counts as uncovered. From the reader's side an omission is an omission whatever caused it; the cause is reported beside the figure.",
+    "missing_or_invalid_run": "If a run file of a series marked recorded is absent, or its status is not completed, or measurement_valid is not true, preparation stops with an error naming the cell. A partial cohort would silently change every aggregate.",
+    "hash_mismatch": "A run file, manifest or document content hash differing from the recorded value stops the computation.",
+    "technical_failures_are_accounted": "A packet that could not be judged, or whose reply was invalid, is listed in the report and keeps it from being complete. It never reduces a denominator quietly and is never counted against the analyzer."
+  },
+  "aggregation": {
+    "per_document_per_arm_per_series": "Every dimension is computed for each cell and reported with its numerator and denominator, not only as a rate.",
+    "leading_average": "macro over documents",
+    "leading_average_argument": "Each document has equal weight so that a longer document does not dominate. Micro averages on pooled counts are printed beside it.",
+    "stratification": {
+      "mandatory": true,
+      "strata": [
+        "synthetic_fixture",
+        "real_source"
+      ],
+      "reason": "Real documents cite statutes explicitly and synthetic ones do not, so lexical overlap with the retrieval corpus is present in one stratum and absent in the other.",
+      "pooled_figure_status": "secondary summary only, never an unstratified headline",
+      "limit": "The real stratum is one document. Its figures are that document's figures and are labelled as such."
+    },
+    "repeats": "Each series is judged and aggregated separately. The two series describe how the figures move on the same documents; they are not a larger document sample.",
+    "paired_differences": "MID over OFF and ON over MID, per document and per dimension, within one series. A difference is reported only where both cells are defined, and the macro difference only where every document in scope is defined.",
+    "intervals": "None. No confidence interval, standard error or significance test is computed.",
+    "significance": "Not tested. The findings of one document are not independent observations."
+  },
+  "comparisons": {
+    "registered_pairs": [
+      {
+        "id": "H-MID",
+        "pair": [
+          "MID",
+          "OFF"
+        ],
+        "kind": "configuration_performance_contrast",
+        "causal_attribution_permitted": false,
+        "interpretation_limit": "The two arms differ in several recorded ways at once, so a difference belongs to the pair of configurations and not to segmentation."
+      },
+      {
+        "id": "H-ON",
+        "pair": [
+          "ON",
+          "MID"
+        ],
+        "kind": "ablation",
+        "causal_attribution_permitted": false,
+        "interpretation_limit": "The ablation removes the whole context layer, including any change it makes to the queries, so it does not isolate the reference graph's effect on retrieval."
+      }
+    ],
+    "thresholds": {
+      "minimum_completeness_gain": 0.1,
+      "maximum_precision_loss": 0.05,
+      "minimum_legal_basis_gain": 0.05,
+      "maximum_completeness_loss": 0.0,
+      "maximum_legal_basis_loss": 0.0,
+      "minimum_decided_findings_per_arm": 10
+    },
+    "thresholds_state": "fixed_before_full_judging",
+    "thresholds_note": "Engineering conventions for this procedure: a ten-percentage-point increase in key coverage, at most five points lost in resolved-finding precision, and five points gained in source-supported legal bases. These express the intended scale of improvement, not a statistical significance claim. Coverage and legal bases use paired document macro differences; precision uses pooled counts. Each arm needs at least ten resolved precision and legal-basis assessments within the compared scope.",
+    "loss_allowances": "Coverage and legal bases have no loss allowance: any measurable fall in either is a loss. Precision alone may fall, by the five points above, because coverage is bought by answering more. Both zeros are stated here rather than left implicit in the program, and both were recorded before any finding of the cohort was judged.",
+    "decision_precedence": "Evidence first, then loss, then gain. A pair with an undefined difference, or with an arm below the minimum of decided findings, is undecided in both directions: charging a loss takes the same evidence as crediting a gain. A pair that passes that test and falls past a loss allowance is a loss; one that meets both gain thresholds is criterion_met; anything else is below_threshold. An incomplete report decides nothing.",
+    "after_the_figures_are_read": "Choosing or moving a threshold once judgements have been read requires a new scoring_protocol_version that records what had been seen, and does not replace the earlier figures."
+  },
+  "primary_question": {
+    "id": "absolute_quality",
+    "pl": "Jak dobre są ustalenia każdej konfiguracji względem klucza i źródeł, przy jej czasie i koszcie?",
+    "answered_by": "the quality dimensions, per arm, per document, per series, per stratum, with counts and with time and tokens",
+    "threshold": null,
+    "threshold_absent_because": "No defensible bar exists for what would make an arm good enough, and a bar invented now would be a convention with nothing behind it. The answer is descriptive.",
+    "primacy": "This is the leading question. The comparisons refine it and do not replace it: an arm can lead the others and still be wrong most of the time."
+  },
+  "calibration_of_the_judge": {
+    "state": "passed",
+    "why_it_gates_everything": "The judge is the measuring instrument. Nothing it produces is a figure until the instrument has been checked, and recording a percentage of agreement afterwards is not that check.",
+    "development_sample": "A small set of worked cases, outside the reported comparison, covering a correct answer, a wrong classification, a right article with a wrong explanation, a correct finding outside the key, and an ambiguous case. It is used to settle the criteria and the prompt.",
+    "control_sample": "Twelve synthetic cases with source-based GPT reference assessments prepared before reading Sol control verdicts. The reference reviewer saw the supplied key expectations and case-construction summary. This measures model agreement, not agreement with human or expert ratings.",
+    "outstanding_parameters": [],
+    "if_the_criterion_is_not_met": "Full judging does not start. A changed prompt or changed criteria require a new control sample; the more favourable of two judgements of the same case is never chosen.",
+    "not_an_alternative_evaluation": "The control sample checks the judge separately from the OFF/MID/ON comparison.",
+    "stored_apart": "Calibration judgements are written to judge.calibration_verdicts_file, which no reported figure reads.",
+    "cases_are_supplied_whole": "Each case carries its complete synthetic document, example finding, local key and source texts. The cases are evaluated through evaluate.py calibrate.",
+    "disjoint_from_the_cohort": "The program refuses a case that names a finding of the judged runs or uses a document of the judged cohort, and calibration packet identifiers carry their own prefix. No packet of the reported comparison is ever sent to try the instrument out, and no calibration judgement can be read as one of its figures.",
+    "acceptance_file": "judge/control/acceptance.json",
+    "reference_file": "judge/control/reference-ratings.json",
+    "control_result_file": "results/judge/control-report.json"
+  },
+  "readiness": {
+    "ready_for_full_run": true,
+    "what_is_outstanding": "None. The approved key, fixed criteria and passed control were used for the completed assessment.",
+    "gate": "Full judging is refused while ready_for_full_run is false. Calibration uses separate synthetic cases and its own verdict store.",
+    "who_lifts_it": "The operator records the agreed key and its approval, the control outcome and the fixed comparison criteria before declaring the procedure ready."
+  },
+  "saving_and_resuming": {
+    "immediately": "Every judgement is written as it is made, with the packet hash, the configuration hash, the source-bundle hash, the key version, the model, the reasoning effort, the runtime and SDK versions, the thread and turn identity, the usage and timing, and the raw reply.",
+    "resume": "A rerun judges only missing or invalidated whole-run packets. Reuse requires unchanged judging inputs and a valid response. Cohort judgements bind the full answer key; calibration cases carry their own expectations and source texts inside their packet.",
+    "no_overwrite": "Evidence of a call made is never overwritten. A superseded judgement stays in the file and is not read.",
+    "no_unfavourable_retry": "A technically valid call is never repeated because its verdict was unwelcome.",
+    "model_identity": "The returned model identifier is recorded as returned. A stable model name is not treated as a guarantee that a later call would judge identically.",
+    "one_result_per_packet": "A packet's saved lines are read as attempts. The first reusable, valid whole-run response owns the result and no later line replaces it; a later judgement that agrees is counted as a repeat, one that disagrees is reported as a conflict beside the figures. A failure followed by a judgement is counted as evidence and does not keep the report from being complete, which is what makes a run that stopped on a quota and was resumed a normal event rather than a permanent defect.",
+    "resume_identity": "A cohort judgement binds packet, judging configuration, source bundle, answer key and adapter identity. Calibration packets use the disjoint cal- identifier domain and bind their own expectations and sources through the packet hash; an unrelated cohort-key edit does not invalidate them. Configuration, source-bundle and adapter checks still apply. Adapter identity covers model, reasoning effort, SDK version, base instructions, runtime feature overrides and permission profile. The calibration bundle identifier is a fixed domain marker; source content is bound by the packet hash.",
+    "one_instrument_per_report": "Judging stops rather than adding a second adapter identity to a store that already holds validated judgements of this cohort, and a report whose validated judgements name more than one identity is listed as incomplete with that diagnosis. A record naming no identity counts as its own, so an unidentified judgement cannot blend into an identified set."
+  },
+  "outputs": {
+    "program": "scripts/evaluate.py",
+    "helper": "scripts/evaluation_inputs.py",
+    "adapter": "scripts/judge_client.py",
+    "results_directory": "evaluation-data/results/judge/",
+    "must_be_reproducible": "Given this protocol, the run files, the manifest, the key, the source bundle and the saved judgements, `evaluate.py report` recomputes every figure without a model call and without network access, and twice in a row produces the same bytes.",
+    "must_not_write_into": "evaluation-data/results/final/, which holds the recorded measurement and is never edited",
+    "report_exit_status": "Report generation returns 0 only for a complete set of validated assessments; an incomplete report is still written and returns 1. Invalid inputs return 2.",
+    "single_scoring_path": "scripts/evaluate.py computes all quality statistics from the saved validated judge responses.",
+    "model_calls_for_complete_cohort": 18
+  },
+  "cost_and_time": {
+    "rule": "Every quality figure is printed beside the time and token consumption of the same arm on the same documents, from the same run records. A quality number without its cost is not reported.",
+    "judge_is_reported_apart": "Judge usage and duration are recorded once per run attempt and reported separately from analyzer resources. Expanding a run response into individual verdicts never multiplies its token or time totals.",
+    "analyzer_monetary_cost": "unknown",
+    "analyzer_monetary_cost_reason": "The implementation did not read the per-request cost the provider returns and did not retain the response, so the figure is not recoverable for these batches.",
+    "judge_monetary_cost": "unknown, because the judging runs on a subscription sign-in that reports usage in tokens rather than a per-call price",
+    "no_cost_adjusted_verdict": "No rule binds quality gain to cost. Reporting the two side by side is the whole of what this evaluation does with cost."
+  },
+  "limitations": [
+    "The key is not independent of the evaluated system. Most of its items begin as findings the arms produced, and reading the documents for omissions widens that list without proving it complete.",
+    "No legally trained reviewer checked the key, and there is no second human rater.",
+    "The judge is a language model. Its agreement with the sources is what the figures record; model judgement is known to be biased and to reason imperfectly, and the control sample bounds that risk without removing it.",
+    "The same model family assists the key review and judges the findings. Separate calls are not independence.",
+    "The rules were written after the outputs were seen, and no threshold carries a pre-measurement standing.",
+    "Three documents in two complete nine-run series. Repetition describes how the figures differ on the same documents without enlarging the document sample.",
+    "The real stratum is one document, so its figures are that document's figures.",
+    "Monetary cost is unknown for the recorded batches and cannot be recovered.",
+    "The recorded findings carry no per-finding explanation, so the explanation dimension is expected to be undefined for them.",
+    "Completeness is bounded by what the key contains. An obligation neither the arms nor the document reading surfaced is missing from the denominator, so absolute recall against the law remains unknown.",
+    "The key contains expectations supported by the frozen corpus. Findings are assessed against the supplied document and provision texts.",
+    "All substantive findings of a run share one judge conversation and may influence its reading of each other. Arms and series remain in separate conversations."
+  ],
+  "forbidden_claims": [
+    "that the key is an independent reference standard",
+    "that a lawyer, or any person other than the author, verified the key",
+    "that the judge's agreement with the key is evidence of legal correctness",
+    "that the figures measure correctness under Polish law rather than agreement with this key and these sources",
+    "that judging by a model is a human review, an expert audit or an independent validation",
+    "that a difference between arms is a confirmed effect, a tested hypothesis or a statistically significant difference",
+    "that segmentation caused the MID-OFF difference, or the reference graph the ON-MID difference",
+    "that the evaluation establishes a rate of legal defects, a complete audit, or the absence of unlawful clauses in any document",
+    "that two series of the same runs are a larger sample of documents, an error estimate or a significance test",
+    "that a report produced before the key is approved, the judge calibrated and the thresholds fixed is a result"
+  ]
+}

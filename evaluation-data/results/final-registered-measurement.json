@@ -1,0 +1,26 @@
+{
+  "started_at": "2026-09-08T04:35:46.233376+00:00",
+  "batch_id": "78c2ea3d14604fd59d57a99f428db64d",
+  "registered_cohort": [
+    "ED-005",
+    "ED-009",
+    "RT-001"
+  ],
+  "out_dir": "evaluation-data/results/final/2026-09-08-holdout",
+  "identity": {
+    "protocol_version": "2.6.29",
+    "protocol_sha256": "08c18dc9f052d9b7238b416b4348816de1d42f255f3c63973d7b6ab1e15192bf",
+    "manifest_sha256": "d6d69807ad2a45d8719826ad85c32a84f11937a125ce8e97bed9932d06486325",
+    "split": "holdout",
+    "implementation_fingerprint": "2890e428546edbd0ef3b4d2e8db3e83f6de96782894aa1ffb1c7feab3a754112",
+    "config_fingerprint": "970e779227970d6da7935e4dcd4ddebe931ec0274a7cdc39d2f02ec36867e384"
+  },
+  "note": "Written immediately before the first measured request of the registered final batch. registered_cohort is the whole clean holdout the comparison is over; one invocation may work through part of it, and out_dir/.batch_identity.json records what the batch has been asked for so far. An invocation continuing that directory resumes this batch; any other is refused. Delete this only alongside a protocol version that records why.",
+  "path_representation": {
+    "migrated": "2026-09-09",
+    "what_changed": "out_dir was recorded as the absolute directory the batch ran in and is now the same directory relative to the artefact root. The absolute form named the machine and the working directory, which the submitted artefact has no use for and may not carry.",
+    "what_did_not_change": "The batch it identifies, its id, its cohort, its identity fields, its timestamp and every recorded hash. The directory is the same directory.",
+    "original_sha256": "ef2ff601f911bf41920ac7acd54de36126df6d209d372793955fb0a2a1585e5f",
+    "not_the_original_capture": "This file is no longer byte-identical to the claim written before the first measured request. The digest above is that file's, and the original is preserved outside the artefact."
+  }
+}

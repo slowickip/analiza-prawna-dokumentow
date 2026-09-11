@@ -1,0 +1,302 @@
+{
+  "schema_version": 2,
+  "dataset_id": "contract-analyzer-evaluation-candidates",
+  "dataset_version": "0.5.0",
+  "created_date": "2026-08-30",
+  "status": "split_frozen",
+  "language": "pl",
+  "strata": {
+    "synthetic_fixture": "Clean-room text written for this project. Rights and privacy are settled by construction; external validity is not.",
+    "real_source": "Two ministry contract templates, held as metadata-redacted derivatives. Their layout and wording are preserved. Author/editor strings are blanked inside the documents; source credits remain in LICENSE.md and acquisition.json. The acquisition record identifies the original download and the stored derivative by separate hashes."
+  },
+  "split_policy": {
+    "current_state": "split_frozen",
+    "holdout_must_remain_untouched": true,
+    "unit": "logical_case",
+    "protocol_document": "evaluation-data/protocol.json",
+    "note": "Assignment is by hand and reproducible from this manifest; no seed is involved. scripts/validate_evaluation_data.py holds the same table and fails on drift. From dataset_version 0.5.0 each retained logical case has exactly one artifact, so the rule that variants of one case share a split no longer has anything to bind; it still holds and would bind again if a variant were restored.",
+    "holdout_untouched_exception": "ED-001 was the one holdout document that had been exposed; see protocol.json holdout_discipline.ed_001_exposure. It is not in the pool from dataset_version 0.5.0, so no exposed document remains in the holdout. The exposure is recorded rather than erased: it happened, and removing the document is not a claim that it did not."
+  },
+  "use_constraints": [
+    "Do not pass this manifest, README, filenames, or research notes to an evaluated arm.",
+    "Do not infer expected findings from document construction or source research.",
+    "Holdout material is untouched until the final run: no prompt or dial tuning informed by it, no reading of model output on it, no parser change fitted to its phrasing. This rule was breached once, for ED-001; see its holdout_exposure field and split_policy.holdout_untouched_exception. The rule stands and the breach is recorded rather than the rule relaxed.",
+    "Do not use these documents as legal templates or legal advice."
+  ],
+  "sources": {
+    "mrit-kooperatywy": {
+      "publisher": "Ministerstwo Rozwoju i Technologii",
+      "source_page_url": "https://www.gov.pl/web/rozwoj-technologia/kooperatywy-mieszkaniowe",
+      "checked_date": "2026-09-11",
+      "rights_status": "verified_reusable",
+      "rights_evidence": "The ministry publishes the templates for use and adaptation and permits free re-use of public sector information under source, timing, processing and applicable creator-attribution conditions. The original downloads match the recorded acquisition hashes. LICENSE.md retains the source, original author/editor and company credits, file timestamps, acquisition date and metadata-redaction notice. The credits are transcribed from the published files and preserved in acquisition.json, not inferred authorship roles.",
+      "rights_conditions_url": "https://www.gov.pl/web/rozwoj-technologia/uzyskaj-informacje-publiczna-do-ponownego-wykorzystania",
+      "attribution_notice": "evaluation-data/LICENSE.md",
+      "rights_decision": "Redistribute the two metadata-redacted templates with the attribution in LICENSE.md under the ministry's published re-use conditions. The source credits are retained outside the documents passed to the system; the document-content streams and all recorded evaluation inputs are unchanged.",
+      "next_closing_action": null
+    },
+    "project-clean-room": {
+      "publisher": "project author",
+      "source_page_url": null,
+      "checked_date": "2026-08-30",
+      "rights_status": "verified_reusable",
+      "rights_evidence": "Original text written for this project and dedicated under CC0 1.0; see LICENSE.md.",
+      "next_closing_action": null
+    }
+  },
+  "coverage": {
+    "artifact_count": 5,
+    "logical_case_count": 5,
+    "synthetic_artifact_count": 3,
+    "real_artifact_count": 2,
+    "types": [
+      "civil_partnership_agreement",
+      "civil_services_agreement",
+      "consumer_credit_agreement",
+      "employment_agreement",
+      "housing_cooperative_agreement"
+    ]
+  },
+  "documents": [
+    {
+      "id": "ED-003",
+      "stratum": "synthetic_fixture",
+      "logical_case": "ED-003",
+      "canonical": true,
+      "type": "employment_agreement",
+      "family": "employment",
+      "document_form": "bilateral_agreement",
+      "party_relation": "employer_to_employee",
+      "structure": "numbered_sections",
+      "legal_source_families": [
+        "labour_code",
+        "civil_code_residual"
+      ],
+      "path": "documents/ED-003-employment-fixed-term.txt",
+      "format": "txt",
+      "language": "pl",
+      "encoding": "utf-8",
+      "synthetic": true,
+      "source": "project-clean-room",
+      "text_contains_personal_data": false,
+      "file_metadata_contains_personal_data": false,
+      "pii_status": "pattern_screened_and_reviewed",
+      "rights_basis": "clean_room_project_original",
+      "license": "CC0-1.0",
+      "split": "development",
+      "adjudication_status": "not_started",
+      "word_count": 590,
+      "byte_count": 4689,
+      "internal_reference_count": 14,
+      "sha256": "1d7318306c74bd21f10e70fc4aeeb367d80b687120561c9a071a6f28313b3cd3",
+      "measured": {
+        "chars": 4468,
+        "on_context_edges": 2,
+        "pipeline_treats_as_fallback": false,
+        "read_mode": "plain_text",
+        "reference_count": 6,
+        "resolved_reference_count": 3,
+        "segmentation_mode": "structural",
+        "tokens": 1084,
+        "unit_count": 9,
+        "words": 602
+      }
+    },
+    {
+      "id": "ED-005",
+      "stratum": "synthetic_fixture",
+      "logical_case": "ED-005",
+      "canonical": true,
+      "type": "civil_services_agreement",
+      "family": "civil_services",
+      "document_form": "bilateral_agreement",
+      "party_relation": "principal_to_individual_contractor",
+      "structure": "numbered_sections",
+      "legal_source_families": [
+        "civil_code"
+      ],
+      "path": "documents/ED-005-services-project.txt",
+      "format": "txt",
+      "language": "pl",
+      "encoding": "utf-8",
+      "synthetic": true,
+      "source": "project-clean-room",
+      "text_contains_personal_data": false,
+      "file_metadata_contains_personal_data": false,
+      "pii_status": "pattern_screened_and_reviewed",
+      "rights_basis": "clean_room_project_original",
+      "license": "CC0-1.0",
+      "split": "holdout",
+      "adjudication_status": "not_started",
+      "word_count": 644,
+      "byte_count": 5035,
+      "internal_reference_count": 21,
+      "sha256": "4a8df908deadd301897606523dfe811588d7858151c8422e32b9b835158e418c",
+      "measured": {
+        "chars": 4774,
+        "on_context_edges": 4,
+        "pipeline_treats_as_fallback": false,
+        "read_mode": "plain_text",
+        "reference_count": 8,
+        "resolved_reference_count": 5,
+        "segmentation_mode": "structural",
+        "tokens": 1200,
+        "unit_count": 9,
+        "words": 656
+      }
+    },
+    {
+      "id": "ED-009",
+      "stratum": "synthetic_fixture",
+      "logical_case": "ED-009",
+      "canonical": true,
+      "type": "consumer_credit_agreement",
+      "family": "consumer_credit",
+      "document_form": "bilateral_standard_form",
+      "party_relation": "creditor_to_consumer",
+      "structure": "numbered_sections",
+      "legal_source_families": [
+        "consumer_credit",
+        "civil_code_consumer_terms"
+      ],
+      "path": "documents/ED-009-consumer-credit-installment.txt",
+      "format": "txt",
+      "language": "pl",
+      "encoding": "utf-8",
+      "synthetic": true,
+      "source": "project-clean-room",
+      "text_contains_personal_data": false,
+      "file_metadata_contains_personal_data": false,
+      "pii_status": "pattern_screened_and_reviewed",
+      "rights_basis": "clean_room_project_original",
+      "license": "CC0-1.0",
+      "split": "holdout",
+      "adjudication_status": "not_started",
+      "word_count": 604,
+      "byte_count": 4711,
+      "internal_reference_count": 14,
+      "sha256": "032391662585f1b0a9ab9bc1cc3b561fb11985fe664f83b7729cce92daf4e137",
+      "measured": {
+        "chars": 4443,
+        "on_context_edges": 1,
+        "pipeline_treats_as_fallback": false,
+        "read_mode": "plain_text",
+        "reference_count": 5,
+        "resolved_reference_count": 2,
+        "segmentation_mode": "structural",
+        "tokens": 1229,
+        "unit_count": 9,
+        "words": 614
+      }
+    },
+    {
+      "id": "RT-001-DOC",
+      "stratum": "real_source",
+      "logical_case": "RT-001",
+      "canonical": true,
+      "type": "housing_cooperative_agreement",
+      "party_fit": "direct",
+      "path": "source-files/RT-001-housing-cooperative.doc",
+      "format": "doc",
+      "language": "pl",
+      "synthetic": false,
+      "source": "mrit-kooperatywy",
+      "provenance_record": "source-files/acquisition.json",
+      "text_contains_personal_data": false,
+      "file_metadata_contains_personal_data": false,
+      "file_metadata_person_name_count": 0,
+      "pii_status": "pattern_screened_and_reviewed",
+      "rights_basis": "third_party_publisher",
+      "license": null,
+      "split": "holdout",
+      "adjudication_status": "not_started",
+      "measured": {
+        "chars": 39542,
+        "on_context_edges": 14,
+        "pipeline_treats_as_fallback": false,
+        "read_mode": "plain_text",
+        "reference_count": 76,
+        "resolved_reference_count": 17,
+        "segmentation_mode": "structural",
+        "tokens": 8655,
+        "unit_count": 16,
+        "words": 4241
+      },
+      "file_metadata_redaction": "person_named_fields_blanked"
+    },
+    {
+      "id": "RT-002-DOC",
+      "stratum": "real_source",
+      "logical_case": "RT-002",
+      "canonical": true,
+      "type": "civil_partnership_agreement",
+      "party_fit": "direct",
+      "path": "source-files/RT-002-civil-partnership.doc",
+      "format": "doc",
+      "language": "pl",
+      "synthetic": false,
+      "source": "mrit-kooperatywy",
+      "provenance_record": "source-files/acquisition.json",
+      "text_contains_personal_data": false,
+      "file_metadata_contains_personal_data": false,
+      "file_metadata_person_name_count": 0,
+      "pii_status": "pattern_screened_and_reviewed",
+      "rights_basis": "third_party_publisher",
+      "license": null,
+      "split": "development",
+      "adjudication_status": "not_started",
+      "measured": {
+        "chars": 38394,
+        "on_context_edges": 6,
+        "pipeline_treats_as_fallback": false,
+        "read_mode": "plain_text",
+        "reference_count": 52,
+        "resolved_reference_count": 8,
+        "segmentation_mode": "structural",
+        "tokens": 8366,
+        "unit_count": 18,
+        "words": 4056
+      },
+      "file_metadata_redaction": "person_named_fields_blanked"
+    }
+  ],
+  "measurement": {
+    "script": "scripts/measure_evaluation_ingestion.py",
+    "measured_date": "2026-09-02",
+    "what_it_runs": "The artefact's own ingestion, segmentation and reference parser. No model call is made and no arm is run.",
+    "tokenizer": {
+      "name": "intfloat/multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "file_sha256": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "caveat": "This was the corpus embedding tokenizer pinned in src/contract_analyzer/corpus.py when the counts below were taken on 2026-08-30. The corpus has since moved to a self-hosted Qwen3-Embedding-4B-4bit-DWQ service and corpus.py no longer pins this tokenizer. It was never the tokenizer of the analysis model. The recorded counts remain reproducible descriptive measurements in this tokenizer only; they are not analysis-model token counts and are not compared with a context-length boundary measured under another model and tokenizer."
+    },
+    "environments": [
+      "Debian bookworm container built from this artefact on 2026-09-02, LibreOffice Writer and tesseract-ocr-pol: all 26 artifacts of dataset_version 0.4.0, which is where the retained five take their recorded values from; these are the recorded values",
+      "macOS 15 arm64, project venv, Homebrew tesseract 5.5 with Polish traineddata, no LibreOffice: 22 of those 26; the four .doc artifacts fail loudly with missing_tool: soffice, which includes both retained real-source documents"
+    ],
+    "cross_environment_agreement": "Measured over the 26 artifacts of dataset_version 0.4.0: 21 of the 22 measurable in both environments produced identical values in every field, and RT-010-SCAN differed between tesseract builds. Neither retained real-source document is measurable outside the container, so for dataset_version 0.5.0 the container image pins the recorded values of RT-001-DOC and RT-002-DOC outright.",
+    "revision": "Re-measured 2026-09-02 after the deterministic layer changed (protocol 2.1.0): native and OCR PDF reading now emit line breaks between text lines and pages, an outline-numbering marker level (1., 1.1, 2.3.4) was added, monotonicity became a successor rule that also accepts a restart at one, and the structural gate's max/median gap ratio was replaced by a ceiling on the text left after the last marker. The change was designed and checked on development artifacts only; every artifact was then measured once, mechanically, to refresh this block. The previous values were measured 2026-08-30 under dataset_version 0.3.0."
+  },
+  "length_description": {
+    "external_reference_tokens": 32000,
+    "external_reference_source": "Modarressi et al., NoLiMa: Long-Context Evaluation Beyond Literal Matching, PMLR 267:44554-44570 (2025) (Modarressi2025): GPT-4o fell from 99.3% at short input to 69.7% at 32k tokens in that benchmark's no-lexical-overlap task.",
+    "external_reference_transferable_to_this_evaluation": false,
+    "external_reference_limitation": "The analysis model, tokenizer and task differ, and the real-source stratum contains explicit statutory citations and therefore lexical overlap. The 32k value is literature context, not this evaluation's boundary and not a classifier for the documents below.",
+    "logical_case_tokens_recorded_e5": {
+      "real": [
+        8366,
+        8655
+      ],
+      "synthetic": [
+        1084,
+        1200,
+        1229
+      ]
+    },
+    "case_count": 5,
+    "scope_decision": "no_model_independent_token_regime_assigned",
+    "scope_consequence": "The E5 counts describe this pool but do not establish what is short or long for the analysis model. Model-aligned input-token counts are recorded with each measured run. Input length remains a permanent confound of the MID-versus-OFF configuration contrast, not an obligation that can be closed.",
+    "recorded_counts_are_not_re_measured": "Every count above is the value measurement recorded for that document on 2026-09-02; nothing was re-measured for dataset_version 0.5.0. Only the selection changed, so the medians are taken over the retained documents and are not comparable with the medians of the earlier pool.",
+    "median_not_reported": "dataset_version 0.4.0 reported a median per stratum and combined. From 0.5.0 none is reported: a median over two real and three synthetic documents is not a summary of anything, and reporting one invites a comparison that the selection alone would drive. The 0.4.0 medians were 590 real, 1080.5 synthetic and 1077 combined over 23 cases; the real figure would now read 8510.5 purely because the two short real documents left the pool, while the retained documents are unchanged. logical_case_tokens_recorded_e5 lists every retained count, and at this size that list is the description."
+  }
+}

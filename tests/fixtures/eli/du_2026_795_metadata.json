@@ -1,0 +1,19 @@
+{
+  "ELI": "DU/2026/795",
+  "title": "Obwieszczenie Marszałka Sejmu w sprawie ogłoszenia jednolitego tekstu ustawy - Kodeks cywilny",
+  "displayAddress": "Dz.U. 2026 poz. 795",
+  "status": "obowiazujacy",
+  "inForce": "IN_FORCE",
+  "legalStatusDate": "2026-05-19",
+  "textHTML": false,
+  "textPDF": true,
+  "type": "Obwieszczenie",
+  "references": {
+    "Tekst jednolity dla aktu": [
+      {
+        "id": "DU/1964/93",
+        "title": "Kodeks cywilny"
+      }
+    ]
+  }
+}

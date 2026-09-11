@@ -1,0 +1,126 @@
+services:
+  postgre:
+    image: postgres:16-alpine@sha256:cf78e76683b9ca8c5733cbbdce6c9262b45b6767934dd0a95e671f9a0fc20685
+    mem_limit: 1g
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: contract_analyzer
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d contract_analyzer"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  qdrant:
+    image: qdrant/qdrant:v1.19.1@sha256:12364fe851b9f17356fc88189fc06d1b521262e04659ec7345975b00c9246a10
+    mem_limit: 2g
+    volumes:
+      - qdrant-data:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/6333 && echo -e \"GET /readyz HTTP/1.1\\r\\nHost: localhost\\r\\nConnection: close\\r\\n\\r\\n\" >&3 && cat <&3 | grep -q 200' || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  seeder:
+    build:
+      context: .
+      dockerfile: seeder/Dockerfile
+    image: contract-analyzer-seeder:test
+    mem_limit: 1g
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      # The embedding provider is OpenAI-compatible; EMBEDDINGS_BASE_URL points it
+      # at any other such endpoint, including a self-hosted one, which needs no key.
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      EMBEDDINGS_PROVIDER: ${EMBEDDINGS_PROVIDER:-deepinfra}
+      EMBEDDINGS_BASE_URL: ${EMBEDDINGS_BASE_URL:-https://openrouter.ai/api/v1}
+      ELI_CACHE_DIR: /tmp/eli_cache
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command:
+      [
+        "--manifest",
+        "${CORPUS_MANIFEST:-/app/corpus/manifest.example.json}",
+        "--qdrant-url",
+        "http://qdrant:6333",
+      ]
+    depends_on:
+      qdrant:
+        condition: service_healthy
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    image: contract-analyzer-backend:test
+    mem_limit: 2g
+    ports:
+      - "127.0.0.1:8001:8000"
+    environment:
+      # The model connector is OpenAI-compatible and defaults to OpenRouter;
+      # MODEL_BASE_URL and MODEL_NAME point it at any other endpoint serving
+      # the /responses route. The credential is named after the role it plays,
+      # not after a vendor, because the endpoint is meant to be repointed.
+      MODEL_API_KEY: ${MODEL_API_KEY:?required}
+      MODEL_BASE_URL: ${MODEL_BASE_URL:-https://openrouter.ai/api/v1}
+      MODEL_NAME: ${MODEL_NAME:-meta/muse-spark-1.3-contributor}
+      # Headers a provider requires beyond the OpenAI interface, as a JSON
+      # object. The default endpoint needs none; a gateway that routes on a
+      # header of its own is configured here.
+      MODEL_EXTRA_HEADERS: ${MODEL_EXTRA_HEADERS:-}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      EMBEDDINGS_PROVIDER: ${EMBEDDINGS_PROVIDER:-deepinfra}
+      EMBEDDINGS_BASE_URL: ${EMBEDDINGS_BASE_URL:-https://openrouter.ai/api/v1}
+      DATABASE_URL: postgresql://app:${POSTGRES_PASSWORD:-secret}@postgre:5432/contract_analyzer
+      QDRANT_URL: http://qdrant:6333
+      # Set for a measured run: the backend then refuses to serve any corpus but
+      # the pinned one. Unset, it serves whatever the seeder last published.
+      CORPUS_SNAPSHOT_ID: ${CORPUS_SNAPSHOT_ID:-}
+      # Set true for a measured batch: the backend then refuses every interactive
+      # endpoint and admits one run at a time, so nothing can spend a measured
+      # run's wall clock. scripts/run_evaluation.py refuses to start without it.
+      EVALUATION_BATCH_OPEN: ${EVALUATION_BATCH_OPEN:-false}
+      TMPDIR: /data/uploads
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    tmpfs:
+      - /data/uploads:size=512m
+    depends_on:
+      postgre:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+      seeder:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/ready')",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    image: contract-analyzer-web:test
+    mem_limit: 128m
+    ports:
+      - "8000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres-data:
+  qdrant-data:

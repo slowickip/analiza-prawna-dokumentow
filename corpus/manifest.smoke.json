@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "corpus_target_date": "2026-08-30",
+  "acts": [
+    {
+      "publisher": "DU",
+      "year": 2023,
+      "position": 725,
+      "source_format": "html",
+      "base_act": "DU/2001/733",
+      "legal_status_date": "2023-03-09",
+      "amendments_not_carried": [],
+      "repeated_articles": []
+    },
+    {
+      "publisher": "DU",
+      "year": 2024,
+      "position": 1796,
+      "source_format": "html",
+      "base_act": "DU/2014/827",
+      "legal_status_date": "2024-11-21",
+      "amendments_not_carried": [
+        {
+          "id": "DU/2025/1172",
+          "eli_relation_date": "2025-11-27"
+        }
+      ],
+      "repeated_articles": []
+    }
+  ]
+}

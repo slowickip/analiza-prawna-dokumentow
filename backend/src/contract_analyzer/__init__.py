@@ -1,0 +1,1 @@
+"""Contract analyzer research artefact."""

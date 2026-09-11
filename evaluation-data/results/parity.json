@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "within_series": {
+      "checked": 12,
+      "failed": 0
+    },
+    "between_series": {
+      "checked": 9,
+      "failed": 0
+    }
+  }
+}
